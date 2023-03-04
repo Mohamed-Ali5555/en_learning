@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class presedent extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'title',
+        'desc',
+        'image',
+    ];
+
+
 }

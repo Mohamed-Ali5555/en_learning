@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\presedent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
+use function Ramsey\Uuid\v1;
 
 class PresedentController extends Controller
 {
@@ -14,7 +17,8 @@ class PresedentController extends Controller
      */
     public function index()
     {
-        //
+        $presedents = presedent::all();
+        return view('backend.presedent.index',compact('presedents'));
     }
 
     /**
@@ -24,7 +28,7 @@ class PresedentController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.presedent.create');
     }
 
     /**
@@ -35,7 +39,16 @@ class PresedentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required|string',
+            'desc'  => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        $data['image'] = Storage::putFile("presedents",$data['image']);
+
+        presedent::create($data);
+
+        return redirect()->route('presedent.index')->with('success','Bresedent has been created successfully.');
     }
 
     /**
@@ -57,7 +70,7 @@ class PresedentController extends Controller
      */
     public function edit(presedent $presedent)
     {
-        //
+        return view('backend.presedent.edit',compact('presedent'));
     }
 
     /**
@@ -67,9 +80,28 @@ class PresedentController extends Controller
      * @param  \App\Models\presedent  $presedent
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, presedent $presedent)
+    public function update(Request $request ,$id)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required|string',
+            'desc' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        $presedent = presedent::findOrFail($id);
+
+        if ($request->has("image")) {
+            Storage::delete($presedent->image);
+            $data['image'] = Storage::putFile("presedents",$data['image']);
+        }
+        $presedent->update([
+            'title'=>$request->title,
+            'desc'=>$request->desc,
+            'image'=>$data['image']
+        ]);
+        // $banner->update($data);
+
+
+        return redirect()->route('presedent.index')->with('success','Banner has been updated successfully.');
     }
 
     /**
@@ -80,6 +112,7 @@ class PresedentController extends Controller
      */
     public function destroy(presedent $presedent)
     {
-        //
+        $presedent->delete();
+        return redirect()->route('presedent.index')->with('success','presedent has been deleted successfully');
     }
 }

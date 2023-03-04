@@ -14,7 +14,7 @@ class VNewController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**

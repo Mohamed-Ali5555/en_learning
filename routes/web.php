@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\BannerController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\PresedentController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +20,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('frontend.index');
 });
+
+//================= User Route========================================
+//====================================================================
+Route::resource('user',UserController::class);
+//=====================================================================
+//================= Banner Route ======================================
+Route::resource('banner',BannerController::class);
+//=====================================================================
+//================== Company Route ====================================
+Route::resource('company',CompanyController::class);
+//=====================================================================
+//================ Presedent Route ====================================
+Route::resource('presedent',PresedentController::class);

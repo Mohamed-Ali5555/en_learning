@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\company;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class CompanyController extends Controller
 {
@@ -14,7 +16,9 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+
+        $companies = Company::all();
+        return view('backend.company.index', compact('companies'));
     }
 
     /**
@@ -24,7 +28,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.company.create');
     }
 
     /**
@@ -35,7 +39,19 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $data = $request->validate([
+            'name' => 'required|string',
+            'location' => 'required|string',
+            'desc' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+        ]);
+
+        $data['image'] = Storage::putFile("companies",$data['image']);
+
+        company::create($data);
+
+        return redirect()->route('company.index')->with('success','Company has been created successfully.');
     }
 
     /**
@@ -57,7 +73,7 @@ class CompanyController extends Controller
      */
     public function edit(company $company)
     {
-        //
+        return view('backend.company.edit',compact('company'));
     }
 
     /**
@@ -67,9 +83,25 @@ class CompanyController extends Controller
      * @param  \App\Models\company  $company
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, company $company)
+    public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required|string',
+            'location' => 'required|string',
+            'desc' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+        ]);
+
+        $company = company::findOrFail($id);
+
+        if ($request->has("image")) {
+            Storage::delete($company->image);
+            $data['image'] = Storage::putFile("companies",$data['image']);
+        }
+        $company->update($data);
+
+        return redirect()->route('company.index')->with('success','Company has been created successfully.');
     }
 
     /**
@@ -80,6 +112,7 @@ class CompanyController extends Controller
      */
     public function destroy(company $company)
     {
-        //
+        $company->delete();
+        return redirect()->route('company.index')->with('success','Company has been deleted successfully');
     }
 }
