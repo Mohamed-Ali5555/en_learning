@@ -35,3 +35,9 @@
 <script src="{{ asset('dashboard_files/plugins/ckeditor/ckeditor.js') }}"></script>
 
 
+<script>
+setTimeout(function(){
+  $('#alert').slideUp();
+},4000);
+
+</script>

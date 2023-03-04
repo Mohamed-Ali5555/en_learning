@@ -33,3 +33,8 @@ Route::resource('company',CompanyController::class);
 //=====================================================================
 //================ Presedent Route ====================================
 Route::resource('presedent',PresedentController::class);
+
+
+
+
+Route::get('/',[\App\Http\Controllers\IndexController::class,'index'])->name('index');

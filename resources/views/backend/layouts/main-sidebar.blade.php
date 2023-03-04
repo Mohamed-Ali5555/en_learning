@@ -14,13 +14,15 @@
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#slider">
                             <div class="pull-left">
                                 <i class="ti-user"></i>
-                                <span class="right-nav-text">@lang('site.slider')</span>
+                                <span class="right-nav-text">banner</span>
                             </div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="slider" class="collapse" data-parent="#sidebarnav">
-                            {{-- <li><a href="{{route('sliders.index')}}">@lang('site.slider')</a></li> --}}
+                            <li><a href="{{route('banner.index')}}">home banner</a></li>
+                              {{-- <li><a href="{{route('banner.create')}}">create banner</a></li> --}}
+
                         </ul>
                     </li>
 
@@ -30,13 +32,13 @@
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#about">
                             <div class="pull-left">
                                 <i class="ti-user"></i>
-                                <span class="right-nav-text"> @lang('site.about')</span>
+                                <span class="right-nav-text">presedent </span>
                             </div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="about" class="collapse" data-parent="#sidebarnav">
-                            {{-- <li><a href="{{route('about.index')}}">@lang('site.about') </a></li> --}}
+                            <li><a href="{{route('presedent.index')}}">home presedent</a></li>
                         </ul>
                     </li>
 
@@ -46,13 +48,13 @@
                             <a href="javascript:void(0);" data-toggle="collapse" data-target="#mainCat-menu">
                                 <div class="pull-left">
                                     <i class="ti-user"></i>
-                                    <span class="right-nav-text">@lang('site.categories')</span>
+                                    <span class="right-nav-text">company</span>
                                 </div>
                                 <div class="pull-right"><i class="ti-plus"></i></div>
                                 <div class="clearfix"></div>
                             </a>
                             <ul id="mainCat-menu" class="collapse" data-parent="#sidebarnav">
-                                {{-- <li><a href="{{route('categories.index')}}">@lang('site.categories')</a></li> --}}
+                                <li><a href="{{route('company.index')}}">home company</a></li>
                             </ul>
                         </li>
                     <!-- products -->
