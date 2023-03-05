@@ -96,12 +96,8 @@
 								</ul>
 							</li>
 							<li>
-								<a href="pages/shop/shop.html">Shop<span id="sub_6" class="icaret nav-plus fa fa-angle-down"></span></a>
-								<ul class="sub_menu sub6">
-									<li><a href="pages/shop/shop.html">Shop No Sitebar</a></li>
-									<li><a href="pages/shop/shop-sitebar-left.html">Shop SiteBar Left</a></li>
-									<li><a href="pages/shop/shop-sitebar-right.html">Shop SiteBar Right</a></li>
-								</ul>
+								<a href="{{route('boutusFront')}}">aboutus<span id="sub_6" class="icaret nav-plus fa fa-angle-down"></span></a>
+							
 							</li>
 							
 							<li>

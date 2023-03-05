@@ -12,5 +12,7 @@ class aboutUs extends Model
         'heading',
         'content',
         'image',
+        'size_guid',
+
     ];
 }

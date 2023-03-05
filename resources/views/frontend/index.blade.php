@@ -1,42 +1,60 @@
 @extends('frontend.layouts.master')
 @section('content')
     <div id="content">
-        {{-- start section banner --}} @foreach ($banners as $banner )
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-            </div>  
-            <div class="carousel-inner">
-              
-            
-				   
-			 
-                <div class="carousel-item">
-                    <img src="{{asset("storage/$banner->image")}}" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>{{$banner->title}}</h5>
-                        <p>{{$banner->desc}}</p>
+
+
+
+
+
+        <div id="main" class="slideshow">
+            <div id="sync10" class="owl-carousel owl-theme">
+                @foreach ($banners as $banner)
+                    <div class="item" style="background-image: url({{ asset("storage/$banner->image") }}); width: 100%;">
+                        <div class="container">
+                            <div class="text_zz">
+                                <h3>{{ $banner->title }}</h3>
+                                <p style="color:white;">{{ $banner->desc }}</p>
+
+                                <div class="donate">
+                                    <div class="button_donate">
+                                        <a href="#">Donate Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-				
-            </div>  
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+                @endforeach
+
+            </div>
         </div>
 
+
+
+
+        {{-- start section banner --}}
+
+        {{-- @foreach ($banners as $banner)
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                
+                </div>
+                <div class="carousel-inner">
+
+
+
+
+                    <div class="carousel-item ">
+                        <img src="{{ asset("storage/$banner->image") }}" class="d-block w-100" alt="...ddddddd">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>{{ $banner->title }}</h5>
+                            <p>{{ $banner->desc }}</p>
+                        </div>
+                    </div>
+
+                </div>
+         
+            </div>
+        @endforeach --}}
 
 
         {{-- end section banner --}}
@@ -115,6 +133,12 @@
                 </div>
             </div>
         </div>
+
+
+
+
+        {{-- section company --}}
+
         <div class="campaigns">
             <div class="container">
                 <div class="row">
@@ -122,182 +146,45 @@
                         <h3>Latest <b>Campaigns</b></h3>
                     </div>
                     <div id="sync1" class="owl-carousel owl-theme">
-                        <div class="item">
-                            <div class="z">
-                                <div class="img">
-                                    <div class="img-1">
-                                        <img src="images/img_01.jpg" alt="">
-                                    </div>
-                                    <div class="img-2">
-                                        <img src="images/62.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="ct">
-                                    <div class="text_show">
-                                        <h3><a href="pages/campaigns/campaigns-detail.html">Vocational training</a></h3>
-                                        <p>Maecenas sed diam eget risus varius blandi amet non magna ullamcorper nulaon...
-                                        </p>
-                                    </div>
-                                    <div class="donate">
-                                        <div class="button_donate">
-                                            <a href="pages/campaigns/campaigns-detail.html">Donate Now</a>
+                        @foreach ($companies as $company)
+                            <div class="item">
+                                <div class="z">
+                                    <div class="img">
+                                        <div class="img-1">
+                                            <img src="{{ asset("storage/$company->image") }}"alt="">
                                         </div>
-                                        <p>57 Day left</p>
+                                        <div class="img-2">
+                                            <img src="images/62.png" alt="">
+                                        </div>
                                     </div>
-                                    <div class="raised">
-                                        <p><span>$45,583</span> Raised of <b>$78,324</b> Goal</p>
+                                    <div class="ct">
+                                        <div class="text_show">
+                                            <h3><a href="pages/campaigns/campaigns-detail.html"> {{ $company->title }}</a>
+                                            </h3>
+                                            <p>{{ $company->desc }}
+                                            </p>
+                                        </div>
+                                        <div class="donate">
+                                            <div class="button_donate">
+                                                <a href="pages/campaigns/campaigns-detail.html">Donate Now</a>
+                                            </div>
+                                            <p>57 Day left</p>
+                                        </div>
+                                        <div class="raised">
+                                            <p><span>$45,583</span> Raised of <b>$78,324</b> Goal</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <div class="z">
-                                <div class="img">
-                                    <div class="img-1">
-                                        <img src="images/img_02.jpg" alt="">
-                                    </div>
-                                    <div class="img-2">
-                                        <img src="images/35.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="ct">
-                                    <div class="text_show">
-                                        <h3><a href="pages/campaigns/campaigns-detail.html">Education for the Children</a>
-                                        </h3>
-                                        <p>Maecenas sed diam eget risus varius blandi amet non magna ullamcorper nulaon...
-                                        </p>
-                                    </div>
-                                    <div class="donate">
-                                        <div class="button_donate">
-                                            <a href="pages/campaigns/campaigns-detail.html">Donate Now</a>
-                                        </div>
-                                        <p>57 Day left</p>
-                                    </div>
-                                    <div class="raised">
-                                        <p><span>$32,583</span> Raised of <b>$4879</b> Goal</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="z">
-                                <div class="img">
-                                    <div class="img-1">
-                                        <img src="images/img_01.jpg" alt="">
-                                    </div>
-                                    <div class="img-2">
-                                        <img src="images/62.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="ct">
-                                    <div class="text_show">
-                                        <h3><a href="pages/campaigns/campaigns-detail.html">Vocational training</a></h3>
-                                        <p>Maecenas sed diam eget risus varius blandi amet non magna ullamcorper nulaon...
-                                        </p>
-                                    </div>
-                                    <div class="donate">
-                                        <div class="button_donate">
-                                            <a href="pages/campaigns/campaigns-detail.html">Donate Now</a>
-                                        </div>
-                                        <p>57 Day left</p>
-                                    </div>
-                                    <div class="raised">
-                                        <p><span>$45,583</span> Raised of <b>$78,324</b> Goal</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="z">
-                                <div class="img">
-                                    <div class="img-1">
-                                        <img src="images/img_03.jpg" alt="">
-                                    </div>
-                                    <div class="img-2">
-                                        <img src="images/86.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="ct">
-                                    <div class="text_show">
-                                        <h3><a href="pages/campaigns/campaigns-detail.html">Education for the Children</a>
-                                        </h3>
-                                        <p>Maecenas sed diam eget risus varius blandi amet non magna ullamcorper nulaon...
-                                        </p>
-                                    </div>
-                                    <div class="donate">
-                                        <div class="button_donate">
-                                            <a href="pages/campaigns/campaigns-detail.html">Donate Now</a>
-                                        </div>
-                                        <p>57 Day left</p>
-                                    </div>
-                                    <div class="raised">
-                                        <p><span>$45,583</span> Raised of <b>$78,324</b> Goal</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="z">
-                                <div class="img">
-                                    <div class="img-1">
-                                        <img src="images/img_01.jpg" alt="">
-                                    </div>
-                                    <div class="img-2">
-                                        <img src="images/62.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="ct">
-                                    <div class="text_show">
-                                        <h3><a href="pages/campaigns/campaigns-detail.html">Education for the Children</a>
-                                        </h3>
-                                        <p>Maecenas sed diam eget risus varius blandi amet non magna ullamcorper nulaon...
-                                        </p>
-                                    </div>
-                                    <div class="donate">
-                                        <div class="button_donate">
-                                            <a href="pages/campaigns/campaigns-detail.html">Donate Now</a>
-                                        </div>
-                                        <p>57 Day left</p>
-                                    </div>
-                                    <div class="raised">
-                                        <p><span>$45,583</span> Raised of <b>$78,324</b> Goal</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="z">
-                                <div class="img">
-                                    <div class="img-1">
-                                        <img src="images/img_01.jpg" alt="">
-                                    </div>
-                                    <div class="img-2">
-                                        <img src="images/62.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="ct">
-                                    <div class="text_show">
-                                        <h3><a href="pages/campaigns/campaigns-detail.html">Education for the Children</a>
-                                        </h3>
-                                        <p>Maecenas sed diam eget risus varius blandi amet non magna ullamcorper nulaon...
-                                        </p>
-                                    </div>
-                                    <div class="donate">
-                                        <div class="button_donate">
-                                            <a href="pages/campaigns/campaigns-detail.html">Donate Now</a>
-                                        </div>
-                                        <p>57 Day left</p>
-                                    </div>
-                                    <div class="raised">
-                                        <p><span>$45,583</span> Raised of <b>$78,324</b> Goal</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+
                     </div>
                 </div>
             </div>
         </div>
+
+
+        {{-- end section company --}}
         <div class="recent">
             <div class="container">
                 <div class="row">
@@ -347,24 +234,33 @@
                 </div>
             </div>
         </div>
-        <div class="join">
-            <div class="container">
-                <div class="row">
-                    <div class="text_show col-md-6">
-                        <h3>Join Our Campaign</h3>
-                        <p>Cystic fibrosis is an inherited chronic disease that affects the lungs and digestive system. A
-                            defective gene causes the body to produce unusually thick, sticky mucus that clogs the lungs and
-                            leads to life-threatening lung infections. Join us today in supporting abandoned and disabled
-                            children.</p>
-                        <div class="donate">
-                            <div class="button_donate">
-                                <a href="pages/campaigns/campaigns-detail.html">Join Now</a>
+
+
+        {{-- first section presendent --}}
+        @foreach ($presedents as $presedent)
+            <div class="join" 
+             {{-- style="background-image: url({{ asset("storage/$presedent->image") }}); width: 100%;" --}}
+             >
+                <div class="container">
+                    <div class="row">
+                        <div class="text_show col-md-6">
+                            <h3>{{$presedent->title}}</h3>
+                            <p>{{$presedent->desc}}</p>
+                            <div class="donate">
+                                <div class="button_donate">
+                                    <a href="pages/campaigns/campaigns-detail.html">Join Now</a>
+                                </div>
                             </div>
+                        </div>
+
+                        <div class="col-md-6">
+                          <img src="{{ asset("storage/$presedent->image") }}"alt="">
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @endforeach
+        {{-- end section presedent --}}
         <div class="meet">
             <div class="container">
                 <div class="row">

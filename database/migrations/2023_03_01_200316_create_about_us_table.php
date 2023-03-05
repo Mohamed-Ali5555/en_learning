@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('heading');
             $table->string('content');
             $table->string('image');
+            $table->string('size_guid');
+
             $table->timestamps();
         });
     }

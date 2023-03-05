@@ -647,7 +647,8 @@ a:focus{
 /* --- join --- */
 
 .join{
-	background: url(../images/img_parallax.jpg);
+	/* background: url(../images/img_parallax.jpg); */
+	background-color: #cccccc;
 	background-size: cover;
 	padding: 70px 0;
 }

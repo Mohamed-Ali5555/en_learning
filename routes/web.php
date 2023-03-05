@@ -4,6 +4,8 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\PresedentController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AboutUsController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,7 +36,9 @@ Route::resource('company',CompanyController::class);
 //================ Presedent Route ====================================
 Route::resource('presedent',PresedentController::class);
 
+Route::resource('aboutUs',AboutUsController::class);
 
 
 
 Route::get('/',[\App\Http\Controllers\IndexController::class,'index'])->name('index');
+Route::get('AboutUs',[\App\Http\Controllers\IndexController::class,'aboutus'])->name('boutusFront');

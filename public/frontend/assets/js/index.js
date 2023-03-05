@@ -152,7 +152,7 @@ $(document).ready(function() {
   });
 
     sync10.owlCarousel({
-        items : 3,
+        items : 1,
         slideSpeed : 2000,
         nav: true,
         autoplay: true,
