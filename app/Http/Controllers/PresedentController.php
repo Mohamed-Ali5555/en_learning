@@ -90,7 +90,7 @@ class PresedentController extends Controller
         $presedent = presedent::findOrFail($id);
 
         if ($request->has("image")) {
-            Storage::delete($presedent->image);
+            Storage::delete($presedent->image); //delete
             $data['image'] = Storage::putFile("presedents",$data['image']);
         }
         $presedent->update([
@@ -99,8 +99,6 @@ class PresedentController extends Controller
             'image'=>$data['image']
         ]);
         // $banner->update($data);
-
-
         return redirect()->route('presedent.index')->with('success','Banner has been updated successfully.');
     }
 
@@ -112,6 +110,8 @@ class PresedentController extends Controller
      */
     public function destroy(presedent $presedent)
     {
+        
+        Storage::delete($presedent->image);
         $presedent->delete();
         return redirect()->route('presedent.index')->with('success','presedent has been deleted successfully');
     }

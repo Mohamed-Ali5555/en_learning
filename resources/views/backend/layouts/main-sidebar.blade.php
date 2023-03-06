@@ -20,7 +20,7 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="slider" class="collapse" data-parent="#sidebarnav">
-                            <li><a href="{{route('banner.index')}}">home banner</a></li>
+                            <li><a href="{{route('banner.index')}}">Home banner</a></li>
                               {{-- <li><a href="{{route('banner.create')}}">create banner</a></li> --}}
 
                         </ul>
@@ -38,7 +38,7 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="about" class="collapse" data-parent="#sidebarnav">
-                            <li><a href="{{route('presedent.index')}}">home presedent</a></li>
+                            <li><a href="{{route('presedent.index')}}">Home presedent</a></li>
                         </ul>
                     </li>
 
@@ -54,7 +54,7 @@
                                 <div class="clearfix"></div>
                             </a>
                             <ul id="mainCat-menu" class="collapse" data-parent="#sidebarnav">
-                                <li><a href="{{route('company.index')}}">home company</a></li>
+                                <li><a href="{{route('company.index')}}">Home company</a></li>
                             </ul>
                         </li>
                     <!-- products -->
@@ -62,13 +62,13 @@
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#products">
                             <div class="pull-left">
                                 <i class="ti-user"></i>
-                                <span class="right-nav-text">@lang('site.products')</span>
+                                <span class="right-nav-text">Products</span>
                             </div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="products" class="collapse" data-parent="#sidebarnav">
-                            {{-- <li><a href="{{route('products.index')}}">@lang('site.products')</a></li> --}}
+                            <li><a href="{{route('product.index')}}">Home products</a></li>
                         </ul>
                     </li>
 

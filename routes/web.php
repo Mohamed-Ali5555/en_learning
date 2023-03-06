@@ -3,6 +3,8 @@
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\PresedentController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ServicerController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +22,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('frontend.index');
 });
+//====================================================================
+//============= Eng Ahmed Khaled Mostafa =============================
+//==================== Start 1/3/2023    =============================
+//====================================================================
 
 //================= User Route========================================
 //====================================================================
@@ -33,6 +39,12 @@ Route::resource('company',CompanyController::class);
 //=====================================================================
 //================ Presedent Route ====================================
 Route::resource('presedent',PresedentController::class);
+//=====================================================================
+//============== Product Route ========================================
+Route::resource('product',ProductController::class);
+//=====================================================================
+//================ New Route ==========================================
+Route::resource('product',ProductController::class);
 
 
 

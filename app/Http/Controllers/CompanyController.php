@@ -89,7 +89,7 @@ class CompanyController extends Controller
             'name' => 'required|string',
             'location' => 'required|string',
             'desc' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
 
         ]);
 
@@ -112,6 +112,7 @@ class CompanyController extends Controller
      */
     public function destroy(company $company)
     {
+        Storage::delete($company->image);
         $company->delete();
         return redirect()->route('company.index')->with('success','Company has been deleted successfully');
     }
