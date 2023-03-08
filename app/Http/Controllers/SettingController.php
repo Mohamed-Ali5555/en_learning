@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SettingController extends Controller
 {
@@ -14,7 +15,8 @@ class SettingController extends Controller
      */
     public function index()
     {
-        //
+        $settings = setting::all();
+        return view('backend.setting.index',compact('settings'));
     }
 
     /**
@@ -24,7 +26,7 @@ class SettingController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.setting.create');
     }
 
     /**
@@ -35,7 +37,16 @@ class SettingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required|string',
+            'link' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+      $data['image'] = Storage::putFile("settings",$data['image']);
+
+        setting::create($data);
+
+        return redirect()->route('setting.index')->with('success','Setting has been created successfully.');
     }
 
     /**
@@ -55,9 +66,11 @@ class SettingController extends Controller
      * @param  \App\Models\setting  $setting
      * @return \Illuminate\Http\Response
      */
-    public function edit(setting $setting)
+    public function edit($id)
     {
-        //
+        $setting = setting::find($id);
+
+        return view('backend.setting.edit',compact('setting'));
     }
 
     /**
@@ -67,9 +80,31 @@ class SettingController extends Controller
      * @param  \App\Models\setting  $setting
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, setting $setting)
+    public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required|string',
+            'link' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+
+        ]);
+        $setting = setting::findOrFail($id);
+
+        if ($request->has("image")) {
+            Storage::delete($setting->image);
+            $data['image'] = Storage::putFile("settings",$data['image']);
+
+        }
+        $setting->update([
+            'title'=>$request->title,
+            'link'=>$request->link,
+            'image'=>$data['image'],
+
+        ]);
+        // $Setting->update($data);
+
+
+        return redirect()->route('setting.index')->with('success','Setting has been updated successfully.');
     }
 
     /**
@@ -78,8 +113,11 @@ class SettingController extends Controller
      * @param  \App\Models\setting  $setting
      * @return \Illuminate\Http\Response
      */
-    public function destroy(setting $setting)
+    public function destroy($id)
     {
-        //
+        $setting = setting::find($id);
+        Storage::delete($setting->image);
+        $setting->delete();
+        return redirect()->route('setting.index')->with('success','Setting has been deleted successfully');
     }
 }

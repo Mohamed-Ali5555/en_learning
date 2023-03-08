@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Edit New</title>
+    <title>Edit Setting</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
@@ -16,10 +16,10 @@
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h2>Edit New</h2>
+                    <h2>Edit Setting</h2>
                 </div>
                 <div class="pull-right">
-                    <a class="btn btn-primary" href="{{ route('new.index') }}" enctype="multipart/form-data">Back</a>
+                    <a class="btn btn-primary" href="{{ route('setting.index') }}" enctype="multipart/form-data">Back</a>
                 </div>
             </div>
         </div>
@@ -28,14 +28,14 @@
             {{ session('status') }}
         </div>
         @endif
-        <form action="{{ route('new.update',$new->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('setting.update',$setting->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>New tilte:</strong>
-                        <input type="text" name="title" value="{{ $new->title }}" class="form-control"
+                        <strong>Setting Name:</strong>
+                        <input type="text" name="title" value="{{ $setting->title }}" class="form-control"
                             placeholder="Product name">
                         @error('title')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -44,18 +44,18 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>New Descraption:</strong>
-                        <input type="text" name="desc" class="form-control" placeholder="New Descraption"value="{{ $new->desc }}">
-                        @error('desc')
+                        <strong>Setting Link:</strong>
+                        <input type="text" name="link" class="form-control" placeholder="Setting Link"value="{{ $setting->desc }}">
+                        @error('link')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>New Photo</strong>
-                        <img src="{{ asset("storage/$new->image") }}" width="100px">
-                        <input type="file" name="image" value="{{ $new->image }}" class="form-control">
+                        <strong>Setting Icon</strong>
+                        <img src="{{ asset("storage/$setting->image") }}" width="100px">
+                        <input type="file" name="image" value="{{ $setting->image }}" class="form-control">
                         @error('image')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror

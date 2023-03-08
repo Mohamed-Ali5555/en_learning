@@ -6,6 +6,9 @@ use App\Http\Controllers\PresedentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ServicerController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\VNewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,9 +47,15 @@ Route::resource('presedent',PresedentController::class);
 Route::resource('product',ProductController::class);
 //=====================================================================
 //================ New Route ==========================================
-Route::resource('product',ProductController::class);
-
+Route::resource('new',VNewController::class);
+//=====================================================================
+//================ About us Route =====================================
+Route::resource('aboutUs',AboutUsController::class);
+//=====================================================================
+//===============  Setting Route ======================================
+Route::resource('setting',SettingController::class);
 
 
 
 Route::get('/',[\App\Http\Controllers\IndexController::class,'index'])->name('index');
+Route::get('AboutUs',[\App\Http\Controllers\IndexController::class,'aboutus'])->name('boutusFront');

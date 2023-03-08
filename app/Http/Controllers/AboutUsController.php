@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\aboutUs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AboutUsController extends Controller
 {
@@ -14,7 +15,8 @@ class AboutUsController extends Controller
      */
     public function index()
     {
-        //
+        $aboutuss = aboutus::all();
+        return view('backend.aboutus.index', compact('aboutuss'));
     }
 
     /**
@@ -24,7 +26,8 @@ class AboutUsController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.aboutus.create');
+
     }
 
     /**
@@ -35,7 +38,27 @@ class AboutUsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request->all();
+        $data = $request->validate([
+            'heading' => 'required|string',
+            'content' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'size_guid' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+        ]);
+      $data['image'] = Storage::putFile("aboutus",$data['image']);
+      $data['size_guid'] = Storage::putFile("aboutus",$data['size_guid']);
+    //   $data['size_guid'] = Storage::putFile("aboutus",$request->input['size_guid']);
+
+      
+        aboutus::create([
+            'heading'=>$request->heading,
+            'content'=>$request->content,
+            'image'=>$data['image'],
+            'size_guid'=>$data['size_guid'],
+        ]);;
+
+        return redirect()->route('aboutUs.index')->with('success','aboutus has been created successfully.');
     }
 
     /**
@@ -55,9 +78,12 @@ class AboutUsController extends Controller
      * @param  \App\Models\aboutUs  $aboutUs
      * @return \Illuminate\Http\Response
      */
-    public function edit(aboutUs $aboutUs)
+    public function edit( $id)
     {
-        //
+        $aboutUs = aboutUs::find($id);
+
+        return view('backend.aboutus.edit',compact('aboutUs'));
+
     }
 
     /**
@@ -67,9 +93,33 @@ class AboutUsController extends Controller
      * @param  \App\Models\aboutUs  $aboutUs
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, aboutUs $aboutUs)
+    public function update(Request $request,  $id)
     {
-        //
+        $data = $request->validate([
+            'heading' => 'required|string',
+            'content' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'size_guid' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+        ]);
+        $aboutus = aboutus::findOrFail($id);
+
+        if ($request->has("image")) {
+            Storage::delete($aboutus->image);
+            $data['image'] = Storage::putFile("aboutus",$data['image']);
+            $data['size_guid'] = Storage::putFile("aboutus",$data['size_guid']);
+
+        }
+        $aboutus->update([
+            'heading'=>$request->heading,
+            'content'=>$request->content,
+            'image'=>$data['image'],
+            'size_guid'=>$data['size_guid'],
+        ]);
+        // $aboutus->update($data);
+
+
+        return redirect()->route('aboutUs.index')->with('success','aboutus has been updated successfully.');
     }
 
     /**
@@ -78,8 +128,11 @@ class AboutUsController extends Controller
      * @param  \App\Models\aboutUs  $aboutUs
      * @return \Illuminate\Http\Response
      */
-    public function destroy(aboutUs $aboutUs)
+    public function destroy( $id)
     {
-        //
+        $aboutus = aboutUs::find($id);
+
+        $aboutus->delete();
+        return redirect()->route('aboutUs.index')->with('success','aboutus has been deleted successfully');
     }
 }

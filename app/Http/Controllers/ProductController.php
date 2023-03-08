@@ -40,7 +40,7 @@ class ProductController extends Controller
         $data =$request->validate([
             'title' => 'required|string',
             'desc' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
         $data['image'] = Storage::putFile("products",$data['image']);
         Product::create($data);
@@ -82,7 +82,7 @@ class ProductController extends Controller
         $data = $request->validate([
             'title' => 'required|string',
             'desc' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
         $Product = Product::findOrFail($id);
 

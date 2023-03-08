@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>New</title>
+    <title>Setting</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
 </head>
 <body>
@@ -13,10 +13,10 @@
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h2>All News</h2>
+                    <h2>All Settings</h2>
                 </div>
                 <div class="pull-right mb-2">
-                    <a class="btn btn-success" href="{{ route('new.create') }}"> Create New</a>
+                    <a class="btn btn-success" href="{{ route('setting.create') }}"> Create Setting</a>
                 </div>
             </div>
         </div>
@@ -29,22 +29,22 @@
             <thead>
                 <tr>
                     <th>S.No</th>
-                    <th>New Title</th>
-                    <th>New Photo</th>
-                    <th>New Description</th>
+                    <th>Setting Name</th>
+                    <th>Setting Link</th>
+                    <th>Setting Icon</th>
                     <th width="280px">Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($v_new as $new)
+                @foreach ($settings as $setting)
                     <tr>
-                        <td>{{ $new->id }}</td>
-                        <td>{{ $new->title }}</td>
-                        <td><img src="{{asset("storage/$new->image")}}"width="100px"></td>
-                        <td>{{ $new->desc }}</td>
+                        <td>{{ $setting->id }}</td>
+                        <td>{{ $setting->title }}</td>
+                        <td>{{ $setting->link }}</td>
+                        <td><img src="{{asset("storage/$setting->image")}}"width="100px"></td>
                         <td>
-                            <form action="{{ route('new.destroy',$new->id) }}" method="Post">
-                                <a class="btn btn-primary" href="{{ route('new.edit',$new->id) }}">Edit</a>
+                            <form action="{{ route('setting.destroy',$setting->id) }}" method="Post">
+                                <a class="btn btn-primary" href="{{ route('setting.edit',$setting->id) }}">Edit</a>
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Delete</button>

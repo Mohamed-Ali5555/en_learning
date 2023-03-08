@@ -10,27 +10,17 @@
 						<ul class="menu">
 							<li style="margin-bottom: 30px; border-bottom: none;"><a id="close"><i class="fa fa-times"></i></a></li>
 							<li>
-								<a href="">Home<span id="sub_1" class="icaret nav-plus fa fa-angle-down"></span></a>
-								<ul class="sub_menu sub1">
-									<li><a href="">Home 1</a></li>
-									<li><a href="pages/home/home-2.html">Home 2</a></li>
-									<li><a href="pages/home/home-3.html">Home 3</a></li>
-									<li><a href="pages/home/home-4.html">Home 4</a></li>
-									<li><a href="pages/home/home-5.html">Home 5</a></li>
-								</ul>
+								<a href="{{ route('index') }}">Home<span id="sub_1" class="icaret nav-plus"></span></a>
+
 							</li>
 							<li>
-								<a href="pages/campaigns/campaigns.html">Campaigns<span id="sub_2" class="icaret nav-plus fa fa-angle-down"></span></a>
-								<ul class="sub_menu sub2">
-									<li><a href="pages/campaigns/campaigns.html">Campaigns Grid</a></li>
-									<li><a href="pages/campaigns/campaigns-list.html">Campaigns List</a></li>
-								</ul>
+								<a href="pages/campaigns/campaigns.html">Campaigns<span id="sub_2" class="icaret nav-plus"></span></a>
 							</li>
 							<li>
 								<a href="pages/event/event.html">Events</a>
 							</li>
 							<li>
-								<a href="#">Page<span id="sub_5" class="icaret nav-plus fa fa-angle-down"></span></a>
+								<a href="#">Page<span id="sub_5" class="icaret nav-plus"></span></a>
 								<ul class="sub_menu sub5">
 									<li class="menu-item">
 										<a href="">Features</a>
@@ -96,16 +86,12 @@
 								</ul>
 							</li>
 							<li>
-								<a href="pages/shop/shop.html">Shop<span id="sub_6" class="icaret nav-plus fa fa-angle-down"></span></a>
-								<ul class="sub_menu sub6">
-									<li><a href="pages/shop/shop.html">Shop No Sitebar</a></li>
-									<li><a href="pages/shop/shop-sitebar-left.html">Shop SiteBar Left</a></li>
-									<li><a href="pages/shop/shop-sitebar-right.html">Shop SiteBar Right</a></li>
-								</ul>
+								<a href="{{route('boutusFront')}}">aboutus<span id="sub_6" class="icaret nav-plus fa fa-angle-down"></span></a>
+
 							</li>
-							
+
 							<li>
-								<a href="pages/blog/grid-layout.html">Blog<span id="sub_3" class="icaret nav-plus fa fa-angle-down"></span></a>
+								<a href="pages/blog/grid-layout.html">Blog<span id="sub_3" class="icaret nav-plus"></span></a>
 								<ul class="sub_menu sub3">
 									<li><a href="pages/blog/grid-layout.html">Grid layout</a></li>
 									<li><a href="pages/blog/list-layout.html">List Layout</a></li>
