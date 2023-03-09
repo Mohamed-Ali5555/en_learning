@@ -9,6 +9,11 @@ use App\Models\Company;
 use App\Models\product;
 use App\Models\setting;
 use App\Models\presedent;
+use App\Models\versionMesAtrr;
+use App\Models\VersionMes;
+
+
+
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -21,9 +26,13 @@ class IndexController extends Controller
         $products = product::all();
         $settings = setting::all();
 
+        // $id = VersionMesid;
+
+        $VersionMes = VersionMes::first();
+        $versionMesAtrrs=versionMesAtrr::where('version_m_id',$VersionMes->id)->orderBy('id','DESC')->get();
 
 // return $banners;
-        return view('frontend.index', compact('banners','companies','presedents','news','products','settings'));
+        return view('frontend.index', compact('banners','companies','presedents','news','products','versionMesAtrrs','VersionMes','settings'));
 
 
     }
@@ -36,6 +45,17 @@ class IndexController extends Controller
         return view('frontend.aboutus', compact('aboutus','products'));
     }
 
+
+
+    public function showAttributeFront( $id)
+    {
+       
+        $VersionMes = VersionMes::find($id);
+        $versionMesAtrrs=versionMesAtrr::where('version_m_id',$id)->orderBy('id','DESC')->get();
+
+            return view('frontend.index',compact('VersionMes','versionMesAtrrs'));
+    
+    }
 
     // public function company(){
     //     $companys = company::all();

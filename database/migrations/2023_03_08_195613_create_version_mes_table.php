@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('version_mes', function (Blueprint $table) {
             $table->id();
+            $table->string('main_title');
+            $table->string('image');
             $table->timestamps();
         });
     }

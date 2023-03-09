@@ -9,6 +9,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\VNewController;
+use App\Http\Controllers\VersionMesController;
+use App\Http\Controllers\VideoController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,7 +58,22 @@ Route::resource('aboutUs',AboutUsController::class);
 //===============  Setting Route ======================================
 Route::resource('setting',SettingController::class);
 
+Route::resource('version_mes',VersionMesController::class);
+Route::resource('video',VideoController::class);
+
+##############################################
+// version Attr 
+Route::post('version-attribute/{id}',[\App\Http\Controllers\VersionMesController::class,'addProductAttribute'])->name('version.attribute');
+Route::delete('version-attribute/{id}',[\App\Http\Controllers\VersionMesController::class,'attributeDelete'])->name('version.destroy');
 
 
 Route::get('/',[\App\Http\Controllers\IndexController::class,'index'])->name('index');
 Route::get('AboutUs',[\App\Http\Controllers\IndexController::class,'aboutus'])->name('boutusFront');
+
+// Route::get('/',[\App\Http\Controllers\IndexController::class,'showAttributeFront'])->name('showAttributeFront');
+
+######################
+// video section 
+Route::post('uploadVideo',[\App\Http\Controllers\VideoController::class,'uploadVideo'])->name('videos.uploadVideo');
+Route::post('video-news/{id}',[\App\Http\Controllers\VideoController::class,'addProductAttribute'])->name('video.news');
+Route::delete('video-news/{id}',[\App\Http\Controllers\VideoController::class,'attributeDelete'])->name('video.deleteAtrr');

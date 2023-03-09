@@ -56,8 +56,8 @@
                 <div class="row">
 
                     <div class="title col-md-7 col-sm-8 col-xs-12">
-                        <h3>{{ $banner->title }}</h3>
-                        <p>{{ $banner->desc }}</p>
+                        {{-- <h3>{{ $banner->title }}</h3> --}}
+                        {{-- <p>{{ $banner->desc }}</p> --}}
                     </div>
                     <div class="donate col-md-5 col-sm-4 col-xs-12">
                         {{-- <div class="button_donate">
@@ -70,58 +70,34 @@
         <div class="help">
             <div class="container">
                 <div class="row">
+                    {{-- @foreach ($VersionMes as $VersionMe) --}}
+
+
                     <div class="title">
                         <span>We're helping hand on</span>
-                        <h3><b>80.593 Children</b> in <b>125</b> Countries</h3>
+                        <h3><b>{{ $VersionMes->main_title }}</b> in <b>125</b> Countries</h3>
                     </div>
+
+                    {{-- @endforeach --}}
                     <div class="left col-md-9">
                         <div class="list-item">
-                            <div class="item col-md-6 col-sm-6 col-xs-12">
-                                <div class="icon col-md-2">
-                                    <i class="material-icons">collections_bookmark</i>
+                            @foreach ($versionMesAtrrs as $versionMesAtrr)
+                                <div class="item col-md-6 col-sm-6 col-xs-12">
+                                    <div class="icon col-md-2">
+                                        <i class="material-icons">collections_bookmark</i>
+                                    </div>
+                                    <div class="text_show col-md-10">
+                                        <h3>{{ $versionMesAtrr->title }}</h3>
+                                        <p>{{ $versionMesAtrr->desc }}</p>
+                                    </div>
                                 </div>
-                                <div class="text_show col-md-10">
-                                    <h3>Education</h3>
-                                    <p>Praesent vestibulum aenean nommy eros hendrerit mauris. Cum sociis natoqueing
-                                        patibuset mgnis parturient.</p>
-                                </div>
-                            </div>
-                            <div class="item col-md-6 col-sm-6 col-xs-12">
-                                <div class="icon col-md-2">
-                                    <i class="material-icons">local_cafe</i>
-                                </div>
-                                <div class="text_show col-md-10">
-                                    <h3>Help $ Support</h3>
-                                    <p>Praesent vestibulum aenean nommy eros hendrerit mauris. Cum sociis natoqueing
-                                        patibuset mgnis parturient.</p>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
-                        <div class="list-item">
-                            <div class="item col-md-6 col-sm-6 col-xs-12">
-                                <div class="icon col-md-2">
-                                    <i class="material-icons">favorite_border</i>
-                                </div>
-                                <div class="text_show col-md-10">
-                                    <h3>Volunteering</h3>
-                                    <p>Praesent vestibulum aenean nommy eros hendrerit mauris. Cum sociis natoqueing
-                                        patibuset mgnis parturient.</p>
-                                </div>
-                            </div>
-                            <div class="item col-md-6 col-sm-6 col-xs-12">
-                                <div class="icon col-md-2">
-                                    <i class="material-icons">person_add</i>
-                                </div>
-                                <div class="text_show col-md-10">
-                                    <h3>Adoption</h3>
-                                    <p>Praesent vestibulum aenean nommy eros hendrerit mauris. Cum sociis natoqueing
-                                        patibuset mgnis parturient.</p>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="right col-md-3">
-                        <img src="images/img_static_01.jpg" alt="">
+                        <img src="{{ asset("storage/$VersionMes->image") }}"alt="" style="    height: 294px;
+">
                     </div>
                 </div>
             </div>
@@ -188,26 +164,26 @@
                     <div class="title">
                         <h3>Recent <b>New</b> & <b>Video</b></h3>
                     </div>
-                    @foreach ($news as $new )
-                    <div class="left col-md-6 col-sm-12 col-xs-12">
-                        <img src="images/stories_img_01.jpg" alt="">
-                        <a href="#">STORY</a>
-                        <p>{{ $new->title }}</p>
-                    </div>
-                    <div class="right col-md-6 col-sm-12 col-xs-12">
-                        <div class="item col-md-12 col-sm-4 col-xs-12">
-                            <div class="row">
-                                <div class="img col-md-5">
-                                    <img src="{{ asset("storage/$new->image") }}" alt="">
-                                </div>
-                                <div class="txt col-md-7">
-                                    <a href="#">Mohammed</a>
-                                    <p>{{ $new->desc }}</p>
+                    @foreach ($news as $new)
+                        <div class="left col-md-6 col-sm-12 col-xs-12">
+                            <img src="images/stories_img_01.jpg" alt="">
+                            <a href="#">STORY</a>
+                            <p>{{ $new->title }}</p>
+                        </div>
+                        <div class="right col-md-6 col-sm-12 col-xs-12">
+                            <div class="item col-md-12 col-sm-4 col-xs-12">
+                                <div class="row">
+                                    <div class="img col-md-5">
+                                        <img src="{{ asset("storage/$new->image") }}" alt="">
+                                    </div>
+                                    <div class="txt col-md-7">
+                                        <a href="#">Mohammed</a>
+                                        <p>{{ $new->desc }}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                    </div>
+                        </div>
                     @endforeach
 
                 </div>
@@ -216,21 +192,19 @@
 
         {{-- first section presendent --}}
         @foreach ($presedents as $presedent)
-            <div class="join"
-             style="background-image: url({{ asset("storage/$presedent->image") }}); width: 100%;"
-             >
+            <div class="join" style="background-image: url({{ asset("storage/$presedent->image") }}); width: 100%;">
                 <div class="container">
                     <div class="row">
                         <div class="text_show col-md-6">
-                            <h3 style="color: black !importe">{{$presedent->title}}</h3>
-                            <p  style="color: black">{{$presedent->desc}}</p>
+                            <h3 style="color: black !importe">{{ $presedent->title }}</h3>
+                            <p style="color: black">{{ $presedent->desc }}</p>
                             <div class="donate">
                                 <div class="button_donate">
                                     <a href="pages/campaigns/campaigns-detail.html">Join Now</a>
                                 </div>
                             </div>
                         </div>
-{{--
+                        {{--
                         <div class="col-md-6">
                           <img src="{{ asset("storage/$presedent->image") }}"alt="">
                         </div> --}}
@@ -241,38 +215,38 @@
         {{-- end section presedent --}}
         {{-- start Product --}}
         <div class="meet">
-			<div class="container">
-				<div class="row">
-					<div class="title">
-						<h3>Meet Our <b>Volunteers</b></h3>
-					</div>
+            <div class="container">
+                <div class="row">
+                    <div class="title">
+                        <h3>Meet Our <b>Volunteers</b></h3>
+                    </div>
 
-					<div id="sync2" class="owl-carousel owl-theme">
-                        @foreach ($products as  $product)
-						<div class="item">
-							<div class="img">
-								<img src="{{ asset("storage/$product->image") }}"alt="">
-								<div class="social">
-									<span>
-										<a href=""><i class="fa fa-facebook"></i></a><br>
-										<a href=""><i class="fa fa-twitter"></i></a><br>
-										<a href=""><i class="fa fa-dribbble"></i></a><br>
-										<a href=""><i class="fa fa-google-plus"></i></a><br>
-										<a href=""><i class="fa fa-instagram"></i></a>
-									</span>
-								</div>
-							</div>
-							<div class="text_show">
-								<h3>{{ $product->title }}</h3>
-								<p>{{ $product->desc }}</p>
-							</div>
-						</div>
-						@endforeach
-					</div>
+                    <div id="sync2" class="owl-carousel owl-theme">
+                        @foreach ($products as $product)
+                            <div class="item">
+                                <div class="img">
+                                    <img src="{{ asset("storage/$product->image") }}"alt="">
+                                    <div class="social">
+                                        <span>
+                                            <a href=""><i class="fa fa-facebook"></i></a><br>
+                                            <a href=""><i class="fa fa-twitter"></i></a><br>
+                                            <a href=""><i class="fa fa-dribbble"></i></a><br>
+                                            <a href=""><i class="fa fa-google-plus"></i></a><br>
+                                            <a href=""><i class="fa fa-instagram"></i></a>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="text_show">
+                                    <h3>{{ $product->title }}</h3>
+                                    <p>{{ $product->desc }}</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
 
-				</div>
-			</div>
-		</div>
+                </div>
+            </div>
+        </div>
         {{-- End product --}}
         <div class="people_say">
             <div class="container">
@@ -281,26 +255,30 @@
                         <div class="title">
                             <h3>What people <b>Say?</b></h3>
                         </div>
-                        @foreach ($banners as $banner )
-                        <div id="sync4" class="owl-carousel owl-theme">
-                            <div class="item">
-                                <p><span>"</span> {{ $banner->desc }}<br>meet many people and know that there are many <span>"</span></p>
-                                <h4>John Doe</h4>
-                                <p class="l">Ceo of MediaLeak - <a href="#">www.medialeak.com</a></p>
+                        @foreach ($banners as $banner)
+                            <div id="sync4" class="owl-carousel owl-theme">
+                                <div class="item">
+                                    <p><span>"</span> {{ $banner->desc }}<br>meet many people and know that there are many
+                                        <span>"</span>
+                                    </p>
+                                    <h4>John Doe</h4>
+                                    <p class="l">Ceo of MediaLeak - <a href="#">www.medialeak.com</a></p>
+                                </div>
+                                <div class="item">
+                                    <p><span>"</span> I go to many land, meet many people and know that there are many<br>
+                                        poor
+                                        people that need our help. <span>"</span></p>
+                                    <h4>John Doe</h4>
+                                    <p class="l">Ceo of MediaLeak - <a href="#">www.medialeak.com</a></p>
+                                </div>
+                                <div class="item">
+                                    <p><span>"</span> I go to many land, meet many people and know that there are many<br>
+                                        poor
+                                        people that need our help. <span>"</span></p>
+                                    <h4>John Doe</h4>
+                                    <p class="l">Ceo of MediaLeak - <a href="#">www.medialeak.com</a></p>
+                                </div>
                             </div>
-                            <div class="item">
-                                <p><span>"</span> I go to many land, meet many people and know that there are many<br> poor
-                                    people that need our help. <span>"</span></p>
-                                <h4>John Doe</h4>
-                                <p class="l">Ceo of MediaLeak - <a href="#">www.medialeak.com</a></p>
-                            </div>
-                            <div class="item">
-                                <p><span>"</span> I go to many land, meet many people and know that there are many<br> poor
-                                    people that need our help. <span>"</span></p>
-                                <h4>John Doe</h4>
-                                <p class="l">Ceo of MediaLeak - <a href="#">www.medialeak.com</a></p>
-                            </div>
-                        </div>
                         @endforeach
                     </div>
                 </div>
@@ -347,14 +325,12 @@
                 </div>
                 <div class="content">
                     <ul id="sync5" class="owl-carousel owl-theme">
-                        @foreach ($companies as $company )
-
-
-                        <li class="item">
-                            <div class="bl_image">
-                                <img src="{{ asset("storage/$company->image") }}"alt="">
-                            </div>
-                        </li>
+                        @foreach ($companies as $company)
+                            <li class="item">
+                                <div class="bl_image">
+                                    <img src="{{ asset("storage/$company->image") }}"alt="">
+                                </div>
+                            </li>
                         @endforeach
                     </ul>
                 </div>
@@ -363,10 +339,10 @@
         <div class="instagram">
             <div class="container">
                 <div class="row">
-                    @foreach ($settings as $setting )
-                    <div class="title">
-                        <h3>Follow us on {{ $setting->title }} <a href="#">{{ $setting->link }}</a></h3>
-                    </div>
+                    @foreach ($settings as $setting)
+                        <div class="title">
+                            <h3>Follow us on {{ $setting->title }} <a href="#">{{ $setting->link }}</a></h3>
+                        </div>
                     @endforeach
                     <div class="content">
                         <ul id="sync6" class="owl-carousel owl-theme">

@@ -41,3 +41,4 @@ setTimeout(function(){
 },4000);
 
 </script>
+@yield('scripts')
