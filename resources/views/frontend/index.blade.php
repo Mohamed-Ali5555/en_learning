@@ -6,7 +6,7 @@
                 @foreach ($banners as $banner)
                     <div class="item" style="background-image: url({{ asset("storage/$banner->image") }}); width: 100%;">
                         <div class="container">
-                        {{-- <div class="row"> --}}
+                            {{-- <div class="row"> --}}
                             <div class="text_zz">
                                 <h3>{{ $banner->title }}</h3>
                                 <p style="color:white;">{{ $banner->desc }}</p>
@@ -170,13 +170,12 @@
                     </div>
                     <div class="left col-md-6 col-sm-12 col-xs-12">
 
-<iframe width="420" height="315"
-src="{{$videos->title}}">
-</iframe>
+                        <iframe width="420" height="315" src="{{ $videos->title }}">
+                        </iframe>
                         {{-- <video width="600" height="400" controls>
                             <source src="{{ $videos->video }}" type="video/mp4">
                             {{-- <source src="movie.ogg" type="video/ogg"> --}}
-                            {{-- Your browser does not support the video tag. --}}
+                        {{-- Your browser does not support the video tag. --}}
                         </video> --}}
                         {{-- <a href="#">STORY</a> --}}
                         <p>{{ $videos->title }}</p>
