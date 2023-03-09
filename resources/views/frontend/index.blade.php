@@ -6,6 +6,7 @@
                 @foreach ($banners as $banner)
                     <div class="item" style="background-image: url({{ asset("storage/$banner->image") }}); width: 100%;">
                         <div class="container">
+                        {{-- <div class="row"> --}}
                             <div class="text_zz">
                                 <h3>{{ $banner->title }}</h3>
                                 <p style="color:white;">{{ $banner->desc }}</p>
@@ -16,6 +17,7 @@
                                     </div>
                                 </div>
                             </div>
+                            {{-- </div> --}}
                         </div>
                     </div>
                 @endforeach
@@ -71,40 +73,36 @@
             <div class="container">
                 <div class="row">
                     {{-- @foreach ($VersionMes as $VersionMe) --}}
-
-                   {{-- @if ($VersionMes !=null) --}}
-
-
-                    <div class="title">
-                        <span>We're helping hand on</span>
-                        <h3><b>{{ $VersionMes->main_title }}</b> in <b>125</b> Countries</h3>
-                    </div>
-                     {{-- @else
-                     <h3> @error('record')
-
-                     @enderror</h3>
-                     @endif --}}
-                    {{-- @endforeach --}}
-                    <div class="left col-md-9">
-                        <div class="list-item">
-                            @foreach ($versionMesAtrrs as $versionMesAtrr)
-                                <div class="item col-md-6 col-sm-6 col-xs-12">
-                                    <div class="icon col-md-2">
-                                        <i class="material-icons">collections_bookmark</i>
-                                    </div>
-                                    <div class="text_show col-md-10">
-                                        <h3>{{ $versionMesAtrr->title }}</h3>
-                                        <p>{{ $versionMesAtrr->desc }}</p>
-                                    </div>
-                                </div>
-                            @endforeach
+                    @if ($VersionMes != null)
+                        <div class="title">
+                            <span>We're helping hand on</span>
+                            <h3><b>{{ $VersionMes->main_title }}</b> in <b>125</b> Countries</h3>
                         </div>
 
-                    </div>
-                    <div class="right col-md-3">
-                        <img src="{{ asset("storage/$VersionMes->image") }}"alt="" style="    height: 294px;
+                        {{-- @endforeach --}}
+                        <div class="left col-md-9">
+                            <div class="list-item">
+                                @foreach ($versionMesAtrrs as $versionMesAtrr)
+                                    <div class="item col-md-6 col-sm-6 col-xs-12">
+                                        <div class="icon col-md-2">
+                                            <i class="material-icons">collections_bookmark</i>
+                                        </div>
+                                        <div class="text_show col-md-10">
+                                            <h3>{{ $versionMesAtrr->title }}</h3>
+                                            <p>{{ $versionMesAtrr->desc }}</p>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+
+                        </div>
+                        <div class="right col-md-3">
+                            <img src="{{ asset("storage/$VersionMes->image") }}"alt="" style="    height: 294px;
 ">
-                    </div>
+                        </div>
+                    @else
+                        <div>not fuond</div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -161,40 +159,54 @@
 
         {{-- end section company --}}
 
+        {{-- start video section --}}
 
 
         <div class="recent">
             <div class="container">
                 <div class="row">
-
                     <div class="title">
                         <h3>Recent <b>New</b> & <b>Video</b></h3>
                     </div>
-                    @foreach ($news as $new)
-                        <div class="left col-md-6 col-sm-12 col-xs-12">
-                            <img src="images/stories_img_01.jpg" alt="">
-                            <a href="#">STORY</a>
-                            <p>{{ $new->title }}</p>
-                        </div>
-                        <div class="right col-md-6 col-sm-12 col-xs-12">
+                    <div class="left col-md-6 col-sm-12 col-xs-12">
+
+<iframe width="420" height="315"
+src="{{$videos->title}}">
+</iframe>
+                        {{-- <video width="600" height="400" controls>
+                            <source src="{{ $videos->video }}" type="video/mp4">
+                            {{-- <source src="movie.ogg" type="video/ogg"> --}}
+                            {{-- Your browser does not support the video tag. --}}
+                        </video> --}}
+                        {{-- <a href="#">STORY</a> --}}
+                        <p>{{ $videos->title }}</p>
+                    </div>
+                    <div class="right col-md-6 col-sm-12 col-xs-12">
+                        @foreach ($video_news as $video_new)
                             <div class="item col-md-12 col-sm-4 col-xs-12">
                                 <div class="row">
                                     <div class="img col-md-5">
-                                        <img src="{{ asset("storage/$new->image") }}" alt="">
+                                        <img src="{{ asset('backend/assets/uploads' . '/' . $video_new->image) }}"
+                                            alt="" style="height: 190px;">
+
+
                                     </div>
                                     <div class="txt col-md-7">
-                                        <a href="#">Mohammed</a>
-                                        <p>{{ $new->desc }}</p>
+                                        <a href="#">STORY</a>
+                                        <p>{{ $video_new->desc }}</p>
                                     </div>
                                 </div>
                             </div>
-
-                        </div>
-                    @endforeach
-
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
+        {{-- start video section --}}
+
+
+
+
 
         {{-- first section presendent --}}
         @foreach ($presedents as $presedent)

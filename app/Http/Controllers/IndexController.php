@@ -11,6 +11,7 @@ use App\Models\setting;
 use App\Models\presedent;
 use App\Models\versionMesAtrr;
 use App\Models\VersionMes;
+use App\Models\video;
 
 
 
@@ -29,10 +30,29 @@ class IndexController extends Controller
         // $id = VersionMesid;
 
         $VersionMes = VersionMes::first();
-        $versionMesAtrrs=versionMesAtrr::where('version_m_id',$VersionMes->id)->orderBy('id','DESC')->get();
+        if($VersionMes !=null){
+            $versionMesAtrrs=versionMesAtrr::where('version_m_id',$VersionMes->id)->orderBy('id','DESC')->get();
+
+        }else{
+            $versionMesAtrrs=versionMesAtrr::get();
+
+        }
+
+
+
+        $videos = video::first();
+        if($videos !=null){
+            $video_news=v_new::where('video_id',$videos->id)->orderBy('id','DESC')->get();
+
+        }else{
+            $video_news=v_new::get();
+
+        }
+
 
 // return $banners;
-        return view('frontend.index', compact('banners','companies','presedents','news','products','versionMesAtrrs','VersionMes','settings'));
+        return view('frontend.index', compact('banners','companies','presedents',
+        'news','products','versionMesAtrrs','VersionMes','settings','videos','video_news'));
 
 
     }

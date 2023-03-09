@@ -7,8 +7,8 @@
 
              <div class="row">
                  <div class="col-md-7">
-                     <form action="{{ route('video.news', $videos->id) }}" method="post">
-                         @csrf
+                     <form action="{{ route('video.news', $videos->id) }}" method="post" enctype="multipart/form-data">
+                        {{  csrf_field()  }}
 
                          <div id="product_attribute" class="content"
                              data-mfield-options='{"section": ".group","btnAdd":"#btnAdd-1","btnRemove":".btnRemove"}'>
@@ -73,8 +73,8 @@
                                              <td>{{ $i }}</td>
                                              <td>{{ $video_new->title }}</td>
                                              <td>{{ $video_new->desc }}</td>
-                                             <td><img src="{{ $video_new->image }}"/></td>
-
+                        {{-- <td><img src="{{ asset('frontend/assets/uploads') . '/' . $video_new->image }}"/>  </td> --}}
+                                      <td><img src="{{ asset('backend/assets/uploads' . '/'. $video_new->image) }}" style="width:100px;height:100px;" alt="multiple image"/></td>  
 
 
                                              <td>
