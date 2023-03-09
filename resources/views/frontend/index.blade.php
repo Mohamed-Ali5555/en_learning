@@ -72,12 +72,18 @@
                 <div class="row">
                     {{-- @foreach ($VersionMes as $VersionMe) --}}
 
+                   {{-- @if ($VersionMes !=null) --}}
+
 
                     <div class="title">
                         <span>We're helping hand on</span>
                         <h3><b>{{ $VersionMes->main_title }}</b> in <b>125</b> Countries</h3>
                     </div>
+                     {{-- @else
+                     <h3> @error('record')
 
+                     @enderror</h3>
+                     @endif --}}
                     {{-- @endforeach --}}
                     <div class="left col-md-9">
                         <div class="list-item">
@@ -196,8 +202,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="text_show col-md-6">
-                            <h3 style="color: black !importe">{{ $presedent->title }}</h3>
-                            <p style="color: black">{{ $presedent->desc }}</p>
+                            <h3 style="color: black">{{ $presedent->title }}</h3>
+                            <p style="color: black">{{ $presedent->desc }} </p>
                             <div class="donate">
                                 <div class="button_donate">
                                     <a href="pages/campaigns/campaigns-detail.html">Join Now</a>

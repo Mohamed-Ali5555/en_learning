@@ -45,7 +45,9 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Presedent Descraption:</strong>
-                        <input type="text" name="desc" class="form-control" placeholder="Presedent Descraption"value="{{ $presedent->desc }}">
+                        {{-- <input type="text" name="desc" class="form-control" placeholder="Presedent Descraption"value="{{ $presedent->desc }}"> --}}
+                        <textarea required="required" name="desc" id="desc" cols="30" value="{{ $presedent->desc }}" rows="10" class="@error('description') is-invalid @enderror form-control ckeditor">{{ $presedent->desc }}</textarea>
+
                         @error('desc')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror

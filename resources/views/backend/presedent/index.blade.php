@@ -30,7 +30,7 @@
                 <tr>
                     <th>S.No</th>
                     <th>Presedent Name</th>
-                    <th>Presedent Descraption</th>
+                    {{-- <th>Presedent Descraption</th> --}}
                     <th>Presedent Photo</th>
                     <th width="280px">Action</th>
                 </tr>
@@ -40,7 +40,7 @@
                     <tr>
                         <td>{{ $presedent->id }}</td>
                         <td>{{ $presedent->title }}</td>
-                        <td>{{ $presedent->desc }}</td>
+                        {{-- <td>{!! $presedent->desc !!}</td> --}}
                         <td><img src="{{asset("storage/$presedent->image")}}"width="100px"></td>
                         <td>
                             <form action="{{ route('presedent.destroy',$presedent->id) }}" method="Post">

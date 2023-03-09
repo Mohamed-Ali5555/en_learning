@@ -678,17 +678,21 @@ a:focus{
 .join .text_show h3{
 	font-family: Roboto slab;
 	font-size: 39px;
-	color: black !important;
+	/*color: black !important;*/
+    color:#000;
 	padding-bottom: 30px;
 	position: relative;
 }
-.join .text_show p{
+/*.join .text_show p{
 	font-family: Roboto;
 	font-size: 17px;
 	color: black !important;
 	line-height: 30px;
 	font-weight: 300;
 	padding: 20px 0;
+}*/
+.pop{
+    color: #000 !important;
 }
 
 /*-----___-----*/
@@ -5166,7 +5170,8 @@ input.btn_submit:hover{
 
 
 }
+/*
 [data-darkreader-inline-color]{
     color: black !important;
-}
+}*/
 /*-=-=-=-=-=-*/
