@@ -32,8 +32,8 @@ class IndexController extends Controller
 
     public function aboutus(){
         $aboutus = aboutUs::all();
-
-        return view('frontend.aboutus', compact('aboutus'));
+        $products = product::all();
+        return view('frontend.aboutus', compact('aboutus','products'));
     }
 
 

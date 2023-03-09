@@ -5161,9 +5161,8 @@ input.btn_submit:hover{
 	}
 }
 
-.text_show h3{
-       color: black !important;
-       --darkreader-inline-color:black !important;
+.text_show{
+       color: black;
 
 
 }

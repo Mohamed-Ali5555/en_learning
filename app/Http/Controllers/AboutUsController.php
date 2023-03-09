@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\aboutUs;
+use App\Models\product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -50,7 +51,7 @@ class AboutUsController extends Controller
       $data['size_guid'] = Storage::putFile("aboutus",$data['size_guid']);
     //   $data['size_guid'] = Storage::putFile("aboutus",$request->input['size_guid']);
 
-      
+
         aboutus::create([
             'heading'=>$request->heading,
             'content'=>$request->content,
