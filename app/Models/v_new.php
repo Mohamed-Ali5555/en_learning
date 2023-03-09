@@ -12,6 +12,8 @@ class v_new extends Model
         'title',
         'desc',
         'image',
+        'video_id',
+
     ];
 
 }

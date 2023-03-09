@@ -1,0 +1,72 @@
+@extends('backend.layouts.master')
+@section('content')
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>banner</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </head>
+
+    <body>
+        <div class="container mt-2">
+            <div class="row">
+                <div class="col-lg-12 margin-tb">
+                    <div class="pull-left">
+                        <h2>All videos</h2>
+                    </div>
+                    <div class="pull-right mb-2">
+                        <a class="btn btn-success" href="{{ route('video.create') }}"> Create version_mes</a>
+                    </div>
+                </div>
+            </div>
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success" id="alert">
+                    <p>{{ $message }}</p>
+                </div>
+            @endif
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>videos Title</th>
+                        <th>videos Photo</th>
+                        <th width="280px">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($videos as $video)
+                        <tr>
+                            <td>{{ $video->id }}</td>
+                            <td>{{ $video->title }}</td>
+                            <td>
+                                <video width="320" height="240" controls>
+                                    <source src="{{$video->video}}" type="video/mp4">
+                                    {{-- <source src="movie.ogg" type="video/ogg"> --}}
+                                    {{-- Your browser does not support the video tag. --}}
+                                </video>
+                            </td>
+
+                            <td> <video src="{{ asset("videos/$video->video") }}"width="100px"></video> </td>
+                            <td>
+                                <form action="{{ route('video.destroy', $video->id) }}" method="Post">
+                                    <a class="btn btn-primary" href="{{ route('video.edit', $video->id) }}">Edit</a>
+
+                                    <a class="btn btn-primary" href="{{ route('video.show', $video->id) }}">show</a>
+
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            {{-- {!! $versions->links() !!} --}}
+        </div>
+    </body>
+
+    </html>
+@endsection
