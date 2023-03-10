@@ -16,10 +16,13 @@
                     <div class="pull-left">
                         <h2>All aboutuss</h2>
                     </div>
-                    @if ($aboutuss->count()<0)
-                    <div class="pull-right mb-2">
-                        <a class="btn btn-success" href="{{ route('aboutUs.create') }}"> Create about</a>
-                    </div>
+                        <div class="pull-right mb-2">
+                                            @if ($contactus->count() > 0)
+
+                            <a class="btn btn-success" href="{{ route('aboutuss.create') }}"> Create aboutuss</a>
+                    @else
+                            <a class="btn btn-success" href="{{ route('aboutuss.edit') }}"> edit aboutuss</a>
+                        </div>
                     @endif
                 </div>
             </div>

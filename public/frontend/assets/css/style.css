@@ -304,16 +304,26 @@ a:focus{
     padding: 30px;
 	    /* width: 387px; */
 
-    background: rgba(0, 0, 0, .6);
+    /* background: rgba(0, 0, 0, .6); */
 }
+
+#main #sync10 .item .text_zz .card333{
+    background: rgba(0, 0, 0, .6) !important;
+    /* border: 1px solid rgba(0,0,0,.125); */
+    color: white;
+	padding: 30px;
+
+}
+
+
 #main #sync10 .item .text_zz h3{
 	font-family: roboto slab;
-    font-size: 40px;
+    font-size: 30px;
     color: #fff;
-    line-height: 50px;
-    padding-bottom: 30px;
+    line-height: 43px;
+    padding-bottom: 16px;
     position: relative;
-    font-weight: 300;
+    font-weight: 500;
 }
 #main #sync10 .item .text_zz h3:after{
 	content: "";
@@ -1002,7 +1012,7 @@ a:focus{
 }
 .instagram .content .item img{
 	width: 100%;
-	height: auto;
+    height: 300px;
 }
 .instagram .content ul{
 	padding-left: 0;

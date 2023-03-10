@@ -3,25 +3,41 @@
     <div id="content">
         <div id="main" class="slideshow">
             <div id="sync10" class="owl-carousel owl-theme">
+                {{-- @if ($banners->count() > 0) --}}
+
                 @foreach ($banners as $banner)
                     <div class="item" style="background-image: url({{ asset("storage/$banner->image") }}); width: 100%;">
                         <div class="container">
                             {{-- <div class="row"> --}}
                             <div class="text_zz">
-                                <h3>{{ $banner->title }}</h3>
-                                <p style="color:white;">{{ $banner->desc }}</p>
 
-                                <div class="donate">
+                                <div class="card card333" style="width: 22rem;">
+                                    <div class="card-body">
+                                        <h3 class="card-title">{{ $banner->title }}</h3>
+                                        <p class="card-text">{{ $banner->desc }}</p>
+                                        <div class="donate">
+                                            <div class="button_donate">
+                                                <a href="#">Donate Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- <h3>{{ $banner->title }}</h3> --}}
+                                {{-- <p style="color:white;">{{ $banner->desc }}</p> --}}
+
+                                {{-- <div class="donate">
                                     <div class="button_donate">
                                         <a href="#">Donate Now</a>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             {{-- </div> --}}
                         </div>
                     </div>
                 @endforeach
-
+                {{-- @else  
+<span>not added</span>
+@endif --}}
             </div>
         </div>
 
@@ -58,11 +74,12 @@
         <div class="static_donate">
             <div class="container">
                 <div class="row">
-
-                    <div class="title col-md-7 col-sm-8 col-xs-12">
-                        <h3>{{ $banner->title }}</h3>
-                        <p>{{ $banner->desc }}</p>
-                    </div>
+                    @foreach ($banners as $banner)
+                        <div class="title col-md-7 col-sm-8 col-xs-12">
+                            <h3>{{ $banner->title }}</h3>
+                            <p>{{ $banner->desc }}</p>
+                        </div>
+                    @endforeach
                     <div class="donate col-md-5 col-sm-4 col-xs-12">
                         <div class="button_donate">
                             <a href="pages/campaigns/campaigns-detail.html">Donate Now</a>
@@ -170,14 +187,18 @@
                     <div class="title">
                         <h3>Recent <b>New</b> & <b>Video</b></h3>
                     </div>
-                    <div class="left col-md-6 col-sm-12 col-xs-12">
+                    @if ($videos != null)
+                        <div class="left col-md-6 col-sm-12 col-xs-12">
 
-                        <iframe width="420" height="315" src="{{ $videos->video }}">
-                        </iframe>
+                            <iframe width="420" height="315" src="{{ $videos->video }}">
+                            </iframe>
 
-                        {{-- <a href="#">STORY</a> --}}
-                        <p>{{ $videos->title }}</p>
-                    </div>
+                            {{-- <a href="#">STORY</a> --}}
+                            <p>{{ $videos->title }}</p>
+                        </div>
+                    @else
+                        <span>not added</span>
+                    @endif
                     <div class="right col-md-6 col-sm-12 col-xs-12">
                         @foreach ($video_news as $video_new)
                             <div class="item col-md-12 col-sm-4 col-xs-12">
@@ -207,7 +228,8 @@
 
         {{-- first section presendent --}}
         @foreach ($presedents as $presedent)
-            <div id="presedent" class="join" style="background-image: url({{ asset("storage/$presedent->image") }}); width: 100%;">
+            <div id="presedent" class="join"
+                style="background-image: url({{ asset("storage/$presedent->image") }}); width: 100%;">
                 <div class="container">
                     <div class="row">
                         <div class="text_show col-md-6">
@@ -359,24 +381,18 @@
                             <h3>Follow us on {{ $setting->title }} <a href="#">{{ $setting->link }}</a></h3>
                         </div>
                     @endforeach
+
                     <div class="content" id="galary">
+
                         <ul id="sync6" class="owl-carousel owl-theme">
-                            <li class="item">
-                                <img src="images/i_img1.jpg" alt="Ahmed">
-                            </li>
-                            <li class="item">
-                                <img src="images/i_img2.jpg" alt="Ahmed">
-                            </li>
-                            <li class="item">
-                                <img src="images/i_img3.jpg" alt="Ahmed">
-                            </li>
-                            <li class="item">
-                                <img src="images/i_img4.jpg" alt="Ahmed">
-                            </li>
-                            <li class="item">
-                                <img src="images/i_img5.jpg" alt="Ahmed">
-                            </li>
+                            @foreach ($galarys as $galary)
+                                <li class="item">
+                                    <img src="{{ asset("storage/$galary->image") }}"alt="">
+                                </li>
+                            @endforeach
                         </ul>
+
+
                     </div>
                 </div>
             </div>

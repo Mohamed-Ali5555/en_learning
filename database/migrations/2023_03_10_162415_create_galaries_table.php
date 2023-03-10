@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('contact_us', function (Blueprint $table) {
+        Schema::create('galaries', function (Blueprint $table) {
             $table->id();
-            $table->string('logo');
-            $table->string('desc');
-            $table->string('email');
-            $table->string('phone');
+            $table->string('image');
+
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contact_us');
+        Schema::dropIfExists('galaries');
     }
 };

@@ -137,6 +137,19 @@
                         </ul>
                     </li>
 
+                    <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#galary">
+                            <div class="pull-left">
+                                <i class="ti-user"></i>
+                                <span class="right-nav-text">galary</span>
+                            </div>
+                            <div class="pull-right"><i class="ti-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="galary" class="collapse" data-parent="#sidebarnav">
+                            <li><a href="{{ route('galary.index') }}">Home galary</a></li>
+                        </ul>
+                    </li>
 
 
                     <!-- users
@@ -190,17 +203,17 @@
 
                     <!-- users -->
                     <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#form">
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#contactus">
                             <div class="pull-left">
                                 <i class="ti-user"> </i>
 
-                                <span class="right-nav-text"> @lang('site.message') </span>
+                                <span class="right-nav-text"> contactus </span>
                             </div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
-                        <ul id="form" class="collapse" data-parent="#sidebarnav">
-                            {{-- <li><a href="{{route('message.index')}}">@lang('site.message')  </a></li> --}}
+                        <ul id="contactus" class="collapse" data-parent="#contactus">
+                            <li><a href="{{route('contactus.index')}}">contactus  </a></li>
 
 
                         </ul>

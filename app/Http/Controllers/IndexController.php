@@ -12,7 +12,9 @@ use App\Models\presedent;
 use App\Models\versionMesAtrr;
 use App\Models\VersionMes;
 use App\Models\video;
+use App\Models\galary;
 
+use App\Models\contactus;
 
 
 use Illuminate\Http\Request;
@@ -26,6 +28,8 @@ class IndexController extends Controller
         $news  = v_new::all();
         $products = product::all();
         $settings = setting::all();
+        $galarys = galary::all();
+        $contactus = contactus::all();
 
         // $id = VersionMesid;
 
@@ -51,8 +55,8 @@ class IndexController extends Controller
 
 
 // return $banners;
-        return view('frontend.index', compact('banners','companies','presedents',
-        'news','products','versionMesAtrrs','VersionMes','settings','videos','video_news'));
+        return view('frontend.index', compact('banners','companies','presedents','contactus',
+        'news','products','versionMesAtrrs','VersionMes','galarys','settings','videos','video_news'));
 
 
     }

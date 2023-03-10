@@ -11,6 +11,9 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\VNewController;
 use App\Http\Controllers\VersionMesController;
 use App\Http\Controllers\VideoController;
+use App\Http\Controllers\GalaryController;
+use App\Http\Controllers\ContactUsController;
+
 
 use Illuminate\Support\Facades\Route;
 
@@ -52,8 +55,15 @@ Route::resource('product',ProductController::class);
 //================ New Route ==========================================
 Route::resource('new',VNewController::class);
 //=====================================================================
+//================ New galary ==========================================
+Route::resource('galary',GalaryController::class);
+//=====================================================================
 //================ About us Route =====================================
 Route::resource('aboutUs',AboutUsController::class);
+//=====================================================================
+
+//================ About us Route =====================================
+Route::resource('contactus',ContactUsController::class);
 //=====================================================================
 //===============  Setting Route ======================================
 Route::resource('setting',SettingController::class);
