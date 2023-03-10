@@ -11,7 +11,7 @@ use File;
 
 class VideoController extends Controller
 {
-    
+
 
     public function index(){
         $videos = video::all();
@@ -31,52 +31,51 @@ class VideoController extends Controller
     }
     public function uploadVideo(Request $request)
     {
-       $this->validate($request, [
-          'title' => 'required|string|max:255',
-          'video' => 'required|file|mimetypes:video/mp4',
+
+
+     $data = $request->validate([
+        'video' => 'required|string',
+        'title' => 'required|string'
     ]);
-    $video = new Video;
-    $video->title = $request->title;
-    if ($request->hasFile('video'))
-    {
-      $path = $request->file('video')->store('videos', ['disk' =>'my_files']);
-     $video->video = $path;
-    }
-    $video->save();
+
+    video::create($data);
 
    return redirect()->route('video.index')->with('success','videos has been created successfully.');
+//        $this->validate($request, [
+//           'title' => 'required|string|max:255',
+//           'video' => 'required|file|mimetypes:video/mp4',
+//     ]);
+//     $video = new Video;
+//     $video->title = $request->title;
+//     if ($request->hasFile('video'))
+//     {
+//       $path = $request->file('video')->store('videos', ['disk' =>'my_files']);
+//      $video->video = $path;
+//     }
+//     $video->save();
+
+//    return redirect()->route('video.index')->with('success','videos has been created successfully.');
 
 
-    
+
    }
 
    public function update(Request $request,  $id)
    {
-    $this->validate($request, [
-        'title' => 'required|string|max:255',
-        'video' => 'required|file|mimetypes:video/mp4',
-        ]);
 
-        $Video = Video::findOrFail($id);
+     $data = $request->validate([
+        'video' => 'required|string',
+        'title' => 'required|string'
+    ]);
+    $video = video::findOrFail($id);
 
-     
-       
+    $video->update([
+        'video'=>$request->video,
+        'title'=>$request->title
 
-        if ($request->hasFile('video'))
-        {
-            Storage::delete($Video->video);
+    ]);
 
-            $path = $request->file('video')->store('videos', ['disk' =>'my_files']);
-            $video->video = $path;
-
-        }
-        $versionMes->update([
-            'title'=>$request->title,
-            'video'=>$path,
-        ]);
-
- return redirect()->route('video.index')->with('success','videos has been created successfully.');
-
+   return redirect()->route('video.index')->with('success','videos has been updated successfully.');
    }
 
    public function destroy( $id)
@@ -95,69 +94,16 @@ class VideoController extends Controller
 
    public function show( $id)
    {
-      
+
        $videos = video::find($id);
        $video_news=v_new::where('video_id',$id)->orderBy('id','DESC')->get();
 
            return view('backend.video.news',compact('videos','video_news'));
-   
+
    }
 
 
    public function addProductAttribute(Request $request,$id){
-
-        
-    // $validated = $request->validate([
-     
-    //     'original_price'=>'required|numeric',
-    //     'offer_price'=>'required|numeric',
-    //     'size_guide'=>'nullable',
-    //     'product_id'=>'required|exists:products,id',
-    //     'size'=>'required',
-
-
-    // ]);
-    // $data=$request->all();
-    // return $request->all();
-
-    // $data = $request->validate([
-    //     'title' => 'required|string',
-    //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-    // ]);
- 
-    // $image = $request->image;
-
-
-    // $data = $request->validate([
-    //     'title' => 'required|string',
-    //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-    // ]);
-
-//   $data['image'] = Storage::putFile("news",$data['image']);
-   
-  
-//   return $request->all();
-// $image2 =  Storage::putFile("news",$image);
-
-
-// $data=$request->all();
-
-
-
-// $imageNew = '';
-// if($request->hasFile('image')){
-//     $img = $request->image;
-//     $imageNew= time().'.'.rand(0,1000).'.'.$img->extension();
-//     $img->move(public_path('assets/uploads') , $imageNew);
-
-// }
-
-
-// $path = $request->file('image');
-// $image = $path->getClientOriginalName();
-// $path->move(public_path('images/image'), $image);
-
-
 $image=array();
 if($files=$request->file('image')){
     foreach($files as $file){
@@ -189,26 +135,26 @@ $title = $request->title;
 //  return $image;
     for($i=0; $i < count($desc);$i++){
         $datasave = [
-      
+
             'video_id'  =>$id,
             'title'  =>$title[$i],
             'desc'  =>$desc[$i],
             // 'image'  =>$imageNew [$i],
-           
+
             'image' => $image[$i],
             // 'image' => json_encode($image)
 
 
 
         ];
- 
+
         $datasave1=v_new::create($datasave);
     }
 
 
-  
-            
-            
+
+
+
     // foreach($data['desc'] as $key=>$val){
     //     if(!empty($val)){
     //         $attribute=new v_new;
@@ -245,8 +191,8 @@ public function attributeDelete($id)
     // dd($id);
     $news = v_new::find($id);
               $status = $news->delete();
-               
+
                   return redirect()->back()->with('success','news Attribute successfuly deleted');
-             
+
    }
 }

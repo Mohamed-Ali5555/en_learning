@@ -26,6 +26,8 @@
         </div>
 
 
+
+
         {{-- start section banner --}}
 
         {{-- @foreach ($banners as $banner)
@@ -58,13 +60,13 @@
                 <div class="row">
 
                     <div class="title col-md-7 col-sm-8 col-xs-12">
-                        {{-- <h3>{{ $banner->title }}</h3> --}}
-                        {{-- <p>{{ $banner->desc }}</p> --}}
+                        <h3>{{ $banner->title }}</h3>
+                        <p>{{ $banner->desc }}</p>
                     </div>
                     <div class="donate col-md-5 col-sm-4 col-xs-12">
-                        {{-- <div class="button_donate">
+                        <div class="button_donate">
                             <a href="pages/campaigns/campaigns-detail.html">Donate Now</a>
-                        </div> --}}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -112,7 +114,7 @@
 
         {{-- section company --}}
 
-        <div class="campaigns">
+        <div class="campaigns" id="company">
             <div class="container">
                 <div class="row">
                     <div class="title">
@@ -170,13 +172,9 @@
                     </div>
                     <div class="left col-md-6 col-sm-12 col-xs-12">
 
-                        <iframe width="420" height="315" src="{{ $videos->title }}">
+                        <iframe width="420" height="315" src="{{ $videos->video }}">
                         </iframe>
-                        {{-- <video width="600" height="400" controls>
-                            <source src="{{ $videos->video }}" type="video/mp4">
-                            {{-- <source src="movie.ogg" type="video/ogg"> --}}
-                        {{-- Your browser does not support the video tag. --}}
-                        </video> --}}
+
                         {{-- <a href="#">STORY</a> --}}
                         <p>{{ $videos->title }}</p>
                     </div>
@@ -209,12 +207,12 @@
 
         {{-- first section presendent --}}
         @foreach ($presedents as $presedent)
-            <div class="join" style="background-image: url({{ asset("storage/$presedent->image") }}); width: 100%;">
+            <div id="presedent" class="join" style="background-image: url({{ asset("storage/$presedent->image") }}); width: 100%;">
                 <div class="container">
                     <div class="row">
                         <div class="text_show col-md-6">
-                            <h3 style="color: black">{{ $presedent->title }}</h3>
-                            <p style="color: black">{{ $presedent->desc }} </p>
+                            <h3 style="color: black !important">{{ $presedent->title }}</h3>
+                            <p style="color: black !important">{{ $presedent->desc }} </p>
                             <div class="donate">
                                 <div class="button_donate">
                                     <a href="pages/campaigns/campaigns-detail.html">Join Now</a>
@@ -361,22 +359,22 @@
                             <h3>Follow us on {{ $setting->title }} <a href="#">{{ $setting->link }}</a></h3>
                         </div>
                     @endforeach
-                    <div class="content">
+                    <div class="content" id="galary">
                         <ul id="sync6" class="owl-carousel owl-theme">
                             <li class="item">
-                                <img src="images/i_img1.jpg" alt="">
+                                <img src="images/i_img1.jpg" alt="Ahmed">
                             </li>
                             <li class="item">
-                                <img src="images/i_img2.jpg" alt="">
+                                <img src="images/i_img2.jpg" alt="Ahmed">
                             </li>
                             <li class="item">
-                                <img src="images/i_img3.jpg" alt="">
+                                <img src="images/i_img3.jpg" alt="Ahmed">
                             </li>
                             <li class="item">
-                                <img src="images/i_img4.jpg" alt="">
+                                <img src="images/i_img4.jpg" alt="Ahmed">
                             </li>
                             <li class="item">
-                                <img src="images/i_img5.jpg" alt="">
+                                <img src="images/i_img5.jpg" alt="Ahmed">
                             </li>
                         </ul>
                     </div>

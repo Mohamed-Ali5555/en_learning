@@ -117,9 +117,12 @@ a:focus{
 .header .logo a{
 	line-height: 103px;
 }
-.header .logo img{
-	vertical-align: middle;
+.header .logo img {
+    border-radius: 50%;
+    vertical-align: middle;
     display: inline-table;
+    height: 98px;
+    width: 130px;
 }
 .main_menu{
 	padding: 0;
@@ -684,19 +687,18 @@ a:focus{
 .join .text_show h3{
 	font-family: Roboto slab;
 	font-size: 39px;
-	/*color: black !important;*/
-    color:#000;
+	color: black !important;
 	padding-bottom: 30px;
 	position: relative;
 }
-/*.join .text_show p{
+.join .text_show p{
 	font-family: Roboto;
 	font-size: 17px;
 	color: black !important;
 	line-height: 30px;
 	font-weight: 300;
-	padding: 20px 0;
-}*/
+	padding: 20px 0;
+}
 .pop{
     color: #000 !important;
 }

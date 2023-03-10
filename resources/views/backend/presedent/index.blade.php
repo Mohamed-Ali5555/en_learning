@@ -30,7 +30,7 @@
                 <tr>
                     <th>S.No</th>
                     <th>Presedent Name</th>
-                    {{-- <th>Presedent Descraption</th> --}}
+                    <th>Presedent Descraption</th>
                     <th>Presedent Photo</th>
                     <th width="280px">Action</th>
                 </tr>

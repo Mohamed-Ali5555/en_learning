@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left mb-2">
-                    <h2>Add video 
+                    <h2>Add video
                     & new</h2>
                 </div>
                 <div class="pull-right">
@@ -31,7 +31,7 @@
         <form action="{{ route('videos.uploadVideo') }}"  method="post" enctype="multipart/form-data">
             @csrf
             <div class="row">
-           
+
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>version_mes Title:</strong>
@@ -44,7 +44,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Danner video:</strong>
-                        <input type="file" name="video" class="form-control">
+                        <input type="text" name="video" class="form-control">
                         @error('video')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror

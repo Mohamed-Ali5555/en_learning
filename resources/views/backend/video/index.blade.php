@@ -41,14 +41,9 @@
                             <td>{{ $video->id }}</td>
                             <td>{{ $video->title }}</td>
                             <td>
-                                <video width="320" height="240" controls>
-                                    <source src="{{$video->video}}" type="video/mp4">
-                                    {{-- <source src="movie.ogg" type="video/ogg"> --}}
-                                    {{-- Your browser does not support the video tag. --}}
-                                </video>
+                                <iframe width="420" height="315" src="{{ $video->video }}">
+                                </iframe>
                             </td>
-
-                            <td> <video src="{{ asset("videos/$video->video") }}"width="100px"></video> </td>
                             <td>
                                 <form action="{{ route('video.destroy', $video->id) }}" method="Post">
                                     <a class="btn btn-primary" href="{{ route('video.edit', $video->id) }}">Edit</a>
