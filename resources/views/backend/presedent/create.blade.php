@@ -44,6 +44,7 @@
                     <div class="form-group">
                         <strong>Presedent Descraption</strong>
                         <input type="text" name="desc" class="form-control" placeholder="Presedent Descraption">
+                        {{-- <textarea required="required" name="desc" id="desc" cols="30" rows="10" class="@error('description') is-invalid @enderror form-control ckeditor"></textarea> --}}
                         @error('desc')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror

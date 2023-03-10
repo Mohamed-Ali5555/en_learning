@@ -143,9 +143,11 @@
                         <h3>Meet Our <b>Volunteers</b></h3>
                     </div>
                     <div id="sync2" class="owl-carousel owl-theme">
+                        @foreach ($products as $product )
+
                         <div class="item">
                             <div class="img">
-                                <img src="../../images/meet_img_01.jpg" alt="">
+                                <img src="{{ asset("storage/$product->image") }}"alt="">
                                 <div class="social">
                                     <span>
                                         <a href=""><i class="fa fa-facebook"></i></a><br>
@@ -156,95 +158,11 @@
                                 </div>
                             </div>
                             <div class="text_show">
-                                <h3><a href="#">Michale Blacksun</a></h3>
-                                <p>Duis elentum sapien neque Habitant morbi trique</p>
+                                <h3>{{ $product->title }}</h3>
+                                <p>{{ $product->desc }}</p>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="img">
-                                <img src="../../images/meet_img_02.jpg" alt="">
-                                <div class="social">
-                                    <span>
-                                        <a href=""><i class="fa fa-facebook"></i></a><br>
-                                        <a href=""><i class="fa fa-twitter"></i></a><br>
-                                        <a href=""><i class="fa fa-dribbble"></i></a><br>
-                                        <a href=""><i class="fa fa-google-plus"></i></a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="text_show">
-                                <h3><a href="#">Gareth Sougate</a></h3>
-                                <p>Duis elentum sapien neque Habitant morbi trique</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="img">
-                                <img src="../../images/meet_img_01.jpg" alt="">
-                                <div class="social">
-                                    <span>
-                                        <a href=""><i class="fa fa-facebook"></i></a><br>
-                                        <a href=""><i class="fa fa-twitter"></i></a><br>
-                                        <a href=""><i class="fa fa-dribbble"></i></a><br>
-                                        <a href=""><i class="fa fa-google-plus"></i></a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="text_show">
-                                <h3><a href="#">Michale Blacksun</a></h3>
-                                <p>Duis elentum sapien neque Habitant morbi trique</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="img">
-                                <img src="../../images/meet_img_03.jpg" alt="">
-                                <div class="social">
-                                    <span>
-                                        <a href=""><i class="fa fa-facebook"></i></a><br>
-                                        <a href=""><i class="fa fa-twitter"></i></a><br>
-                                        <a href=""><i class="fa fa-dribbble"></i></a><br>
-                                        <a href=""><i class="fa fa-google-plus"></i></a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="text_show">
-                                <h3><a href="#">Jessica Albalis</a></h3>
-                                <p>Duis elentum sapien neque Habitant morbi trique</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="img">
-                                <img src="../../images/meet_img_04.jpg" alt="">
-                                <div class="social">
-                                    <span>
-                                        <a href=""><i class="fa fa-facebook"></i></a><br>
-                                        <a href=""><i class="fa fa-twitter"></i></a><br>
-                                        <a href=""><i class="fa fa-dribbble"></i></a><br>
-                                        <a href=""><i class="fa fa-google-plus"></i></a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="text_show">
-                                <h3><a href="#">Maria Okazaki</a></h3>
-                                <p>Duis elentum sapien neque Habitant morbi trique</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="img">
-                                <img src="../../images/meet_img_05.jpg" alt="">
-                                <div class="social">
-                                    <span>
-                                        <a href=""><i class="fa fa-facebook"></i></a><br>
-                                        <a href=""><i class="fa fa-twitter"></i></a><br>
-                                        <a href=""><i class="fa fa-dribbble"></i></a><br>
-                                        <a href=""><i class="fa fa-google-plus"></i></a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="text_show">
-                                <h3><a href="#">Tran Tuan Tu</a></h3>
-                                <p>Duis elentum sapien neque Habitant morbi trique</p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

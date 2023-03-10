@@ -14,27 +14,27 @@
 
 							</li>
 							<li>
-								<a href="pages/campaigns/campaigns.html">Campaigns<span id="sub_2" class="icaret nav-plus"></span></a>
+								<a href="#company">Campaigns<span id="sub_2" class="icaret nav-plus"></span></a>
 							</li>
 							<li>
-								<a href="pages/event/event.html">Events</a>
+								<a href="#galary">Galary</a>
 							</li>
-					
+
 							<li>
 								<a href="{{route('boutusFront')}}">aboutus<span id="sub_6" class="icaret nav-plus fa fa-angle-down"></span></a>
 
 							</li>
 
-						
-							<li><a href="pages/about/contact.html">Contact</a></li>
-							<li>
+
+							<li><a href="#presedent">Presedent</a></li>
+							{{-- <li>
 								<a id="quick-menu"><i class="fa fa-ellipsis-h"></i></a>
 								<ul class="sub_menu sub9">
 									<li class="inputt"><input class="box_search" type="text" name="search"><input class="btn_submit" type="submit" name="sub" value="Search"></li>
 									<li><a href="pages/login/login.html">Login</a></li>
 									<li><a href="pages/login/register.html">Register</a></li>
 								</ul>
-							</li>
+							</li> --}}
 						</ul>
 						<div class="button_donate">
 							<a href="pages/campaigns/campaigns-detail.html">Donate Now</a>

@@ -16,9 +16,11 @@
                     <div class="pull-left">
                         <h2>All aboutuss</h2>
                     </div>
+                    @if ($aboutuss->count()<0)
                     <div class="pull-right mb-2">
                         <a class="btn btn-success" href="{{ route('aboutUs.create') }}"> Create about</a>
                     </div>
+                    @endif
                 </div>
             </div>
             @if ($message = Session::get('success'))

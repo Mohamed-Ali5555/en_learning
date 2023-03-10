@@ -40,7 +40,7 @@
                     <tr>
                         <td>{{ $presedent->id }}</td>
                         <td>{{ $presedent->title }}</td>
-                        <td>{{ $presedent->desc }}</td>
+                        {{-- <td>{!! $presedent->desc !!}</td> --}}
                         <td><img src="{{asset("storage/$presedent->image")}}"width="100px"></td>
                         <td>
                             <form action="{{ route('presedent.destroy',$presedent->id) }}" method="Post">

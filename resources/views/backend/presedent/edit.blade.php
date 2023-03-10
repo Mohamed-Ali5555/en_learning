@@ -46,6 +46,7 @@
                     <div class="form-group">
                         <strong>Presedent Descraption:</strong>
                         <input type="text" name="desc" class="form-control" placeholder="Presedent Descraption"value="{{ $presedent->desc }}">
+
                         @error('desc')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror

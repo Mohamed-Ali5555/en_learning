@@ -117,9 +117,12 @@ a:focus{
 .header .logo a{
 	line-height: 103px;
 }
-.header .logo img{
-	vertical-align: middle;
+.header .logo img {
+    border-radius: 50%;
+    vertical-align: middle;
     display: inline-table;
+    height: 98px;
+    width: 130px;
 }
 .main_menu{
 	padding: 0;
@@ -694,7 +697,10 @@ a:focus{
 	color: black !important;
 	line-height: 30px;
 	font-weight: 300;
-	padding: 20px 0;
+	padding: 20px 0;
+}
+.pop{
+    color: #000 !important;
 }
 
 /*-----___-----*/
@@ -5167,13 +5173,13 @@ input.btn_submit:hover{
 	}
 }
 
-.text_show h3{
-       color: black !important;
-       --darkreader-inline-color:black !important;
+.text_show{
+       color: black;
 
 
 }
+/*
 [data-darkreader-inline-color]{
     color: black !important;
-}
+}*/
 /*-=-=-=-=-=-*/

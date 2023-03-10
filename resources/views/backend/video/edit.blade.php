@@ -44,11 +44,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>BanversionMesner Photo</strong>
-                            <video width="320" height="240" controls>
-                                <source src="{{ $videos->video }}" type="video/mp4">
-                                {{-- <source src="movie.ogg" type="video/ogg"> --}}
-                                {{-- Your browser does not support the video tag. --}}
-                            </video> <input type="file" name="video" value="" class="form-control">
+                          <input type="text" name="video" value="{{ $videos->video }}" class="form-control">
                             @error('video')
                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                             @enderror
