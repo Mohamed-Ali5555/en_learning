@@ -44,7 +44,11 @@
                     <div class="item3 col-md-3">
                         <div class="title">
                             <a> <img src="{{ asset("storage/$contact->logo") }}"alt=""
-                                    style=" height: 294px;"></a>
+                                    style="    height: 175px;
+                                    width: 187px;
+                                    border-radius: 50%;
+                                    border: 3px solid yellow;
+                                "></a>
                         </div>
                         <div class="pz">
                             <p>{{ $contact->desc }}</p>

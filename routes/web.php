@@ -53,7 +53,7 @@ Route::resource('presedent',PresedentController::class);
 Route::resource('product',ProductController::class);
 //=====================================================================
 //================ New Route ==========================================
-Route::resource('new',VNewController::class);
+// Route::resource('new',VNewController::class);
 //=====================================================================
 //================ New galary ==========================================
 Route::resource('galary',GalaryController::class);
@@ -72,7 +72,7 @@ Route::resource('version_mes',VersionMesController::class);
 Route::resource('video',VideoController::class);
 
 ##############################################
-// version Attr 
+// version Attr
 Route::post('version-attribute/{id}',[\App\Http\Controllers\VersionMesController::class,'addProductAttribute'])->name('version.attribute');
 Route::delete('version-attribute/{id}',[\App\Http\Controllers\VersionMesController::class,'attributeDelete'])->name('version.destroy');
 
@@ -83,7 +83,7 @@ Route::get('AboutUs',[\App\Http\Controllers\IndexController::class,'aboutus'])->
 // Route::get('/',[\App\Http\Controllers\IndexController::class,'showAttributeFront'])->name('showAttributeFront');
 
 ######################
-// video section 
+// video section
 Route::post('uploadVideo',[\App\Http\Controllers\VideoController::class,'uploadVideo'])->name('videos.uploadVideo');
 Route::post('video-news/{id}',[\App\Http\Controllers\VideoController::class,'addProductAttribute'])->name('video.news');
 Route::delete('video-news/{id}',[\App\Http\Controllers\VideoController::class,'attributeDelete'])->name('video.deleteAtrr');

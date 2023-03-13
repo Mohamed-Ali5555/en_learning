@@ -16,14 +16,14 @@
                     <div class="pull-left">
                         <h2>All aboutuss</h2>
                     </div>
-                        <div class="pull-right mb-2">
-                                            @if ($contactus->count() > 0)
+                    <div class="pull-right mb-2">
+                        @if ($aboutuss->count() > 0)
+                        <a class="btn btn-success" href="#"> edit aboutuss</a>
 
-                            <a class="btn btn-success" href="{{ route('aboutuss.create') }}"> Create aboutuss</a>
-                    @else
-                            <a class="btn btn-success" href="{{ route('aboutuss.edit') }}"> edit aboutuss</a>
-                        </div>
-                    @endif
+                        @else
+                        <a class="btn btn-success" href="{{ route('aboutUs.create') }}"> Create aboutuss</a>
+                        @endif
+                    </div>
                 </div>
             </div>
             @if ($message = Session::get('success'))
@@ -42,30 +42,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @if ($aboutuss->count()>0)
+                    @if ($aboutuss->count() > 0)
+                        @foreach ($aboutuss as $about)
+                            <tr>
+                                <td>{{ $about->id }}</td>
+                                <td>{{ $about->heading }}</td>
+                                <td>{{ $about->content }}</td>
+                                <td> <img src="{{ asset("storage/$about->image") }}"width="100px"> </td>
+                                <td> <img src="{{ asset("storage/$about->size_guid") }}"width="100px"> </td>
 
-                    @foreach ($aboutuss as $about)
-                        <tr>
-                            <td>{{ $about->id }}</td>
-                            <td>{{ $about->heading }}</td>
-                            <td>{{ $about->content }}</td>
-                            <td> <img src="{{ asset("storage/$about->image") }}"width="100px"> </td>
-                        <td> <img src="{{ asset("storage/$about->size_guid") }}"width="100px"> </td>
-
-                            <td>
-                                <form action="{{ route('aboutUs.destroy', $about->id) }}" method="Post">
-                                    <a class="btn btn-primary" href="{{ route('aboutUs.edit', $about->id) }}">Edit</a>
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
+                                <td>
+                                    <form action="{{ route('aboutUs.destroy', $about->id) }}" method="Post">
+                                        <a class="btn btn-primary" href="{{ route('aboutUs.edit', $about->id) }}">Edit</a>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
                     @else
-                    <div class="alert alert-danger m-1">
-                        there is no data......
-                    </div>
+                        <div class="alert alert-danger m-1">
+                            there is no data......
+                            </div>
                     @endif
                 </tbody>
             </table>

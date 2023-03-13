@@ -23,8 +23,8 @@
                                 </span>
                             </div>
                             <div class="float-right text-right">
-                                <p class="card-text text-dark">@lang('site.users')</p>
-                                {{-- <h4>{{ \App\User::count() }}</h4> --}}
+                                <p class="card-text text-dark">@lang('site.Admin')</p>
+                                <h4>{{ \App\Models\Admin::count() }}</h4>
 
                             </div>
                         </div>
@@ -45,8 +45,8 @@
                                 </span>
                             </div>
                             <div class="float-right text-right">
-                                <p class="card-text text-dark">@lang('site.slider')</p>
-                                {{-- <h4>{{ \App\Models\Slider::count() }}</h4> --}}
+                                <p class="card-text text-dark">@lang('site.Banner')</p>
+                                <h4>{{ \App\Models\banner::count() }}</h4>
 
                             </div>
                         </div>
@@ -65,8 +65,8 @@
                                 </span>
                             </div>
                             <div class="float-right text-right">
-                                <p class="card-text text-dark"> @lang('site.categories')</p>
-                                {{-- <h4>{{ \App\Models\Category::count() }}</h4> --}}
+                                <p class="card-text text-dark"> @lang('site.Companies')</p>
+                                <h4>{{ \App\Models\company::count() }}</h4>
                             </div>
                         </div>
 
@@ -84,7 +84,7 @@
                             </div>
                             <div class="float-right text-right">
                                 <p class="card-text text-dark">@lang('site.products')</p>
-                                {{-- <h4>{{ \App\Models\Product::count() }}</h4> --}}
+                                <h4>{{ \App\Models\Product::count() }}</h4>
 
                             </div>
                         </div>
@@ -103,8 +103,8 @@
                                 </span>
                             </div>
                             <div class="float-right text-right">
-                                <p class="card-text text-dark">@lang('site.message')</p>
-                                {{-- <h4>{{ \App\Models\Message::count() }}</h4> --}}
+                                <p class="card-text text-dark">@lang('site.News')</p>
+                                <h4>{{ \App\Models\v_new::count() }}</h4>
 
                             </div>
                         </div>

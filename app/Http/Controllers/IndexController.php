@@ -66,19 +66,20 @@ class IndexController extends Controller
     public function aboutus(){
         $aboutus = aboutUs::all();
         $products = product::all();
-        return view('frontend.aboutus', compact('aboutus','products'));
+        $contactus = contactus::all();
+        return view('frontend.aboutus', compact('aboutus','products','contactus'));
     }
 
 
 
     public function showAttributeFront( $id)
     {
-       
+
         $VersionMes = VersionMes::find($id);
         $versionMesAtrrs=versionMesAtrr::where('version_m_id',$id)->orderBy('id','DESC')->get();
 
             return view('frontend.index',compact('VersionMes','versionMesAtrrs'));
-    
+
     }
 
     // public function company(){

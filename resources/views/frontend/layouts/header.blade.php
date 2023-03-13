@@ -2,9 +2,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 col-sm-12 col-xs-12 content-inner">
+                    @foreach ($contactus as $contact)
 					<div class="logo">
-						<a href=""><img src="{{asset('frontend/assets/images/logo.png')}}" alt=""></a>
+						<a href=""><img src="{{ asset("storage/$contact->logo") }}"alt=""></a>
 					</div>
+                    @endforeach
 					<div class="main_menu">
 						<a id="setting"><i class="fa fa-bars fa-2x"></i></a>
 						<ul class="menu">

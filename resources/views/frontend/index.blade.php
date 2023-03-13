@@ -74,12 +74,12 @@
         <div class="static_donate">
             <div class="container">
                 <div class="row">
-                    @foreach ($banners as $banner)
+                    {{-- @foreach ($banners as $banner) --}}
                         <div class="title col-md-7 col-sm-8 col-xs-12">
                             <h3>We will see the Laravel video upload tutorial with an example</h3>
                             <p>We will see the Laravel video upload tutorial with an example</p>
                         </div>
-                    @endforeach
+                    {{-- @endforeach --}}
                     <div class="donate col-md-5 col-sm-4 col-xs-12">
                         <div class="button_donate">
                             <a href="pages/campaigns/campaigns-detail.html">Donate Now</a>

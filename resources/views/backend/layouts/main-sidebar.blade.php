@@ -170,7 +170,7 @@
 
                     users -->
                     {{-- NEWS --}}
-                    <li>
+                    {{-- <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#gallery">
                             <div class="pull-left">
                                 <i class="ti-user"></i>
@@ -182,23 +182,10 @@
                         <ul id="gallery" class="collapse" data-parent="#sidebarnav">
                             <li><a href="{{ route('new.index') }}">Home New</a></li>
                         </ul>
-                    </li>
+                    </li> --}}
 
 
-                    <!-- users -->
-                    <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#contact">
-                            <div class="pull-left">
-                                <i class="ti-user"></i>
-                                <span class="right-nav-text"> @lang('site.contacts') </span>
-                            </div>
-                            <div class="pull-right"><i class="ti-plus"></i></div>
-                            <div class="clearfix"></div>
-                        </a>
-                        <ul id="contact" class="collapse" data-parent="#sidebarnav">
-                            {{-- <li><a href="{{route('contact.index')}}">@lang('site.contacts')  </a></li> --}}
-                        </ul>
-                    </li>
+
 
 
                     <!-- users -->

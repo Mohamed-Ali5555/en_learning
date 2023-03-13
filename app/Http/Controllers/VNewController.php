@@ -15,8 +15,8 @@ class VNewController extends Controller
      */
     public function index()
     {
-        $v_new = v_new::all();
-        return view('backend.Vnew.index',compact('v_new'));
+        // $v_new = v_new::all();
+        // return view('backend.Vnew.index',compact('v_new'));
     }
 
     /**
@@ -26,7 +26,7 @@ class VNewController extends Controller
      */
     public function create()
     {
-        return view('backend.Vnew.create');
+        // return view('backend.Vnew.create');
     }
 
     /**
@@ -37,14 +37,14 @@ class VNewController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'title' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'desc'  => 'required|string'
-        ]);
-        $data['image'] = Storage::putFile("news",$data['image']);
-        v_new::create($data);
-        return redirect()->route('new.index')->with('success','New has been created successfully.');
+        // $data = $request->validate([
+        //     'title' => 'required|string',
+        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        //     'desc'  => 'required|string'
+        // ]);
+        // $data['image'] = Storage::putFile("news",$data['image']);
+        // v_new::create($data);
+        // return redirect()->route('new.index')->with('success','New has been created successfully.');
     }
 
     /**
@@ -66,8 +66,8 @@ class VNewController extends Controller
      */
     public function edit($id)
     {
-        $new = v_new::findOrfail($id);
-        return view('backend.Vnew.edit',compact('new'));
+        // $new = v_new::findOrfail($id);
+        // return view('backend.Vnew.edit',compact('new'));
     }
 
     /**
@@ -79,25 +79,25 @@ class VNewController extends Controller
      */
     public function update(Request $request,$id)
     {
-        
-        $data = $request->validate([
-            'title' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'desc' => 'required|string',
-        ]);
-        $v_new = v_new::findOrFail($id);
 
-        if ($request->has("image")) {
-            Storage::delete($v_new->image);
-            $data['image'] = Storage::putFile("news",$data['image']);
-        }
-        $v_new->update([
-            'title'=>$request->title,
-            'image'=>$data['image'],
-            'desc'=>$request->desc
-        ]);
-        // $banner->update($data);
-        return redirect()->route('new.index')->with('success','New has been updated successfully.');
+        // $data = $request->validate([
+        //     'title' => 'required|string',
+        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        //     'desc' => 'required|string',
+        // ]);
+        // $v_new = v_new::findOrFail($id);
+
+        // if ($request->has("image")) {
+        //     Storage::delete($v_new->image);
+        //     $data['image'] = Storage::putFile("news",$data['image']);
+        // }
+        // $v_new->update([
+        //     'title'=>$request->title,
+        //     'image'=>$data['image'],
+        //     'desc'=>$request->desc
+        // ]);
+        // // $banner->update($data);
+        // return redirect()->route('new.index')->with('success','New has been updated successfully.');
     }
 
     /**
@@ -108,9 +108,9 @@ class VNewController extends Controller
      */
     public function destroy($id)
     {
-        $v_new = v_new::find($id);
-        Storage::delete($v_new->image);
-        $v_new->delete();
-        return redirect()->route('new.index')->with('success','New has been deleted successfully');
+        // $v_new = v_new::find($id);
+        // Storage::delete($v_new->image);
+        // $v_new->delete();
+        // return redirect()->route('new.index')->with('success','New has been deleted successfully');
     }
 }
