@@ -158,7 +158,7 @@
                                         </div>
                                         <div class="donate">
                                             <div class="button_donate">
-                                                <a href="pages/campaigns/campaigns-detail.html">Donate Now</a>
+                                                <a href="{{ route('company.detail', $company->id) }}" >More details </a>
                                             </div>
                                             <p>57 Day left</p>
                                         </div>
@@ -190,7 +190,7 @@
                     @if ($videos != null)
                         <div class="left col-md-6 col-sm-12 col-xs-12">
 
-                            <iframe width="420" height="315" src="{{ $videos->video }}">
+                            <iframe width="635px" height="525px" src="{{ $videos->video }}">
                             </iframe>
 
                             {{-- <a href="#">STORY</a> --}}

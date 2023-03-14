@@ -87,3 +87,7 @@ Route::get('AboutUs',[\App\Http\Controllers\IndexController::class,'aboutus'])->
 Route::post('uploadVideo',[\App\Http\Controllers\VideoController::class,'uploadVideo'])->name('videos.uploadVideo');
 Route::post('video-news/{id}',[\App\Http\Controllers\VideoController::class,'addProductAttribute'])->name('video.news');
 Route::delete('video-news/{id}',[\App\Http\Controllers\VideoController::class,'attributeDelete'])->name('video.deleteAtrr');
+
+
+///////////////////////////////company detgails /////////////////////////////////
+Route::get('company-detail/{id}/',[\App\Http\Controllers\IndexController::class,'companyDetail'])->name('company.detail');

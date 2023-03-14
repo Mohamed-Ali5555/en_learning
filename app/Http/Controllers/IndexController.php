@@ -87,4 +87,17 @@ class IndexController extends Controller
 
     //     return view('frontend.aboutus', compact('companys'));
     // }
+
+
+    public function companyDetail($id){
+        $company=Company::where('id',$id)->first();
+        $contactus = contactus::all();
+
+        // return $company;
+        if($company){
+            return view('frontend.company_details',compact('company','contactus'));
+        }else{
+            return 'Company detail not found';
+        }
+      }
 }
