@@ -1,69 +1,86 @@
 @extends('frontend.layouts.master')
 @section('content')
+<div id="content">
+    <div id="main" class="slideshow">
+        <div id="sync10" class="owl-carousel owl-theme">
+            {{-- @if ($banners->count() > 0) --}}
 
+            @foreach ($banners as $banner)
+                <div class="item" style="background-image: url({{ asset("storage/$banner->image") }}); width: 100%;">
+                    <div class="container">
+                        {{-- <div class="row"> --}}
+                        <div class="text_zz">
 
+                            <div class="card card333" style="width: 22rem;">
+                                <div class="card-body">
+                                    <h3 class="card-title">{{ $banner->title }}</h3>
+                                    <p class="card-text">{{ $banner->desc }}</p>
+                                    <div class="donate">
+                                        {{-- <div class="button_donate">
+                                            <a href="#">Donate Now</a>
+                                        </div> --}}
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- <h3>{{ $banner->title }}</h3> --}}
+                            {{-- <p style="color:white;">{{ $banner->desc }}</p> --}}
 
+                            {{-- <div class="donate">
+                                <div class="button_donate">
+                                    <a href="#">Donate Now</a>
+                                </div>
+                            </div> --}}
+                        </div>
+                        {{-- </div> --}}
+                    </div>
+                </div>
+            @endforeach
+            {{-- @else
+<span>not added</span>
+@endif --}}
+        </div>
+    </div>
 
-<div class="bg_full_cp">		
-
-	<div class="bg_full" style="background-image: url('{{asset("frontend/assets/images/breadcrumb.jpg")}}'); background-repeat: no-repeat; background-position: center center;">
-		<div class="container">
-			<div class="ct">
-				<h2 class="page_title">
-					<span>Careers Page</span>
-				</h2>
-				<div class="breadcrumb-links">
-					<a href="{{route('index')}}">Home</a>
-					<span> / Careers Page</span>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="careers">
-	<div class="container">
-		<div class="title">
-			<h3>Careers</h3>
-		</div>
-		<div class="row">
-			<div class="cosl col-lg-12 col-md-12 col-sm-12 col-xs-12">
-				<div class="row">
-					<div class="image-block col-lg-6 col-md-6 col-sm-12 col-xs-12">
-						<img src="{{asset("storage/$company->image")}}" alt="">
-					</div>
-					<div class="content-block col-lg-6 col-md-6 col-sm-12 col-xs-12">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-						<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-					</div>
-				</div>
-			</div>
-			<div class="cosl col-lg-12 col-md-12 col-sm-12 col-xs-12">
-				<div class="row">
-					<div class="content-block col-lg-6 col-md-6 col-sm-12 col-xs-12">
-						<h4>{{$company->name}}</h4>
-						<p>{{$company->desc}}</p>
-					</div>
-					<div class="image-block col-lg-6 col-md-6 col-sm-12 col-xs-12">
-						<img src="{{asset("frontend/assets/images/careers2.jpg")}}" alt="">
-					</div>
-				</div>
-			</div>
-			<div class="cosl col-lg-12 col-md-12 col-sm-12 col-xs-12">
-				<div class="row">
-					<div class="image-block col-lg-6 col-md-6 col-sm-12 col-xs-12">
-						<img src="{{asset("frontend/assets/images/careers3.jpg")}}" alt="">
-					</div>
-					<div class="content-block col-lg-6 col-md-6 col-sm-12 col-xs-12">
-						<h4>Work hard, play hard</h4>
-						<p>At Financial Solutions, we honor a work-life balance. We value the importance of your personal life because we’re people too. That’s why we enjoy a generous benefits program, including medical, dental, vision, life insurance, paid time off, and so much more.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-
-
-
+    <div class="careers">
+        <div class="container">
+            <div class="title">
+                <h3>Careers</h3>
+            </div>
+            <div class="row">
+                <div class="cosl col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="image-block col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <img src="{{ asset("storage/$company->image") }}" alt="">
+                        </div>
+                        <div class="content-block col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <h4>{{ $company->name }}</h4>
+                            <p>{{ $company->desc }}</p>
+                        </div>
+                    </div>
+                </div>
+                {{-- <div class="cosl col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="content-block col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <h4>{{ $company->name }}</h4>
+                            <p>{{ $company->desc }}</p>
+                        </div>
+                        <div class="image-block col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <img src="{{ asset("storage/$company->image") }}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="cosl col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="image-block col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <img src="{{ asset("storage/$company->image") }}" alt="">
+                        </div>
+                        <div class="content-block col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <h4>{{ $company->name }}</h4>
+                            <p>{{ $company->desc }}</p>
+                        </div>
+                    </div>
+                </div> --}}
+            </div>
+        </div>
+    </div>
 @endsection

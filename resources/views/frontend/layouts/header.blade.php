@@ -38,9 +38,9 @@
 								</ul>
 							</li> --}}
 						</ul>
-						<div class="button_donate">
+						{{-- <div class="button_donate">
 							<a href="pages/campaigns/campaigns-detail.html">Donate Now</a>
-						</div>
+						</div> --}}
 					</div>
 				</div>
 			</div>

@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Company Location</strong>
+                        <strong>Country</strong>
                         <input type="text" name="location" class="form-control" placeholder="Company Location">
                         @error('location')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>

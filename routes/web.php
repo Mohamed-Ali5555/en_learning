@@ -13,8 +13,8 @@ use App\Http\Controllers\VersionMesController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\GalaryController;
 use App\Http\Controllers\ContactUsController;
-
-
+use App\Http\Controllers\SayController;
+use App\Http\Controllers\ScoreController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -61,15 +61,22 @@ Route::resource('galary',GalaryController::class);
 //================ About us Route =====================================
 Route::resource('aboutUs',AboutUsController::class);
 //=====================================================================
-
 //================ About us Route =====================================
 Route::resource('contactus',ContactUsController::class);
 //=====================================================================
 //===============  Setting Route ======================================
 Route::resource('setting',SettingController::class);
-
+//======================================================================
+//=============== Version Route ========================================
 Route::resource('version_mes',VersionMesController::class);
 Route::resource('video',VideoController::class);
+//=======================================================================
+//=============== Say Route =============================================
+Route::resource('say',SayController::class);
+//========================================================================
+//============= Score Route ==============================================
+Route::resource('score',ScoreController::class);
+
 
 ##############################################
 // version Attr

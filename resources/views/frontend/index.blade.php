@@ -16,9 +16,9 @@
                                         <h3 class="card-title">{{ $banner->title }}</h3>
                                         <p class="card-text">{{ $banner->desc }}</p>
                                         <div class="donate">
-                                            <div class="button_donate">
+                                            {{-- <div class="button_donate">
                                                 <a href="#">Donate Now</a>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -135,7 +135,7 @@
             <div class="container">
                 <div class="row">
                     <div class="title">
-                        <h3>Latest <b>Campaigns</b></h3>
+                        <h3>our <b>Companies</b></h3>
                     </div>
                     <div id="sync1" class="owl-carousel owl-theme">
                         @foreach ($companies as $company)
@@ -160,10 +160,10 @@
                                             <div class="button_donate">
                                                 <a href="{{ route('company.detail', $company->id) }}" >More details </a>
                                             </div>
-                                            <p>57 Day left</p>
+                                            {{-- <p>57 Day left</p> --}}
                                         </div>
                                         <div class="raised">
-                                            <p><span>$45,583</span> Raised of <b>$78,324</b> Goal</p>
+                                            {{-- <p><span>$45,583</span> Raised of <b>$78,324</b> Goal</p> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -190,7 +190,7 @@
                     @if ($videos != null)
                         <div class="left col-md-6 col-sm-12 col-xs-12">
 
-                            <iframe width="635px" height="525px" src="{{ $videos->video }}">
+                            <iframe height="500px" width="100%" src="{{ $videos->video }}">
                             </iframe>
 
                             {{-- <a href="#">STORY</a> --}}
@@ -205,13 +205,14 @@
                                 <div class="row">
                                     <div class="img col-md-5">
                                         <img src="{{ asset('backend/assets/uploads' . '/' . $video_new->image) }}"
-                                            alt="" style="height: 190px;">
+                                            alt="">
 
 
                                     </div>
                                     <div class="txt col-md-7">
-                                        <a href="#">STORY</a>
+
                                         <p>{{ $video_new->desc }}</p>
+                                        <a href="#">STORY</a>
                                     </div>
                                 </div>
                             </div>
@@ -237,7 +238,7 @@
                             <p style="color: black !important">{{ $presedent->desc }} </p>
                             <div class="donate">
                                 <div class="button_donate">
-                                    <a href="pages/campaigns/campaigns-detail.html">Join Now</a>
+                                    {{-- <a href="pages/campaigns/campaigns-detail.html">Join Now</a> --}}
                                 </div>
                             </div>
                         </div>
@@ -290,33 +291,19 @@
                 <div class="row">
                     <div class="wrap">
                         <div class="title">
-                            <h3>What people <b>Say?</b></h3>
+                            <h3>Sheikh Abdulaziz  <b>Say?</b></h3>
                         </div>
-                        @foreach ($banners as $banner)
+
                             <div id="sync4" class="owl-carousel owl-theme">
+                                @foreach ($says as $say)
                                 <div class="item">
-                                    <p><span>"</span> {{ $banner->desc }}<br>meet many people and know that there are many
+                                    <p><span>"</span> {{ $say->desc }}
                                         <span>"</span>
                                     </p>
-                                    <h4>John Doe</h4>
-                                    <p class="l">Ceo of MediaLeak - <a href="#">www.medialeak.com</a></p>
                                 </div>
-                                <div class="item">
-                                    <p><span>"</span> I go to many land, meet many people and know that there are many<br>
-                                        poor
-                                        people that need our help. <span>"</span></p>
-                                    <h4>John Doe</h4>
-                                    <p class="l">Ceo of MediaLeak - <a href="#">www.medialeak.com</a></p>
-                                </div>
-                                <div class="item">
-                                    <p><span>"</span> I go to many land, meet many people and know that there are many<br>
-                                        poor
-                                        people that need our help. <span>"</span></p>
-                                    <h4>John Doe</h4>
-                                    <p class="l">Ceo of MediaLeak - <a href="#">www.medialeak.com</a></p>
-                                </div>
+                                @endforeach
+
                             </div>
-                        @endforeach
                     </div>
                 </div>
             </div>
@@ -324,17 +311,21 @@
         <div class="tt_images">
             <div class="container">
                 <div class="row">
+                    @foreach ( $scores as $score )
                     <div class="item col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="content_block">
-                            <span class="zmdi zmdi-favorite-outline" style="color: #ff9800;"></span>
-                            <h3 class="i1" style="color: #ff9800;">60,875</h3>
-                            <p>Volunteer Helper</p>
+                            <img style="width: 50px; border-radius: 10px;" src="{{ asset("storage/$score->image") }}"alt="">
+                            {{-- <span class="zmdi zmdi-favorite-outline" style="color: #ff9800;"></span> --}}
+                            <h3 class="i1" style="color: #ff9800;">{{ $score->score }}</h3>
+                            <h3>{{ $score->title }}</h3>
                         </div>
                     </div>
-                    <div class="item col-lg-3 col-md-3 col-sm-6 col-xs-12">
+             @endforeach
+
+                    {{-- <div class="item col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="content_block">
                             <span class="zmdi zmdi-card-giftcard" style="color: rgb(139, 202, 78);"></span>
-                            <h3 class="i2" style="color: rgb(139, 202, 78);">682,345</h3>
+                            <h3 class="i2" style="color: rgb(139, 202, 78);"></h3>
                             <p>Donated</p>
                         </div>
                     </div>
@@ -351,7 +342,8 @@
                             <h3 class="i4" style="color: #5586e8;">589</h3>
                             <p>Products & Gifts</p>
                         </div>
-                    </div>
+                    </div> --}}
+
                 </div>
             </div>
         </div>
@@ -405,10 +397,10 @@
                 <div class="right col-md-6 col-sm-12 col-xs-12">
                     <div class="b">
                         <div class="button_donate btn-1"">
-                            <a href="#">Become a Volunteer</a>
+                            {{-- <a href="#">Become a Volunteer</a> --}}
                         </div>
                         <div class="button_donate btn-2">
-                            <a href="#">Make a Donation</a>
+                            {{-- <a href="#">Make a Donation</a> --}}
                         </div>
                     </div>
                 </div>
