@@ -57,7 +57,7 @@ class AboutUsController extends Controller
             'content'=>$request->content,
             'image'=>$data['image'],
             'size_guid'=>$data['size_guid'],
-        ]);;
+        ]);
 
         return redirect()->route('aboutUs.index')->with('success','aboutus has been created successfully.');
     }

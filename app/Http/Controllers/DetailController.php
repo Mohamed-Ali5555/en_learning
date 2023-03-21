@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Detail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DetailController extends Controller
 {
@@ -14,7 +15,8 @@ class DetailController extends Controller
      */
     public function index()
     {
-        //
+        $details = Detail::all();
+        return view('backend.detail.index', compact('details'));
     }
 
     /**
@@ -24,7 +26,8 @@ class DetailController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.detail.create');
+
     }
 
     /**
@@ -35,7 +38,23 @@ class DetailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'banner_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'title' => 'required|string',
+            'desc' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+        ]);
+        $data['banner_img'] = Storage::putFile("details",$data['banner_img']);
+        $data['image'] = Storage::putFile("details",$data['image']);
+        Detail::create([
+            'banner_img'=>$data['banner_img'],
+            'title'=>$request->title,
+            'desc'=>$request->desc,
+            'image'=>$data['image']
+        ]);
+
+        return redirect()->route('detail.index')->with('success','Detail has been created successfully.');
     }
 
     /**
@@ -55,9 +74,11 @@ class DetailController extends Controller
      * @param  \App\Models\Detail  $detail
      * @return \Illuminate\Http\Response
      */
-    public function edit(Detail $detail)
+    public function edit($id)
     {
-        //
+        $detail = Detail::find($id);
+
+        return view('backend.detail.edit',compact('detail'));
     }
 
     /**
@@ -67,9 +88,33 @@ class DetailController extends Controller
      * @param  \App\Models\Detail  $detail
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Detail $detail)
+    public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate([
+            'banner_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'title' => 'required|string',
+            'desc' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+        ]);
+        $detail = Detail::findOrFail($id);
+
+        if ($request->has("image")) {
+            Storage::delete($detail->image);
+            $data['banner_img'] = Storage::putFile("details",$data['banner_img']);
+            $data['image'] = Storage::putFile("details",$data['image']);
+
+        }
+        $detail->update([
+            'banner_img'=>$data['banner_img'],
+            'title'=>$request->title,
+            'desc'=>$request->desc,
+            'image'=>$data['image']
+        ]);
+        // $aboutus->update($data);
+
+
+        return redirect()->route('detail.index')->with('success','Detail has been updated successfully.');
     }
 
     /**
@@ -78,8 +123,11 @@ class DetailController extends Controller
      * @param  \App\Models\Detail  $detail
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Detail $detail)
+    public function destroy($id)
     {
-        //
+        $detail = Detail::find($id);
+
+        $detail->delete();
+        return redirect()->route('detail.index')->with('success','Details has been deleted successfully');
     }
 }

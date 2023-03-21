@@ -16,9 +16,7 @@
                     <h2>All Presedents</h2>
                 </div>
 
-                <div class="pull-right mb-2">
-
-                </div>
+                <d class="pull-right mb-2">
                 @if ($presedents->count() > 0)
                 {{-- <a class="btn btn-success" href="#"> edaboutussit </a> --}}
 
@@ -47,7 +45,7 @@
                     <tr>
                         <td>{{ $presedent->id }}</td>
                         <td>{{ $presedent->title }}</td>
-                        {{-- <td>{!! $presedent->desc !!}</td> --}}
+                        <td>{!!$presedent->desc!!}</td>
                         <td><img src="{{asset("storage/$presedent->image")}}"width="100px"></td>
                         <td>
                             <form action="{{ route('presedent.destroy',$presedent->id) }}" method="Post">

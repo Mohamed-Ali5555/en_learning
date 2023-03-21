@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('banner_img');
             $table->string('title');
-            $table->string('desc');
+            $table->longText('desc');
             $table->string('image');
             $table->timestamps();
         });
