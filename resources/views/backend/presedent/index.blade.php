@@ -18,7 +18,7 @@
 
                 <div class="pull-right mb-2">
 
-                </div>
+                
                 @if ($presedents->count() > 0)
                 {{-- <a class="btn btn-success" href="#"> edaboutussit </a> --}}
 
