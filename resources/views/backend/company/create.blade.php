@@ -76,7 +76,7 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>detail description:</strong>
+                                <strong>detail body:</strong>
                                 {{-- <input type="text" name="desc" class="form-control" placeholder="detail description:"> --}}
                                 <textarea required="required" name="desc_detail" id="desc_detail" cols="30" rows="10"
                                     class="@error('description') is-invalid @enderror form-control ckeditor"></textarea>
@@ -87,7 +87,7 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>banner Photo:</strong>
+                                <strong>detail banner:</strong>
                                 <input type="file" name="banner_img" class="form-control">
                                 @error('banner_img')
                                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>

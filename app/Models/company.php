@@ -19,4 +19,5 @@ class company extends Model
         'img'
 
     ];
+
 }

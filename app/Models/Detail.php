@@ -17,4 +17,8 @@ class Detail extends Model
     //     'image'
     // ];
 
+    // public function company(){
+    //     return $this->belongsTo('App\Models\Detail','company_id','id');
+
+    // }
 }

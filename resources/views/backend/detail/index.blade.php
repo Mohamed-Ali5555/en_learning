@@ -18,10 +18,9 @@
                     </div>
                     <div class="pull-right mb-2">
                         @if ($details->count() > 10)
-                        {{-- <a class="btn btn-success" href="#"> edit aboutuss</a> --}}
-
+                            {{-- <a class="btn btn-success" href="#"> edit aboutuss</a> --}}
                         @else
-                        {{-- <a class="btn btn-success" href="{{ route('detail.create') }}"> Create Detail</a> --}}
+                            {{-- <a class="btn btn-success" href="{{ route('detail.create') }}"> Create Detail</a> --}}
                         @endif
                     </div>
                 </div>
@@ -35,6 +34,7 @@
                 <thead>
                     <tr>
                         <th>S.No</th>
+
                         <th>Detail title</th>
                         <th>detail desc</th>
                         <th>detail banner</th>
@@ -44,24 +44,25 @@
                 </thead>
                 <tbody>
                     {{-- @if ($details->count() > 10) --}}
-                        @foreach ($details as $detail)
-                            <tr>
-                                <td>{{ $detail->id }}</td>
-                                <td>{{ $detail->title }}</td>
-                                <td>{!!html_entity_decode($detail->desc_detail)!!}</td>
-                                <td> <img src="{{ asset("storage/$detail->banner_img") }}"width="100px"> </td>
-                                <td> <img src="{{ asset("storage/$detail->img") }}"width="100px"> </td>
+                    @foreach ($details as $detail)
+                        <tr>
+                            <td>{{ $detail->id }}</td>
 
-                                <td>
-                                    <form action="{{ route('detail.destroy', $detail->id) }}" method="Post">
-                                        {{-- <a class="btn btn-primary" href="{{ route('detail.edit', $detail->id) }}">Edit</a> --}}
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                    </form>
-                                </td>
-                            </tr>
-                        @endforeach
+                            <td>{{ $detail->title }}</td>
+                            <td>{!! html_entity_decode($detail->desc_detail) !!}</td>
+                            <td> <img src="{{ asset("storage/$detail->banner_img") }}"width="100px"> </td>
+                            <td> <img src="{{ asset("storage/$detail->img") }}"width="100px"> </td>
+
+                            <td>
+                                <form action="{{ route('detail.destroy', $detail->id) }}" method="Post">
+                                    {{-- <a class="btn btn-primary" href="{{ route('detail.edit', $detail->id) }}">Edit</a> --}}
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
                     {{-- @else
                         <div class="alert alert-danger m-1">
                             there is no data......
