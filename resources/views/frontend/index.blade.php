@@ -160,7 +160,6 @@
                                             <div class="button_donate">
                                                 <a href="{{ route('company.detail', $company->id) }}" >More details </a>
                                             </div>
-                                            {{-- <p>57 Day left</p> --}}
                                         </div>
                                         <div class="raised">
                                             {{-- <p><span>$45,583</span> Raised of <b>$78,324</b> Goal</p> --}}

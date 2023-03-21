@@ -26,7 +26,7 @@ class DetailController extends Controller
      */
     public function create()
     {
-        return view('backend.detail.create');
+        // return view('backend.detail.create');
 
     }
 
@@ -38,23 +38,23 @@ class DetailController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'banner_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'title' => 'required|string',
-            'desc' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // $data = $request->validate([
+        //     'banner_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        //     'title' => 'required|string',
+        //     'desc' => 'required|string',
+        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
-        ]);
-        $data['banner_img'] = Storage::putFile("details",$data['banner_img']);
-        $data['image'] = Storage::putFile("details",$data['image']);
-        Detail::create([
-            'banner_img'=>$data['banner_img'],
-            'title'=>$request->title,
-            'desc'=>$request->desc,
-            'image'=>$data['image']
-        ]);
+        // ]);
+        // $data['banner_img'] = Storage::putFile("details",$data['banner_img']);
+        // $data['image'] = Storage::putFile("details",$data['image']);
+        // Detail::create([
+        //     'banner_img'=>$data['banner_img'],
+        //     'title'=>$request->title,
+        //     'desc'=>$request->desc,
+        //     'image'=>$data['image']
+        // ]);
 
-        return redirect()->route('detail.index')->with('success','Detail has been created successfully.');
+        // return redirect()->route('detail.index')->with('success','Detail has been created successfully.');
     }
 
     /**
@@ -76,9 +76,9 @@ class DetailController extends Controller
      */
     public function edit($id)
     {
-        $detail = Detail::find($id);
+        // $detail = Detail::find($id);
 
-        return view('backend.detail.edit',compact('detail'));
+        // return view('backend.detail.edit',compact('detail'));
     }
 
     /**
@@ -90,31 +90,31 @@ class DetailController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->validate([
-            'banner_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'title' => 'required|string',
-            'desc' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // $data = $request->validate([
+        //     'banner_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        //     'title' => 'required|string',
+        //     'desc' => 'required|string',
+        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
-        ]);
-        $detail = Detail::findOrFail($id);
+        // ]);
+        // $detail = Detail::findOrFail($id);
 
-        if ($request->has("image")) {
-            Storage::delete($detail->image);
-            $data['banner_img'] = Storage::putFile("details",$data['banner_img']);
-            $data['image'] = Storage::putFile("details",$data['image']);
+        // if ($request->has("image")) {
+        //     Storage::delete($detail->image);
+        //     $data['banner_img'] = Storage::putFile("details",$data['banner_img']);
+        //     $data['image'] = Storage::putFile("details",$data['image']);
 
-        }
-        $detail->update([
-            'banner_img'=>$data['banner_img'],
-            'title'=>$request->title,
-            'desc'=>$request->desc,
-            'image'=>$data['image']
-        ]);
-        // $aboutus->update($data);
+        // }
+        // $detail->update([
+        //     'banner_img'=>$data['banner_img'],
+        //     'title'=>$request->title,
+        //     'desc'=>$request->desc,
+        //     'image'=>$data['image']
+        // ]);
+        // // $aboutus->update($data);
 
 
-        return redirect()->route('detail.index')->with('success','Detail has been updated successfully.');
+        // return redirect()->route('detail.index')->with('success','Detail has been updated successfully.');
     }
 
     /**

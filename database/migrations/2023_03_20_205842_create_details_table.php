@@ -17,8 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('banner_img');
             $table->string('title');
-            $table->longText('desc');
-            $table->string('image');
+            $table->longText('desc_detail');
+            $table->string('img');
+            $table->unsignedBigInteger('company_id');
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->timestamps();
         });
     }

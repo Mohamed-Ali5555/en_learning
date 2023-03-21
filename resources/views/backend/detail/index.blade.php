@@ -21,7 +21,7 @@
                         {{-- <a class="btn btn-success" href="#"> edit aboutuss</a> --}}
 
                         @else
-                        <a class="btn btn-success" href="{{ route('detail.create') }}"> Create Detail</a>
+                        {{-- <a class="btn btn-success" href="{{ route('detail.create') }}"> Create Detail</a> --}}
                         @endif
                     </div>
                 </div>
@@ -48,13 +48,13 @@
                             <tr>
                                 <td>{{ $detail->id }}</td>
                                 <td>{{ $detail->title }}</td>
-                                <td>{!!html_entity_decode($detail->desc)!!}</td>
+                                <td>{!!html_entity_decode($detail->desc_detail)!!}</td>
                                 <td> <img src="{{ asset("storage/$detail->banner_img") }}"width="100px"> </td>
-                                <td> <img src="{{ asset("storage/$detail->image") }}"width="100px"> </td>
+                                <td> <img src="{{ asset("storage/$detail->img") }}"width="100px"> </td>
 
                                 <td>
                                     <form action="{{ route('detail.destroy', $detail->id) }}" method="Post">
-                                        <a class="btn btn-primary" href="{{ route('detail.edit', $detail->id) }}">Edit</a>
+                                        {{-- <a class="btn btn-primary" href="{{ route('detail.edit', $detail->id) }}">Edit</a> --}}
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>

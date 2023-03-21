@@ -99,7 +99,7 @@ class IndexController extends Controller
 
     public function companyDetail($id){
         $company=Company::where('id',$id)->first();
-        $detail=Detail::first();
+        $detail=Detail::where('company_id',$id)->first();
         $contactus = contactus::all();
         $banners = banner::all();
 

@@ -19,6 +19,14 @@ return new class extends Migration
             $table->string('location');
             $table->string('desc');
             $table->string('image');
+
+
+            $table->string('banner_img');
+            $table->string('title');
+            $table->longText('desc_detail');
+            $table->string('img');
+
+
             $table->timestamps();
         });
     }

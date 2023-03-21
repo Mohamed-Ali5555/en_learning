@@ -13,5 +13,10 @@ class company extends Model
         'location',
         'desc',
         'image',
+        'banner_img',
+        'title',
+        'desc_detail',
+        'img'
+
     ];
 }
