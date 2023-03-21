@@ -190,7 +190,7 @@
                     @if ($videos != null)
                         <div class="left col-md-6 col-sm-12 col-xs-12">
 
-                            <iframe height="500px" width="100%" src="{{ $videos->video }}">
+                            <iframe height="560px" width="100%" src="{{ $videos->video }}">
                             </iframe>
 
                             {{-- <a href="#">STORY</a> --}}
