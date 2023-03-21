@@ -16,6 +16,7 @@ use App\Models\galary;
 use App\Models\say;
 
 use App\Models\contactus;
+use App\Models\Detail;
 use App\Models\score;
 use Illuminate\Http\Request;
 
@@ -72,6 +73,11 @@ class IndexController extends Controller
         return view('frontend.aboutus', compact('aboutus','products','contactus'));
     }
 
+    // public function detail(){
+    //     $detail = Detail::all();
+    //     return view('frontend.company_details', compact('detail'));
+    // }
+
 
 
     public function showAttributeFront( $id)
@@ -93,12 +99,13 @@ class IndexController extends Controller
 
     public function companyDetail($id){
         $company=Company::where('id',$id)->first();
+        $detail=Detail::first();
         $contactus = contactus::all();
         $banners = banner::all();
 
         // return $company;
         if($company){
-            return view('frontend.company_details',compact('company','contactus','banners'));
+            return view('frontend.company_details',compact('company','contactus','banners','detail'));
         }else{
             return 'Company detail not found';
         }
