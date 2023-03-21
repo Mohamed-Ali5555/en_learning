@@ -46,7 +46,28 @@
 
         {{-- start section banner --}}
 
+        {{-- @foreach ($banners as $banner)
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
 
+                </div>
+                <div class="carousel-inner">
+
+
+
+
+                    <div class="carousel-item ">
+                        <img src="{{ asset("storage/$banner->image") }}" class="d-block w-100" alt="...ddddddd">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>{{ $banner->title }}</h5>
+                            <p>{{ $banner->desc }}</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        @endforeach --}}
 
 
         {{-- end section banner --}}
@@ -54,10 +75,10 @@
             <div class="container">
                 <div class="row">
                     {{-- @foreach ($banners as $banner) --}}
-                    <div class="title col-md-7 col-sm-8 col-xs-12">
-                        <h3>We will see the Laravel video upload tutorial with an example</h3>
-                        <p>We will see the Laravel video upload tutorial with an example</p>
-                    </div>
+                        <div class="title col-md-7 col-sm-8 col-xs-12">
+                            <h3>We will see the Laravel video upload tutorial with an example</h3>
+                            <p>We will see the Laravel video upload tutorial with an example</p>
+                        </div>
                     {{-- @endforeach --}}
                     <div class="donate col-md-5 col-sm-4 col-xs-12">
                         <div class="button_donate">
@@ -137,7 +158,7 @@
                                         </div>
                                         <div class="donate">
                                             <div class="button_donate">
-                                                <a href="{{ route('company.detail', $company->id) }}">More details </a>
+                                                <a href="{{ route('company.detail', $company->id) }}" >More details </a>
                                             </div>
                                             {{-- <p>57 Day left</p> --}}
                                         </div>
@@ -270,19 +291,19 @@
                 <div class="row">
                     <div class="wrap">
                         <div class="title">
-                            <h3>Sheikh Abdulaziz <b>Say?</b></h3>
+                            <h3>Sheikh Abdulaziz  <b>Say?</b></h3>
                         </div>
 
-                        <div id="sync4" class="owl-carousel owl-theme">
-                            @foreach ($says as $say)
+                            <div id="sync4" class="owl-carousel owl-theme">
+                                @foreach ($says as $say)
                                 <div class="item">
                                     <p><span>"</span> {{ $say->desc }}
                                         <span>"</span>
                                     </p>
                                 </div>
-                            @endforeach
+                                @endforeach
 
-                        </div>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -290,17 +311,16 @@
         <div class="tt_images">
             <div class="container">
                 <div class="row">
-                    @foreach ($scores as $score)
-                        <div class="item col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <div class="content_block">
-                                <img style="width: 50px; border-radius: 10px;"
-                                    src="{{ asset("storage/$score->image") }}"alt="">
-                                {{-- <span class="zmdi zmdi-favorite-outline" style="color: #ff9800;"></span> --}}
-                                <h3 class="i1" style="color: #ff9800;">{{ $score->score }}</h3>
-                                <h3>{{ $score->title }}</h3>
-                            </div>
+                    @foreach ( $scores as $score )
+                    <div class="item col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="content_block">
+                            <img style="width: 50px; border-radius: 10px;" src="{{ asset("storage/$score->image") }}"alt="">
+                            {{-- <span class="zmdi zmdi-favorite-outline" style="color: #ff9800;"></span> --}}
+                            <h3 class="i1" style="color: #ff9800;">{{ $score->score }}</h3>
+                            <h3>{{ $score->title }}</h3>
                         </div>
-                    @endforeach
+                    </div>
+             @endforeach
 
                     {{-- <div class="item col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="content_block">
