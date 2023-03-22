@@ -62,7 +62,7 @@ class CompanyController extends Controller
             'location' => $request->location,
             'desc' => $request->desc,
             'image'=>$data['image'],
-            'title' => $request->title,
+            'title_detail' => $request->title_detail,
             'desc_detail' => $request->desc_detail,
             'banner_img'=>$data['banner_img'],
             'img'=>$data['img'],
@@ -76,7 +76,7 @@ class CompanyController extends Controller
      
         Detail::create([
             'company_id'=>$company_id,
-            'title' => $request->title,
+            'title_detail' => $request->title_detail,
             'desc_detail' => $request->desc_detail,
             'banner_img'=>$data['banner_img'],
             'img'=>$data['img'],
@@ -119,7 +119,7 @@ class CompanyController extends Controller
     {
         $data = $request->validate([
             'name' => 'required|string',
-            'title' => 'required|string',
+            'title_detail' => 'required|string',
             'desc_detail' => 'required|string',
 
             'location' => 'required|string',
@@ -152,7 +152,7 @@ class CompanyController extends Controller
 
         $detail->update([
             'company_id'=>$company_id,
-            'title' => $request->title,
+            'title_detail' => $request->title_detail,
             'desc_detail' => $request->desc_detail,
             'banner_img'=>$data['banner_img'],
             'img'=>$data['img'],

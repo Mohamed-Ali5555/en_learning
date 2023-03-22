@@ -22,7 +22,7 @@ return new class extends Migration
 
 
             $table->string('banner_img');
-            $table->string('title');
+            $table->string('title_detail');
             $table->longText('desc_detail');
             $table->string('img');
 

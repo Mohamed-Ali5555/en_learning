@@ -14,7 +14,7 @@ class company extends Model
         'desc',
         'image',
         'banner_img',
-        'title',
+        'title_detail',
         'desc_detail',
         'img'
 

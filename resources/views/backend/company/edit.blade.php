@@ -75,9 +75,9 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>detail title:</strong>
-                                <input type="text" name="title" class="form-control" placeholder="detail title"
+                                <input type="text" name="title_detail" class="form-control" placeholder="detail title"
                                     value="{{ $company->title }}">
-                                @error('title')
+                                @error('title_detail')
                                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                 @enderror
                             </div>

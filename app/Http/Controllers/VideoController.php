@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\video;
 use App\Models\v_new;
+use App\Models\Detail;
+
 use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
@@ -104,20 +106,105 @@ class VideoController extends Controller
 
 
    public function addProductAttribute(Request $request,$id){
+
+    return $request->all();
+
+
+// $image =  Storage::putFile("news",$request->image);
+
+
 $image=array();
 if($files=$request->file('image')){
     foreach($files as $file){
-        $name=$file->getClientOriginalName();
-        $file->move(public_path('backend/assets/uploads'),$name);
-        $image[]=$name;
+        // $name=$file->getClientOriginalName();
+   //     $file->move(public_path('backend/assets/uploads'),$name);
+        // $file->move( (Storage::putFile('companies',$name)));
+        $imager =  \Storage::put("companies",$file);
+
+        // if($image){
+        //     array_push($imager,$image);
+        // }
+        $image[]=$imager;
 
     }
 
 }
 
 
+$banner_img=array();
+if($files=$request->file('banner_img')){
+    foreach($files as $file){
+        // $name=$file->getClientOriginalName();
+   //     $file->move(public_path('backend/assets/uploads'),$name);
+        // $file->move( (Storage::putFile('companies',$name)));
+        $imager2 =  \Storage::put("companies",$file);
+
+        // if($image){
+        //     array_push($imager,$image);
+        // }
+        $banner_img[]=$imager2;
+
+    }
+
+}
+
+$img=array();
+if($files=$request->file('img')){
+    foreach($files as $file){
+        // $name=$file->getClientOriginalName();
+   //     $file->move(public_path('backend/assets/uploads'),$name);
+        // $file->move( (Storage::putFile('companies',$name)));
+        $imager23 =  \Storage::put("companies",$file);
+
+        // if($image){
+        //     array_push($imager,$image);
+        // }
+        $img[]=$imager23;
+
+    }
+
+}
+
+
+// $banner_img=array();
+// if($files=$request->file('banner_img')){
+//     foreach($files as $file){
+//         $name=$file->getClientOriginalName();
+//         $file = Storage::putFile('companies',$name);
+//         $banner_img[]=$name;
+
+//     }
+
+// }
+
+
+
+// $img=array();
+// if($files=$request->file('img')){
+//     foreach($files as $file){
+//         $name=$file->getClientOriginalName();
+//         $file =Storage::putFile('companies',$name);
+//         $img[]=$name;
+
+//     }
+
+// }
+
+    // $name=$file->getClientOriginalName();
+    //     $file->move(public_path('backend/assets/uploads'),$name);
+    //     $image[]=$name;
+
 $title = $request->title;
  $desc = $request->desc;
+
+
+ $title_detail = $request->title_detail;
+ $desc_detail = $request->desc_detail;
+
+
+
+//  $detail_id = 
+
 // $image =  Storage::putFile("news",$request->image);
 
 // Storage::disk('news')->put('file.jpg', file_get_contents($photo));
@@ -140,8 +227,13 @@ $title = $request->title;
             'title'  =>$title[$i],
             'desc'  =>$desc[$i],
             // 'image'  =>$imageNew [$i],
-
             'image' => $image[$i],
+
+            'title_detail'  =>$title_detail[$i],
+            'desc_detail'  =>$desc_detail[$i],
+            'banner_img' => $banner_img[$i],
+            'img' => $img[$i],
+
             // 'image' => json_encode($image)
 
 
@@ -150,7 +242,28 @@ $title = $request->title;
 
         $datasave1=v_new::create($datasave);
     }
+        $v_new_id = v_new::latest()->first()->id;  // this code give invoices id to invoices details
 
+
+
+    for($i=0; $i < count($title_detail);$i++){
+        $datasaveNew = [
+
+       
+            'new_id'=>$v_new_id,
+            'title_detail'  =>$title_detail[$i],
+            'desc_detail'  =>$desc_detail[$i],
+            'banner_img' => $banner_img[$i],
+            'img' => $img[$i],
+
+            // 'image' => json_encode($image)
+
+
+
+        ];
+        $datasave_new1=Detail::create($datasaveNew);
+
+    }
 
 
 
@@ -190,6 +303,9 @@ public function attributeDelete($id)
 {
     // dd($id);
     $news = v_new::find($id);
+    Storage::delete($news->image);
+    Storage::delete($news->banner_img);
+    Storage::delete($news->img);
               $status = $news->delete();
 
                   return redirect()->back()->with('success','news Attribute successfuly deleted');

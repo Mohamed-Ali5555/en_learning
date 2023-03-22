@@ -98,16 +98,17 @@ class IndexController extends Controller
 
 
     public function companyDetail($id){
+        // return $id;
         $company=Company::where('id',$id)->first();
-        $detail=Detail::where('company_id',$id)->first();
+        // $new_id = v_new::select();
+        $detail=Detail::where('new_id',$id)->orWhere('company_id',$id)->first();
+        // return $detail;
+
         $contactus = contactus::all();
         $banners = banner::all();
 
         // return $company;
-        if($company){
             return view('frontend.company_details',compact('company','contactus','banners','detail'));
-        }else{
-            return 'Company detail not found';
-        }
+        
       }
 }

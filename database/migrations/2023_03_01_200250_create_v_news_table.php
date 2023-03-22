@@ -18,7 +18,10 @@ return new class extends Migration
             $table->string('title');
             $table->string('desc');
             $table->string('image');
-            
+            $table->string('banner_img');
+            $table->string('title_detail');
+            $table->longText('desc_detail');
+            $table->string('img');
             $table->unsignedBigInteger('video_id')->nullable();  // sub category or child
             $table->foreign('video_id')->references('id')->on('videos')->onDelete('cascade');
             $table->timestamps();

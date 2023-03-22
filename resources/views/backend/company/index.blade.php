@@ -52,7 +52,7 @@
                             <td><img src="{{ asset("storage/$company->image") }}"width="100px"></td>
 
 
-                            <td>{{ $company->title }}</td>
+                            <td>{{ $company->title_detail }}</td>
                             <td>{!! html_entity_decode($company->desc_detail) !!}</td>
                             <td> <img src="{{ asset("storage/$company->banner_img") }}"width="100px"> </td>
                             <td> <img src="{{ asset("storage/$company->img") }}"width="100px"> </td>

@@ -35,7 +35,7 @@
 			<div class="cosl col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<div class="row">
 					<div class="content-block col-lg-6 col-md-6 col-sm-12 col-xs-12">
-						<h4>{{ $detail->title }}</h4>
+						<h4>{{ $detail->title_detail }}</h4>
 						<td>{!!html_entity_decode($detail->desc_detail)!!}</td>
 					</div>
 					<div class="image-block col-lg-6 col-md-6 col-sm-12 col-xs-12">

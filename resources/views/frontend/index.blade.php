@@ -203,15 +203,16 @@
                             <div class="item col-md-12 col-sm-4 col-xs-12">
                                 <div class="row">
                                     <div class="img col-md-5">
-                                        <img src="{{ asset('backend/assets/uploads' . '/' . $video_new->image) }}"
-                                            alt="">
+                                        {{-- <img src="{{ asset('backend/assets/uploads' . '/' . $video_new->image) }}"
+                                            alt=""> --}}
 
+                                        <img src="{{ asset("storage/$video_new->image") }}" alt="">
 
                                     </div>
                                     <div class="txt col-md-7">
 
                                         <p>{{ $video_new->desc }}</p>
-                                        <a href="#">STORY</a>
+                                                <a href="{{ route('company.detail', $video_new->id) }}" >More details </a>
                                     </div>
                                 </div>
                             </div>
