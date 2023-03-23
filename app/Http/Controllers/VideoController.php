@@ -107,7 +107,7 @@ class VideoController extends Controller
 
    public function addProductAttribute(Request $request,$id){
 
-    return $request->all();
+    // return $request->all();
 
 
 // $image =  Storage::putFile("news",$request->image);
@@ -203,7 +203,7 @@ $title = $request->title;
 
 
 
-//  $detail_id = 
+//  $detail_id =
 
 // $image =  Storage::putFile("news",$request->image);
 
@@ -249,7 +249,7 @@ $title = $request->title;
     for($i=0; $i < count($title_detail);$i++){
         $datasaveNew = [
 
-       
+
             'new_id'=>$v_new_id,
             'title_detail'  =>$title_detail[$i],
             'desc_detail'  =>$desc_detail[$i],
