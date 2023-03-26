@@ -13,9 +13,9 @@
                          <div id="product_attribute" class="content"
                              data-mfield-options='{"section": ".group","btnAdd":"#btnAdd-1","btnRemove":".btnRemove"}'>
                              <div class="row">
-                                 <div class="col-md-12"><button type="button" id="btnAdd-1" class="btn btn-primary"> <i
+                                 {{-- <div class="col-md-12"><button type="button" id="btnAdd-1" class="btn btn-primary"> <i
                                              class="ti-plus"></i>
-                                     </button></div>
+                                     </button></div> --}}
                              </div>
                              <div class="row group">
 
@@ -96,7 +96,7 @@
                                  <tr>
                                      <th>S.N.</th>
                                      <th>title</th>
-                                     <th>desc</th>                          
+                                     <th>desc</th>
                                      <th>image</th>
                                      <th>detail title_detail</th>
                                      <th>detail body</th>
@@ -128,7 +128,7 @@
                                              {{-- <td><img src="{{ asset('frontend/assets/uploads') . '/' . $video_new->image }}"/>  </td> --}}
                                              {{-- <td><img src="{{ asset('backend/assets/uploads' . '/' . $video_new->image) }}"
                                                      style="width:100px;height:100px;" alt="multiple image" /></td> --}}
-                                         
+
 
                                              <td>
                                                  <form action="{{ route('video.deleteAtrr', $video_new->id) }}"
@@ -158,8 +158,8 @@
      <script src="{{ asset('backend/assets/Admin/js/jquery.multifield.min.js') }}"></script>
      <script>
          $('#product_attribute').multifield();
-     </script> 
-     
+     </script>
+
      <script>
     $(document).ready(function() {
         $('#description').summernote();

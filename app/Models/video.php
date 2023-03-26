@@ -12,4 +12,8 @@ class video extends Model
   protected $fillable = [
       'title', 'video'
   ];
+public function v_news()
+{
+    return $this->hasMany('App\Models\v_new','video_id','id');
+}
 }

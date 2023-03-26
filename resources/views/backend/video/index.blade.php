@@ -47,9 +47,9 @@
                             <td>
                                 <form action="{{ route('video.destroy', $video->id) }}" method="Post">
                                     <a class="btn btn-primary" href="{{ route('video.edit', $video->id) }}">Edit</a>
-
+                                    @if ($video->v_news->count() < 3)
                                     <a class="btn btn-primary" href="{{ route('video.show', $video->id) }}">show</a>
-
+                                    @endif
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Delete</button>
