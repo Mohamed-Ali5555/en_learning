@@ -75,10 +75,10 @@
             <div class="container">
                 <div class="row">
                     {{-- @foreach ($banners as $banner) --}}
-                        <div class="title col-md-7 col-sm-8 col-xs-12">
-                            <h3>We will see the Laravel video upload tutorial with an example</h3>
-                            <p>We will see the Laravel video upload tutorial with an example</p>
-                        </div>
+                    <div class="title col-md-7 col-sm-8 col-xs-12">
+                        <h3>We will see the Laravel video upload tutorial with an example</h3>
+                        <p>We will see the Laravel video upload tutorial with an example</p>
+                    </div>
                     {{-- @endforeach --}}
                     <div class="donate col-md-5 col-sm-4 col-xs-12">
                         <div class="button_donate">
@@ -137,39 +137,45 @@
                     <div class="title">
                         <h3>our <b>Companies</b></h3>
                     </div>
-                    <div id="sync1" class="owl-carousel owl-theme">
-                        @foreach ($companies as $company)
-                            <div class="item">
-                                <div class="z">
-                                    <div class="img">
-                                        <div class="img-1">
-                                            <img src="{{ asset("storage/$company->image") }}"alt="">
-                                        </div>
-                                        <div class="img-2">
-                                            <img src="images/62.png" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="ct">
-                                        <div class="text_show">
-                                            <h3><a href="pages/campaigns/campaigns-detail.html"> {{ $company->title }}</a>
-                                            </h3>
-                                            <p>{{ $company->desc }}
-                                            </p>
-                                        </div>
-                                        <div class="donate">
-                                            <div class="button_donate">
-                                                <a href="{{ route('company.detail', $company->id) }}" >More details </a>
+                    @if ($companies != null)
+                        <div id="sync1" class="owl-carousel owl-theme">
+
+                            @foreach ($companies as $company)
+                                <div class="item">
+                                    <div class="z">
+                                        <div class="img">
+                                            <div class="img-1">
+                                                <img src="{{ asset("storage/$company->image") }}"alt="">
+                                            </div>
+                                            <div class="img-2">
+                                                <img src="images/62.png" alt="">
                                             </div>
                                         </div>
-                                        <div class="raised">
-                                            {{-- <p><span>$45,583</span> Raised of <b>$78,324</b> Goal</p> --}}
+                                        <div class="ct">
+                                            <div class="text_show">
+                                                <h3><a href="pages/campaigns/campaigns-detail.html">
+                                                        {{ $company->title }}</a>
+                                                </h3>
+                                                <p>{{ $company->desc }}
+                                                </p>
+                                            </div>
+                                            <div class="donate">
+                                                <div class="button_donate">
+                                                    <a href="{{ route('company.detail', $company->id) }}">More details </a>
+                                                </div>
+                                            </div>
+                                            <div class="raised">
+                                                {{-- <p><span>$45,583</span> Raised of <b>$78,324</b> Goal</p> --}}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
 
-                    </div>
+                        </div>
+                    @else
+                        <div>not fuond</div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -186,6 +192,7 @@
                     <div class="title">
                         <h3>Recent <b>New</b> & <b>Video</b></h3>
                     </div>
+
                     @if ($videos != null)
                         <div class="left col-md-6 col-sm-12 col-xs-12">
 
@@ -199,24 +206,28 @@
                         <span>not added</span>
                     @endif
                     <div class="right col-md-6 col-sm-12 col-xs-12">
-                        @foreach ($video_news as $video_new)
-                            <div class="item col-md-12 col-sm-4 col-xs-12">
-                                <div class="row">
-                                    <div class="img col-md-5">
-                                        {{-- <img src="{{ asset('backend/assets/uploads' . '/' . $video_new->image) }}"
+                        @if ($video_news != null)
+                            @foreach ($video_news as $video_new)
+                                <div class="item col-md-12 col-sm-4 col-xs-12">
+                                    <div class="row">
+                                        <div class="img col-md-5">
+                                            {{-- <img src="{{ asset('backend/assets/uploads' . '/' . $video_new->image) }}"
                                             alt=""> --}}
 
-                                        <img src="{{ asset("storage/$video_new->image") }}" alt="">
+                                            <img src="{{ asset("storage/$video_new->image") }}" alt="">
 
-                                    </div>
-                                    <div class="txt col-md-7">
+                                        </div>
+                                        <div class="txt col-md-7">
 
-                                        <p>{{ $video_new->desc }}</p>
-                                                <a href="{{ route('company.detail', $video_new->id) }}" >More details </a>
+                                            <p>{{ $video_new->desc }}</p>
+                                            <a href="{{ route('company.detail', $video_new->id) }}">More details </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        @else
+                            <span>not added</span>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -226,30 +237,33 @@
 
 
 
-
-        {{-- first section presendent --}}
-        @foreach ($presedents as $presedent)
-            <div id="presedent" class="join"
-                style="background-image: url({{ asset("storage/$presedent->image") }}); width: 100%;">
-                <div class="container">
-                    <div class="row">
-                        <div class="text_show col-md-6">
-                            <h3 style="color: black !important">{{ $presedent->title }}</h3>
-                            <p style="color: black !important">{{ $presedent->desc }} </p>
-                            <div class="donate">
-                                <div class="button_donate">
-                                    {{-- <a href="pages/campaigns/campaigns-detail.html">Join Now</a> --}}
+        @if ($presedents != null)
+            {{-- first section presendent --}}
+            @foreach ($presedents as $presedent)
+                <div id="presedent" class="join"
+                    style="background-image: url({{ asset("storage/$presedent->image") }}); width: 100%;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="text_show col-md-6">
+                                <h3 style="color: black !important">{{ $presedent->title }}</h3>
+                                <p style="color: black !important">{!! $presedent->desc !!} </p>
+                                <div class="donate">
+                                    <div class="button_donate">
+                                        {{-- <a href="pages/campaigns/campaigns-detail.html">Join Now</a> --}}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        {{--
+                            {{--
                         <div class="col-md-6">
                           <img src="{{ asset("storage/$presedent->image") }}"alt="">
                         </div> --}}
+                        </div>
                     </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        @else
+            <span>not added</span>
+        @endif
         {{-- end section presedent --}}
         {{-- start Product --}}
         <div class="meet">
@@ -258,30 +272,32 @@
                     <div class="title">
                         <h3>Meet Our <b>Volunteers</b></h3>
                     </div>
-
-                    <div id="sync2" class="owl-carousel owl-theme">
-                        @foreach ($products as $product)
-                            <div class="item">
-                                <div class="img">
-                                    <img src="{{ asset("storage/$product->image") }}"alt="">
-                                    <div class="social">
-                                        <span>
-                                            <a href=""><i class="fa fa-facebook"></i></a><br>
-                                            <a href=""><i class="fa fa-twitter"></i></a><br>
-                                            <a href=""><i class="fa fa-dribbble"></i></a><br>
-                                            <a href=""><i class="fa fa-google-plus"></i></a><br>
-                                            <a href=""><i class="fa fa-instagram"></i></a>
-                                        </span>
+                    @if ($products != null)
+                        <div id="sync2" class="owl-carousel owl-theme">
+                            @foreach ($products as $product)
+                                <div class="item">
+                                    <div class="img">
+                                        <img src="{{ asset("storage/$product->image") }}"alt="">
+                                        <div class="social">
+                                            <span>
+                                                <a href=""><i class="fa fa-facebook"></i></a><br>
+                                                <a href=""><i class="fa fa-twitter"></i></a><br>
+                                                <a href=""><i class="fa fa-dribbble"></i></a><br>
+                                                <a href=""><i class="fa fa-google-plus"></i></a><br>
+                                                <a href=""><i class="fa fa-instagram"></i></a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="text_show">
+                                        <h3>{{ $product->title }}</h3>
+                                        <p>{{ $product->desc }}</p>
                                     </div>
                                 </div>
-                                <div class="text_show">
-                                    <h3>{{ $product->title }}</h3>
-                                    <p>{{ $product->desc }}</p>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-
+                            @endforeach
+                        </div>
+                    @else
+                        <span>not added</span>
+                    @endif
                 </div>
             </div>
         </div>
@@ -291,19 +307,23 @@
                 <div class="row">
                     <div class="wrap">
                         <div class="title">
-                            <h3>Sheikh Abdulaziz  <b>Say?</b></h3>
+                            <h3>Sheikh Abdulaziz <b>Say?</b></h3>
                         </div>
-
+                        @if ($says != null)
                             <div id="sync4" class="owl-carousel owl-theme">
+
                                 @foreach ($says as $say)
-                                <div class="item">
-                                    <p><span>"</span> {{ $say->desc }}
-                                        <span>"</span>
-                                    </p>
-                                </div>
+                                    <div class="item">
+                                        <p><span>"</span> {{ $say->desc }}
+                                            <span>"</span>
+                                        </p>
+                                    </div>
                                 @endforeach
 
                             </div>
+                        @else
+                            <span>not added</span>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -311,17 +331,21 @@
         <div class="tt_images">
             <div class="container">
                 <div class="row">
-                    @foreach ( $scores as $score )
-                    <div class="item col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="content_block">
-                            <img style="width: 50px; border-radius: 10px;" src="{{ asset("storage/$score->image") }}"alt="">
-                            {{-- <span class="zmdi zmdi-favorite-outline" style="color: #ff9800;"></span> --}}
-                            <h3 class="i1" style="color: #ff9800;">{{ $score->score }}</h3>
-                            <h3>{{ $score->title }}</h3>
-                        </div>
-                    </div>
-             @endforeach
-
+                    @if ($scores != null)
+                        @foreach ($scores as $score)
+                            <div class="item col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <div class="content_block">
+                                    <img style="width: 50px; border-radius: 10px;"
+                                        src="{{ asset("storage/$score->image") }}"alt="">
+                                    {{-- <span class="zmdi zmdi-favorite-outline" style="color: #ff9800;"></span> --}}
+                                    <h3 class="i1" style="color: #ff9800;">{{ $score->score }}</h3>
+                                    <h3>{{ $score->title }}</h3>
+                                </div>
+                            </div>
+                        @endforeach
+                    @else
+                        <span>not added</span>
+                    @endif
                     {{-- <div class="item col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="content_block">
                             <span class="zmdi zmdi-card-giftcard" style="color: rgb(139, 202, 78);"></span>
@@ -353,58 +377,52 @@
                     <h3>Global <b>Partners</b></h3>
                 </div>
                 <div class="content">
-                    <ul id="sync5" class="owl-carousel owl-theme">
-                        @foreach ($companies as $company)
-                            <li class="item">
-                                <div class="bl_image">
-                                    <img src="{{ asset("storage/$company->image") }}"alt="">
-                                </div>
-                            </li>
-                        @endforeach
-                    </ul>
+                    @if ($companies != null)
+                        <ul id="sync5" class="owl-carousel owl-theme">
+                            @foreach ($companies as $company)
+                                <li class="item">
+                                    <div class="bl_image">
+                                        <img src="{{ asset("storage/$company->image") }}"alt="">
+                                    </div>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @else
+                        <span>not added</span>
+                    @endif
                 </div>
             </div>
         </div>
         <div class="instagram">
             <div class="container">
                 <div class="row">
-                    @foreach ($settings as $setting)
-                        <div class="title">
-                            <h3>Follow us on {{ $setting->title }} <a href="#">{{ $setting->link }}</a></h3>
-                        </div>
-                    @endforeach
-
+                    @if ($settings != null)
+                        @foreach ($settings as $setting)
+                            <div class="title">
+                                <h3>Follow us on {{ $setting->title }} <a href="#">{{ $setting->link }}</a></h3>
+                            </div>
+                        @endforeach
+                    @else
+                        <span>not added</span>
+                    @endif
                     <div class="content" id="galary">
-
-                        <ul id="sync6" class="owl-carousel owl-theme">
-                            @foreach ($galarys as $galary)
-                                <li class="item">
-                                    <img src="{{ asset("storage/$galary->image") }}"alt="">
-                                </li>
-                            @endforeach
-                        </ul>
-
+                        @if ($galarys != null)
+                            <ul id="sync6" class="owl-carousel owl-theme">
+                                @foreach ($galarys as $galary)
+                                    <li class="item">
+                                        <img src="{{ asset("storage/$galary->image") }}"alt=""
+                                            style="width:200px;height:300px;">
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @else
+                            <span>not added</span>
+                        @endif
 
                     </div>
                 </div>
             </div>
         </div>
-        <div class="ready">
-            <div class="container">
-                <div class="left col-md-6 col-sm-12 col-xs-12">
-                    <h3>Are you ready to volunteer?</h3>
-                </div>
-                <div class="right col-md-6 col-sm-12 col-xs-12">
-                    <div class="b">
-                        <div class="button_donate btn-1"">
-                            {{-- <a href="#">Become a Volunteer</a> --}}
-                        </div>
-                        <div class="button_donate btn-2">
-                            {{-- <a href="#">Make a Donation</a> --}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </div>
 @endsection

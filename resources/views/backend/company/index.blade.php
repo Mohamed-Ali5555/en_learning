@@ -10,7 +10,7 @@
     </head>
 
     <body>
-        <div class="container mt-2">
+        <div class="container mt-2 table-responsive">
             <div class="row">
                 <div class="col-lg-12 margin-tb">
                     <div class="pull-left">

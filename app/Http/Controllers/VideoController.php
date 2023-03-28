@@ -108,194 +108,51 @@ class VideoController extends Controller
    public function addProductAttribute(Request $request,$id){
 
     // return $request->all();
+    $data = $request->validate([
+        'desc' => 'required|string',
+        'title' => 'required|string',
+        'desc_detail' => 'required|string',
+        'title_detail' => 'required|string',
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'banner_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+    ]);
 
 
-// $image =  Storage::putFile("news",$request->image);
+    $data['image'] = Storage::putFile("companies",$data['image']);
+    $data['banner_img'] = Storage::putFile("companies",$data['banner_img']);
+    $data['img'] = Storage::putFile("companies",$data['img']);
 
 
-$image=array();
-if($files=$request->file('image')){
-    foreach($files as $file){
-        // $name=$file->getClientOriginalName();
-   //     $file->move(public_path('backend/assets/uploads'),$name);
-        // $file->move( (Storage::putFile('companies',$name)));
-        $imager =  \Storage::put("companies",$file);
+    v_new::create([
+          'video_id'  =>$id,
+          'desc'=>$request->desc,
+          'title'=>$request->title,
+          'desc_detail'=>$request->desc_detail,
+          'title_detail'=>$request->title_detail,
+          'image'=>$data['image'],
+          'banner_img'=>$data['banner_img'],
+          'img'=>$data['img'],
 
-        // if($image){
-        //     array_push($imager,$image);
-        // }
-        $image[]=$imager;
-
-    }
-
-}
+      ]);
 
 
-$banner_img=array();
-if($files=$request->file('banner_img')){
-    foreach($files as $file){
-        // $name=$file->getClientOriginalName();
-   //     $file->move(public_path('backend/assets/uploads'),$name);
-        // $file->move( (Storage::putFile('companies',$name)));
-        $imager2 =  \Storage::put("companies",$file);
+      $v_new_id = v_new::latest()->first()->id;  // this code give invoices id to invoices details
+      Detail::create([
+        'new_id'=>$v_new_id,
+        'title_detail'  =>$request->title_detail,
+        'desc_detail'  =>$request->desc_detail,
+        'banner_img'=>$data['banner_img'],
+        'img'=>$data['img'],
 
-        // if($image){
-        //     array_push($imager,$image);
-        // }
-        $banner_img[]=$imager2;
-
-    }
-
-}
-
-$img=array();
-if($files=$request->file('img')){
-    foreach($files as $file){
-        // $name=$file->getClientOriginalName();
-   //     $file->move(public_path('backend/assets/uploads'),$name);
-        // $file->move( (Storage::putFile('companies',$name)));
-        $imager23 =  \Storage::put("companies",$file);
-
-        // if($image){
-        //     array_push($imager,$image);
-        // }
-        $img[]=$imager23;
-
-    }
-
-}
+    ]);
 
 
-// $banner_img=array();
-// if($files=$request->file('banner_img')){
-//     foreach($files as $file){
-//         $name=$file->getClientOriginalName();
-//         $file = Storage::putFile('companies',$name);
-//         $banner_img[]=$name;
-
-//     }
-
-// }
+  
+    return redirect()->back()->with('success','product attribute successfuly add');
 
 
-
-// $img=array();
-// if($files=$request->file('img')){
-//     foreach($files as $file){
-//         $name=$file->getClientOriginalName();
-//         $file =Storage::putFile('companies',$name);
-//         $img[]=$name;
-
-//     }
-
-// }
-
-    // $name=$file->getClientOriginalName();
-    //     $file->move(public_path('backend/assets/uploads'),$name);
-    //     $image[]=$name;
-
-$title = $request->title;
- $desc = $request->desc;
-
-
- $title_detail = $request->title_detail;
- $desc_detail = $request->desc_detail;
-
-
-
-//  $detail_id =
-
-// $image =  Storage::putFile("news",$request->image);
-
-// Storage::disk('news')->put('file.jpg', file_get_contents($photo));
-
-// return $request->all();
-
-
-// $path = Storage::putFile('news', $request->file('image'));
-// $disk = Storage::disk('news');
-// Storage::disk('local')->put($path . '/' . $originalName, $request->file);
-
-    // $data['image'] = \Storage::putFile("news",$data['image']);
-
-// $image =  Storage::putFile("news",$request->image);
-//  return $image;
-    for($i=0; $i < count($desc);$i++){
-        $datasave = [
-
-            'video_id'  =>$id,
-            'title'  =>$title[$i],
-            'desc'  =>$desc[$i],
-            // 'image'  =>$imageNew [$i],
-            'image' => $image[$i],
-
-            'title_detail'  =>$title_detail[$i],
-            'desc_detail'  =>$desc_detail[$i],
-            'banner_img' => $banner_img[$i],
-            'img' => $img[$i],
-
-            // 'image' => json_encode($image)
-
-
-
-        ];
-
-        $datasave1=v_new::create($datasave);
-    }
-        $v_new_id = v_new::latest()->first()->id;  // this code give invoices id to invoices details
-
-
-
-    for($i=0; $i < count($title_detail);$i++){
-        $datasaveNew = [
-
-
-            'new_id'=>$v_new_id,
-            'title_detail'  =>$title_detail[$i],
-            'desc_detail'  =>$desc_detail[$i],
-            'banner_img' => $banner_img[$i],
-            'img' => $img[$i],
-
-            // 'image' => json_encode($image)
-
-
-
-        ];
-        $datasave_new1=Detail::create($datasaveNew);
-
-    }
-
-
-
-
-    // foreach($data['desc'] as $key=>$val){
-    //     if(!empty($val)){
-    //         $attribute=new v_new;
-    //         // $attribute['original_price']=$val;
-    //         $attribute['title']=$data['title'][$key];
-    //         $attribute['desc']=$data['desc'][$key];
-    //         $attribute['video_id']=$id;
-    //         // $attribute['image']=$data['image'][$key];
-    //         $attribute['image']=$imageNew[$val];
-
-    //         $attribute->save();
-    //     }
-    // }
-
-            return redirect()->back()->with('success','product attribute successfuly add');
-
-    // foreach($data['original_price'] as $key=>$val){
-    //     if(!empty($val)){
-    //         $attribute=new ProductAttribute;
-    //         $attribute['original_price']=$val;
-    //         $attribute['offer_price']=$data['offer_price'][$key];
-    //         $attribute['stock']=$data['stock'][$key];
-    //         $attribute['product_id']=$id;
-    //         $attribute['size']=$data['size'][$key];
-    //         $attribute->save();
-    //     }
-    // }
-    // return redirect()->back()->with('success','product attribute successfuly add');
 }
 
 

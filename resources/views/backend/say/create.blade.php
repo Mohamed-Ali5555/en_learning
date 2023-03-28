@@ -32,31 +32,14 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Say Seacraption:</strong>
+                        <strong>Say Description:</strong>
                         <input type="text" name="desc" class="form-control" placeholder="say Descraption">
                         @error('desc')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
-                {{-- <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Banner Title:</strong>
-                        <input type="text" name="title" class="form-control" placeholder="Banner Title">
-                        @error('title')
-                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                        @enderror
-                    </div>
-                </div> --}}
-                {{-- <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Danner Photo:</strong>
-                        <input type="file" name="image" class="form-control">
-                        @error('image')
-                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                        @enderror
-                    </div>
-                </div> --}}
+                
                 <button type="submit" class="btn btn-primary ml-3">Create</button>
             </div>
         </form>

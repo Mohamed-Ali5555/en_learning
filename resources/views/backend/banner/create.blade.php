@@ -32,7 +32,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Bannner Seacraption:</strong>
+                        <strong>Bannner Descraption:</strong>
                         <input type="text" name="desc" class="form-control" placeholder="Banner Descraption">
                         @error('desc')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -50,7 +50,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Danner Photo:</strong>
+                        <strong>Banner Photo:</strong>
                         <input type="file" name="image" class="form-control">
                         @error('image')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>

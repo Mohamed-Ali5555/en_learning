@@ -123,6 +123,8 @@ class VersionMesController extends Controller
         $version_mes = VersionMes::find($id);
 
         $version_mes->delete();
+        Storage::delete($version_mes->image);
+
         return redirect()->route('version_mes.index')->with('success','version_mes has been deleted successfully');
     }
 

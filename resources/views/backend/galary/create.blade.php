@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left mb-2">
-                    <h2>Add galarys</h2>
+                    <h2>Add galary</h2>
                 </div>
                 <div class="pull-right">
                     <a class="btn btn-primary" href="{{ route('galary.index') }}"> Back</a>

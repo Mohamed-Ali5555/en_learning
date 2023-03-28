@@ -132,6 +132,7 @@ class AboutUsController extends Controller
     public function destroy( $id)
     {
         $aboutus = aboutUs::find($id);
+        Storage::delete($aboutus->image);
 
         $aboutus->delete();
         return redirect()->route('aboutUs.index')->with('success','aboutus has been deleted successfully');

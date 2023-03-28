@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
 </head>
 <body>
-    <div class="container mt-2">
+    <div class="container mt-2 table-responsive">
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h2>All galarys</h2>
+                    <h2>All galary</h2>
                 </div>
                 <div class="pull-right mb-2">
                     <a class="btn btn-success" href="{{ route('galary.create') }}"> Create galarys</a>
@@ -29,7 +29,7 @@
             <thead>
                 <tr>
                     <th>S.No</th>
-                    <th>galarys Photo</th>
+                    <th>galary Photo</th>
                     <th width="280px">Action</th>
                 </tr>
             </thead>

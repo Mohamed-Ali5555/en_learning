@@ -98,6 +98,7 @@ class SayController extends Controller
         $say = Say::find($id);
 
         $say->delete();
+
         return redirect()->route('say.index')->with('success','say has been deleted successfully');
     }
 }

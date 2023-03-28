@@ -167,33 +167,28 @@
                 </div>
             </div>
         </div>
-        <div class="people_say">
+      <div class="people_say">
             <div class="container">
                 <div class="row">
                     <div class="wrap">
                         <div class="title">
-                            <h3>What people <b>Say?</b></h3>
+                            <h3>Sheikh Abdulaziz <b>Say?</b></h3>
                         </div>
-                        <div id="sync4" class="owl-carousel owl-theme">
-                            <div class="item">
-                                <p><span>"</span> I go to many land, meet many people and know that there are many<br> poor
-                                    people that need our help. <span>"</span></p>
-                                <h4>John Doe</h4>
-                                <p class="l">Ceo of MediaLeak - <a href="#">www.medialeak.com</a></p>
+                        @if ($says != null)
+                            <div id="sync4" class="owl-carousel owl-theme">
+
+                                @foreach ($says as $say)
+                                    <div class="item">
+                                        <p><span>"</span> {{ $say->desc }}
+                                            <span>"</span>
+                                        </p>
+                                    </div>
+                                @endforeach
+
                             </div>
-                            <div class="item">
-                                <p><span>"</span> I go to many land, meet many people and know that there are many<br> poor
-                                    people that need our help. <span>"</span></p>
-                                <h4>John Doe</h4>
-                                <p class="l">Ceo of MediaLeak - <a href="#">www.medialeak.com</a></p>
-                            </div>
-                            <div class="item">
-                                <p><span>"</span> I go to many land, meet many people and know that there are many<br> poor
-                                    people that need our help. <span>"</span></p>
-                                <h4>John Doe</h4>
-                                <p class="l">Ceo of MediaLeak - <a href="#">www.medialeak.com</a></p>
-                            </div>
-                        </div>
+                        @else
+                            <span>not added</span>
+                        @endif
                     </div>
                 </div>
             </div>

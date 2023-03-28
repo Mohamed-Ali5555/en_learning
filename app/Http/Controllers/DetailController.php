@@ -128,6 +128,8 @@ class DetailController extends Controller
         $detail = Detail::find($id);
 
         $detail->delete();
+        Storage::delete($detail->image);
+
         return redirect()->route('detail.index')->with('success','Details has been deleted successfully');
     }
 }

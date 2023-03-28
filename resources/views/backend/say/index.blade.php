@@ -10,7 +10,7 @@
     </head>
 
     <body>
-        <div class="container mt-2">
+        <div class="container mt-2 table-responsive">
             <div class="row">
                 <div class="col-lg-12 margin-tb">
                     <div class="pull-left">
@@ -30,9 +30,8 @@
                 <thead>
                     <tr>
                         <th>S.No</th>
-                        <th>Sya Dsecraption</th>
-                        {{-- <th>Banner Title</th>
-                        <th>Banner Photo</th> --}}
+                        <th>Sya Description</th>
+                     
                         <th width="280px">Action</th>
                     </tr>
                 </thead>
@@ -41,8 +40,6 @@
                         <tr>
                             <td>{{ $say->id }}</td>
                             <td>{{ $say->desc }}</td>
-                            {{-- <td>{{ $banner->title }}</td> --}}
-                            {{-- <td> <img src="{{ asset("storage/$banner->image") }}"width="100px"> </td> --}}
                             <td>
                                 <form action="{{ route('say.destroy', $say->id) }}" method="Post">
                                     <a class="btn btn-primary" href="{{ route('say.edit', $say->id) }}">Edit</a>

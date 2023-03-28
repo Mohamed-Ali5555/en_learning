@@ -10,14 +10,20 @@
     </head>
 
     <body>
-        <div class="container mt-2">
+        <div class="container mt-2 table-responsive">
             <div class="row">
                 <div class="col-lg-12 margin-tb">
                     <div class="pull-left">
                         <h2>All videos</h2>
                     </div>
-                    <div class="pull-right mb-2">
-                        <a class="btn btn-success" href="{{ route('video.create') }}"> Create version_mes</a>
+                    <div class="pull-right mb-2">  
+                    
+                     @if ($videos->count() > 0)
+                        <a class="btn btn-success" href="#"> edit videos</a>
+
+                        @else
+                        <a class="btn btn-success" href="{{ route('video.create') }}"> Create videos</a>
+                        @endif
                     </div>
                 </div>
             </div>

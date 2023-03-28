@@ -109,6 +109,8 @@ class GalaryController extends Controller
         $galary = galary::find($id);
 
         $galary->delete();
+        Storage::delete($galary->image);
+
         return redirect()->route('galary.index')->with('success','galary has been deleted successfully');
     }
 }

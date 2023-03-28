@@ -3,7 +3,7 @@
         <nav class="admin-header navbar navbar-default col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <!-- logo -->
             <div class="text-left navbar-brand-wrapper">
-                <a class="navbar-brand brand-logo" href="{{ route('admin') }}"><img width="90" src="{{ asset('backend/assets/Admin/images/mlogo.jpg') }}" alt=""></a>
+                <a class="navbar-brand brand-logo" href="{{ route('admin') }}"><img width="90" src="{{ asset('backend/assets/Admin/images/1c7144c3-0d86-4905-8d09-dc32df8c7823.jpg') }}" alt=""></a>
                 <a class="navbar-brand brand-logo-mini" href="index.html"><img src="backend/assets/Admin/images/logo-icon-dark.png"
                         alt=""></a>
             </div>

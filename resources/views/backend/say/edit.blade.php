@@ -33,7 +33,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Say Descraption</strong>
+                        <strong>Say Description</strong>
                         <input type="text" name="desc" value="{{ $say->desc }}" class="form-control"
                             placeholder="Say Descraption">
                         @error('desc')
@@ -41,26 +41,8 @@
                         @enderror
                     </div>
                 </div>
-                {{-- <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Banner Title</strong>
-                        <input type="text" name="title" class="form-control" placeholder="Banner Title"
-                            value="{{ $banner->title }}">
-                        @error('title')
-                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                        @enderror
-                    </div>
-                </div> --}}
-                {{-- <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Banner Photo</strong>
-                        <img src="{{ asset("storage/$banner->image") }}" width="100px">
-                        <input type="file" name="image" value="" class="form-control">
-                        @error('image')
-                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                        @enderror
-                    </div>
-                </div> --}}
+               
+              
                 <button type="submit" class="btn btn-primary ml-3">Update</button>
             </div>
         </form>

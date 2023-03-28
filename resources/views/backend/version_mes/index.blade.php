@@ -10,7 +10,7 @@
     </head>
 
     <body>
-        <div class="container mt-2">
+        <div class="container mt-2 table-responsive">
             <div class="row">
                 <div class="col-lg-12 margin-tb">
                     <div class="pull-left">
@@ -30,8 +30,8 @@
                 <thead>
                     <tr>
                         <th>S.No</th>
-                        <th>Banner Title</th>
-                        <th>Banner Photo</th>
+                        <th>version Title</th>
+                        <th>version Photo</th>
                         <th width="280px">Action</th>
                     </tr>
                 </thead>

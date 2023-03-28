@@ -4,7 +4,7 @@
 				<div class="col-md-12 col-sm-12 col-xs-12 content-inner">
                     @foreach ($contactus as $contact)
 					<div class="logo">
-						<a href=""><img src="{{ asset("storage/$contact->logo") }}"alt=""></a>
+						<a href=""><img src="{{ asset("storage/$contact->logo") }}"alt="" style="height: 114px;width: 185px;border-radius: 50%;"></a>
 					</div>
                     @endforeach
 					<div class="main_menu">

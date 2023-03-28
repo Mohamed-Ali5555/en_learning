@@ -49,7 +49,7 @@ class IndexController extends Controller
 
         $videos = video::first();
         if($videos !=null){
-            $video_news=v_new::where('video_id',$videos->id)->orderBy('id','DESC')->get();
+            $video_news=v_new::where('video_id',$videos->id)->orderBy('id','DESC')->limit(3)->get();
 
         }else{
             $video_news=v_new::get();
@@ -70,7 +70,9 @@ class IndexController extends Controller
         $aboutus = aboutUs::all();
         $products = product::all();
         $contactus = contactus::all();
-        return view('frontend.aboutus', compact('aboutus','products','contactus'));
+        $says    = say::all();
+
+        return view('frontend.aboutus', compact('aboutus','products','contactus','says'));
     }
 
     // public function detail(){

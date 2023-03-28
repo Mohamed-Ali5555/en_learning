@@ -1,11 +1,18 @@
  @extends('backend.layouts.master')
  @section('content')
 
-     <div class="container mt-2">
+     <div class="container mt-2 table-responsive">
          <div class="row">
 
 
              <div class="row">
+                 <div class="col-md-12">
+                     @if ($message = Session::get('success'))
+                         <div class="alert alert-success" id="alert">
+                             <p>{{ $message }}</p>
+                         </div>
+                     @endif
+                 </div>
                  <div class="col-md-12">
                      <form action="{{ route('video.news', $videos->id) }}" method="post" enctype="multipart/form-data">
                          {{ csrf_field() }}
@@ -21,38 +28,52 @@
 
                                  <div class="col-md-6 mt-3">
                                      <label for="">title</label>
-                                     <input class="form-control form-control-sm" placeholder="title" name="title[]"
+                                     <input class="form-control form-control-sm" placeholder="title" name="title"
                                          type="text">
+                                     @error('title')
+                                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                     @enderror
                                  </div>
 
                                  <div class="col-md-6 v">
                                      <label for="">desc</label>
-                                     <input class="form-control form-control-sm" placeholder="desc" name="desc[]"
+                                     <input class="form-control form-control-sm" placeholder="desc" name="desc"
                                          type="text">
+                                     @error('desc')
+                                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                     @enderror
                                  </div>
 
                                  <div class="col-md-6">
                                      <label for="">image</label>
-                                     <input class="form-control form-control-sm" placeholder="image" name="image[]"
+                                     <input class="form-control form-control-sm" placeholder="image" name="image"
                                          type="file">
+                                     @error('image')
+                                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                     @enderror
                                  </div>
 
 
 
                                  <div class="col-md-6 mt-3">
                                      <label for="">detail title:</label>
-                                     <input class="form-control form-control-sm" placeholder="desc" name="title_detail[]"
+                                     <input class="form-control form-control-sm" placeholder="desc" name="title_detail"
                                          type="text">
+                                     @error('title_detail')
+                                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                     @enderror
                                  </div>
 
 
                                  <div class="col-md-12 mt-3">
                                      <label for="">detail body</label>
-                                     {{-- <textarea required="required" name="desc_detail[]" id="desc_detail" cols="30" rows="10"
-                                         class="form-control form-control-sm ckeditor">{{ old('desc_detail') }}</textarea> --}}
+                                     <textarea required="required" name="desc_detail" id="desc_detail" cols="30" rows="10"
+                                         class="form-control form-control-sm ckeditor"></textarea>
 
-                            <textarea id="description" class="form-control" placeholder="" name="desc_detail[]">{{ old('desc_detail') }}</textarea>
-
+                                     {{-- <textarea id="description" class="form-control" placeholder="" name="desc_detail[]">{{ old('desc_detail') }}</textarea> --}}
+                                     @error('desc_detail')
+                                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                     @enderror
                                  </div>
 
 
@@ -61,15 +82,21 @@
 
                                  <div class="col-md-6 mt-3">
                                      <label for="">banner_img</label>
-                                     <input class="form-control form-control-sm" placeholder="banner_img"
-                                         name="banner_img[]" type="file">
+                                     <input class="form-control form-control-sm" placeholder="banner_img" name="banner_img"
+                                         type="file">
+                                     @error('banner_img')
+                                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                     @enderror
                                  </div>
 
 
                                  <div class="col-md-6 mt-3">
                                      <label for="">img</label>
-                                     <input class="form-control form-control-sm" placeholder="image" name="img[]"
+                                     <input class="form-control form-control-sm" placeholder="image" name="img"
                                          type="file">
+                                     @error('img')
+                                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                     @enderror
                                  </div>
 
 
@@ -86,9 +113,10 @@
                  <br>
                  <hr>
                  <hr>
-                 <div class="col-md-12"style=" background: #00000036; padding: 30px;text-align: center;margin: 20px;color: white;border-radius: 30px;">
+                 <div
+                     class="col-md-12"style=" background: #00000036; padding: 30px;text-align: center;margin: 20px;color: white;border-radius: 30px;">
                      show</div>
-                 <div class="col-md-12">
+                 <div class="col-md-12 ">
                      <div class="table-responsive">
                          <table
                              class="table table-bordered table-striped table-hover js-basic-example dataTable table-responsive">
@@ -116,7 +144,7 @@
                                              <td>{{ $i }}</td>
                                              <td>{{ $video_new->title }}</td>
                                              <td>{{ $video_new->desc }}</td>
-                                                 <td> <img src="{{ asset("storage/$video_new->image") }}" alt=""
+                                             <td> <img src="{{ asset("storage/$video_new->image") }}" alt=""
                                                      style="width:100px;height:100px;">
                                              </td>
                                              <td>{{ $video_new->title_detail }}</td>
@@ -161,8 +189,8 @@
      </script>
 
      <script>
-    $(document).ready(function() {
-        $('#description').summernote();
-    });
-  </script>
+         $(document).ready(function() {
+             $('#description').summernote();
+         });
+     </script>
  @endsection

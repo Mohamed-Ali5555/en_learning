@@ -43,7 +43,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Danner video:</strong>
+                        <strong>version_mes video:</strong>
                         <input type="text" name="video" class="form-control">
                         @error('video')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
