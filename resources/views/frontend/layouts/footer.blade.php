@@ -19,10 +19,9 @@
                 </div>
                 <div class="item1 col-md-3">
                     <div class="title">
-                        <h3>Qilaa&Strategy&Values&Mission&Vision</h3>
+                        <h3>Qilaa&Strategy&Values <br>&Mission&Vision</h3>
                     </div>
-                    <p>Here We have to write Al Qilaa Strategy Here We have to write Al Qilaa Strategy Here We have to
-                        write Al Qilaa Strategy</p>
+                    <p>Here We have to write Al Qilaa Strategy</p>
                     <input type="text" name="mail" placeholder="Your email address...">
                     <div class="donate">
                         <div class="button_donate">

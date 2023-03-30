@@ -77,7 +77,7 @@
                     {{-- @foreach ($banners as $banner) --}}
                     <div class="title col-md-7 col-sm-8 col-xs-12">
                         <h3>{{ $mainbanner->title }}</h3>
-                        <p>{{ $mainbanner->desc }}</p>
+                        <p>{!! $mainbanner->desc !!}</p>
                     </div>
                     {{-- @endforeach --}}
                     <div class="donate col-md-5 col-sm-4 col-xs-12">
