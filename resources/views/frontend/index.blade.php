@@ -69,25 +69,29 @@
             </div>
         @endforeach --}}
 
+        @if ($mainbanner !=null)
+            {{-- end section banner --}}
+            <div class="static_donate">
+                <div class="container">
+                    <div class="row">
+                        {{-- @foreach ($banners as $banner) --}}
 
-        {{-- end section banner --}}
-        <div class="static_donate">
-            <div class="container">
-                <div class="row">
-                    {{-- @foreach ($banners as $banner) --}}
-                    <div class="title col-md-7 col-sm-8 col-xs-12">
-                        <h3>{{ $mainbanner->title }}</h3>
-                        <p>{!! $mainbanner->desc !!}</p>
-                    </div>
-                    {{-- @endforeach --}}
-                    <div class="donate col-md-5 col-sm-4 col-xs-12">
-                        <div class="button_donate">
-                            {{-- <a href="pages/campaigns/campaigns-detail.html">Donate Now</a> --}}
+                        <div class="title col-md-7 col-sm-8 col-xs-12">
+                            <h3>{{ $mainbanner->title }}</h3>
+                            <p>{!! $mainbanner->desc !!}</p>
+                        </div>
+                        {{-- @endforeach --}}
+                        <div class="donate col-md-5 col-sm-4 col-xs-12">
+                            <div class="button_donate">
+                                {{-- <a href="pages/campaigns/campaigns-detail.html">Donate Now</a> --}}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @else
+            <div>not fuond</div>
+        @endif
         <div class="help">
             <div class="container">
                 <div class="row">
@@ -104,7 +108,8 @@
                                 @foreach ($versionMesAtrrs as $versionMesAtrr)
                                     <div class="item col-md-6 col-sm-6 col-xs-12">
                                         <div class="icon col-md-2">
-                                            <i class="material-icons" style="width:45px;height:50px;">{{$versionMesAtrr->img}}</i>
+                                            <i class="material-icons"
+                                                style="width:45px;height:50px;">{{ $versionMesAtrr->img }}</i>
                                         </div>
                                         <div class="text_show col-md-10">
                                             <h3>{{ $versionMesAtrr->title }}</h3>
