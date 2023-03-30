@@ -51,13 +51,13 @@
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#version-menu">
                             <div class="pull-left">
                                 <i class="ti-user"></i>
-                                <span class="right-nav-text">version</span>
+                                <span class="right-nav-text">vision</span>
                             </div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="version-menu" class="collapse" data-parent="#sidebarnav">
-                            <li><a href="{{ route('version_mes.index') }}">Home version</a></li>
+                            <li><a href="{{ route('version_mes.index') }}">Home vision</a></li>
                         </ul>
                     </li>
 
@@ -151,6 +151,22 @@
                         </ul>
                     </li>
 
+                    {{-- score --}}
+
+                    <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#score">
+                            <div class="pull-left">
+                                <i class="ti-user"></i>
+                                <span class="right-nav-text">Score</span>
+                            </div>
+                            <div class="pull-right"><i class="ti-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="score" class="collapse" data-parent="#sidebarnav">
+                            <li><a href="{{ route('score.index') }}">Home Score</a></li>
+                        </ul>
+                    </li>
+
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#galary">
                             <div class="pull-left">
@@ -162,6 +178,21 @@
                         </a>
                         <ul id="galary" class="collapse" data-parent="#sidebarnav">
                             <li><a href="{{ route('galary.index') }}">Home galary</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#mainbanner">
+                            <div class="pull-left">
+                                <i class="ti-user"></i>
+                                <span class="right-nav-text">Mainbanner</span>
+                            </div>
+                            <div class="pull-right"><i class="ti-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="mainbanner" class="collapse" data-parent="#sidebarnav">
+                            <li><a href="{{ route('mainbanner.index') }}">Home Mainbanner</a></li>
                         </ul>
                     </li>
 

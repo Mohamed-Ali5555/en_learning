@@ -7,9 +7,10 @@
                         <h3>Useful Links</h3>
                     </div>
                     <ul class="us1">
-                        <li><a href="#">Donation History</a></li>
-                        <li><a href="#">Our Mission</a></li>
-                        <li><a href="#">Donation Histoty</a></li>
+                        <li><a href="{{ route('index') }}">Home</a></li>
+                        <li><a href="#company">Company</a></li>
+                        <li><a href="#galary">Galary</a></li>
+                       <li><a href="#presedent">Presedent</a></li>
                         {{-- <li><a href="#">Our Leadership</a></li>
                         <li><a href="#">Public Reporting</a></li>
                         <li><a href="#">Media Library</a></li> --}}
@@ -24,7 +25,7 @@
                     <input type="text" name="mail" placeholder="Your email address...">
                     <div class="donate">
                         <div class="button_donate">
-                            <a href="pages/campaign/campaign-detail.html">Subscrible</a>
+                            {{-- <a href="pages/campaign/campaign-detail.html">Subscrible</a> --}}
                         </div>
                     </div>
                 </div>
@@ -48,7 +49,7 @@
                         <h3>Useful Links</h3>
                     </div>
                     <ul class="us1">
-                        <li><a href="#company">Campaigns</a></li>
+                        <li><a href="#company">Company</a></li>
                         <li><a href="#galary">Galary</a></li>
                         <li><a href="#presedent">Presedent</a></li>
                         {{-- <li><a href="#">Sign in</a></li> --}}
@@ -65,7 +66,8 @@
                     <div class="item3 col-md-3">
                         <div class="title">
                             <a> <img src="{{ asset("storage/$contact->logo") }}"alt=""
-                                    style="width: 217px;height:157px;"></a>
+                                    style="    width: 248px;
+                                    height: 59px;"></a>
                         </div>
                         <div class="pz">
                             <p>{{ $contact->desc }}</p>
@@ -91,13 +93,13 @@
                     </div>
                 </div>
                 <div class="oxy">
-                    <a href="#company"> Campaigns</a>
+                    <a href="#company">Company</a>
                     <a href="#galary">Galary</a>
                     <a href="#presedent">Presedent</a>
                     <a href="{{ route('boutusFront') }}">About Us</a>
                 </div>
                 <div class="cpr">
-                    <p>Created by <span>A.Khaled && M.wangdo</span>.<br> All right Reserved</p>
+                    <p>Created by <span>A.Khaled</span>.<br> All right Reserved</p>
                 </div>
             </div>
         </div>

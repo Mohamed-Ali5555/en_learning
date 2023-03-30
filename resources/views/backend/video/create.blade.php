@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Add version_mes</title>
+    <title>Add vision</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
@@ -15,8 +15,7 @@
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left mb-2">
-                    <h2>Add video
-                    & new</h2>
+                    <h2>Add video&new</h2>
                 </div>
                 <div class="pull-right">
                     <a class="btn btn-primary" href="{{ route('video.index') }}"> Back</a>
@@ -34,7 +33,7 @@
 
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>version_mes Title:</strong>
+                        <strong>vision_mes Title:</strong>
                         <input type="text" name="title" class="form-control" placeholder="version_mes title">
                         @error('title')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -43,14 +42,14 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>version_mes video:</strong>
+                        <strong>vision_mes video:</strong>
                         <input type="text" name="video" class="form-control">
                         @error('video')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary ml-3">Submit</button>
+                <button type="submit" class="btn btn-primary ml-3">Create</button>
             </div>
         </form>
     </div>

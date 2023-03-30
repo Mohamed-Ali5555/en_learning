@@ -39,7 +39,7 @@
                                  </div>
                              </div>
 
-                         </div><button class="btn btn-sm btn-info" type="submit">Submit</button>
+                         </div><button class="btn btn-sm btn-info" type="submit">Create</button>
                      </form>
                  </div>
 
@@ -51,8 +51,6 @@
                                      <th>S.N.</th>
                                      <th>title</th>
                                      <th>desc</th>
-
-
                                      <th>Actions</th>
                                  </tr>
                              </thead>
@@ -71,7 +69,7 @@
 
                                              <td>
                                                  <form action="{{ route('version.destroy', $versionMesAtrr->id) }}" method="Post">
-                                                     
+
                                                      @csrf
                                                      @method('DELETE')
                                                      <button type="submit" class="btn btn-danger">Delete</button>

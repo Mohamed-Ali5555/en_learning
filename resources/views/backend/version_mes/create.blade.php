@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left mb-2">
-                    <h2>Add version 
+                    <h2>Add version
                     & message</h2>
                 </div>
                 <div class="pull-right">
@@ -31,7 +31,7 @@
         <form action="{{ route('version_mes.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row">
-           
+
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>version Title:</strong>
@@ -50,7 +50,7 @@
                         @enderror
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary ml-3">Submit</button>
+                <button type="submit" class="btn btn-primary ml-3">Create</button>
             </div>
         </form>
     </div>

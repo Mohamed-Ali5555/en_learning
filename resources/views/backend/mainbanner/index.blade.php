@@ -5,7 +5,7 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>vision</title>
+        <title>MainBanner</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     </head>
 
@@ -14,10 +14,10 @@
             <div class="row">
                 <div class="col-lg-12 margin-tb">
                     <div class="pull-left">
-                        <h2>All vision</h2>
+                        <h2>All MainBanner</h2>
                     </div>
                     <div class="pull-right mb-2">
-                        <a class="btn btn-success" href="{{ route('version_mes.create') }}"> Create vision_mes</a>
+                        <a class="btn btn-success" href="{{ route('mainbanner.create') }}"> Create MainBanner</a>
                     </div>
                 </div>
             </div>
@@ -26,27 +26,25 @@
                     <p>{{ $message }}</p>
                 </div>
             @endif
-            <table class="table table-bordered">
+            <table class="table table-bordered ">
                 <thead>
                     <tr>
                         <th>S.No</th>
-                        <th>vision Title</th>
-                        <th>vision Photo</th>
+                        <th>MainBanner Title</th>
+                        <th>MainBanner Dsecraption</th>
                         <th width="280px">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($versions as $version)
+                    @foreach ($mainbanners as $mainbanner)
                         <tr>
-                            <td>{{ $version->id }}</td>
-                            <td>{{ $version->main_title }}</td>
-                            <td> <img src="{{ asset("storage/$version->image") }}"width="100px"> </td>
+                            <td>{{ $mainbanner->id }}</td>
+                            <td>{{ $mainbanner->title }}</td>
+                            <td>{{ $mainbanner->desc }}</td>
+                            {{-- <td> <img src="{{ asset("storage/$banner->image") }}"width="100px"> </td> --}}
                             <td>
-                                <form action="{{ route('version_mes.destroy', $version->id) }}" method="Post">
-                                    <a class="btn btn-primary" href="{{ route('version_mes.edit', $version->id) }}">Edit</a>
-
-                                    <a class="btn btn-primary" href="{{ route('version_mes.show', $version->id) }}">show</a>
-
+                                <form action="{{ route('banner.destroy', $mainbanner->id) }}" method="Post">
+                                    <a class="btn btn-primary" href="{{ route('mainbanner.edit', $banner->id) }}">Edit</a>
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Delete</button>
@@ -56,7 +54,7 @@
                     @endforeach
                 </tbody>
             </table>
-            {{-- {!! $versions->links() !!} --}}
+            {{-- {!! $banners->links() !!} --}}
         </div>
     </body>
 

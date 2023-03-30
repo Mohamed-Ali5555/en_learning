@@ -4,7 +4,8 @@
 				<div class="col-md-12 col-sm-12 col-xs-12 content-inner">
                     @foreach ($contactus as $contact)
 					<div class="logo">
-						<a href=""><img src="{{ asset("storage/$contact->logo") }}"alt="" style="height: 114px;width: 185px;border-radius: 50%;"></a>
+						<a href=""><img src="{{ asset("storage/$contact->logo") }}"alt="" style="    height: 68px;
+                            width: 240px;"></a>
 					</div>
                     @endforeach
 					<div class="main_menu">
@@ -16,7 +17,7 @@
 
 							</li>
 							<li>
-								<a href="#company">Campaigns<span id="sub_2" class="icaret nav-plus"></span></a>
+								<a href="#company">Company<span id="sub_2" class="icaret nav-plus"></span></a>
 							</li>
 							<li>
 								<a href="#galary">Galary</a>
@@ -29,6 +30,8 @@
 
 
 							<li><a href="#presedent">Presedent</a></li>
+
+							<li><a href="#services">Services</a></li>
 							{{-- <li>
 								<a id="quick-menu"><i class="fa fa-ellipsis-h"></i></a>
 								<ul class="sub_menu sub9">

@@ -76,13 +76,13 @@
                 <div class="row">
                     {{-- @foreach ($banners as $banner) --}}
                     <div class="title col-md-7 col-sm-8 col-xs-12">
-                        <h3>We will see the Laravel video upload tutorial with an example</h3>
-                        <p>We will see the Laravel video upload tutorial with an example</p>
+                        <h3>{{ $mainbanner->title }}</h3>
+                        <p>{{ $mainbanner->desc }}</p>
                     </div>
                     {{-- @endforeach --}}
                     <div class="donate col-md-5 col-sm-4 col-xs-12">
                         <div class="button_donate">
-                            <a href="pages/campaigns/campaigns-detail.html">Donate Now</a>
+                            {{-- <a href="pages/campaigns/campaigns-detail.html">Donate Now</a> --}}
                         </div>
                     </div>
                 </div>
@@ -94,8 +94,8 @@
                     {{-- @foreach ($VersionMes as $VersionMe) --}}
                     @if ($VersionMes != null)
                         <div class="title">
-                            <span>We're helping hand on</span>
-                            <h3><b>{{ $VersionMes->main_title }}</b> in <b>125</b> Countries</h3>
+                            {{-- <span>We're helping hand on</span> --}}
+                            <h3>{{ $VersionMes->main_title }}</h3>
                         </div>
 
                         {{-- @endforeach --}}
@@ -190,7 +190,7 @@
             <div class="container">
                 <div class="row">
                     <div class="title">
-                        <h3>Recent <b>New</b> & <b>Video</b></h3>
+                        <h3>Recent <b>News</b> & <b>Video</b></h3>
                     </div>
 
                     @if ($videos != null)
@@ -266,11 +266,11 @@
         @endif
         {{-- end section presedent --}}
         {{-- start Product --}}
-        <div class="meet">
+        <div class="meet" id="services">
             <div class="container">
                 <div class="row">
                     <div class="title">
-                        <h3>Meet Our <b>Volunteers</b></h3>
+                        <h3>Our<b>services</b></h3>
                     </div>
                     @if ($products != null)
                         <div id="sync2" class="owl-carousel owl-theme">

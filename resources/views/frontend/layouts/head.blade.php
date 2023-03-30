@@ -1,4 +1,5 @@
-	<title>Home 1 - CharityPlus - Multipurpose Nonprofit Charity Organization HTML5 Template</title>
+	<title>Al Qilaa</title>
+    <link rel="icon" type="image/x-icon" href="public/backend/assets/site/images/logo.png">
 	<meta charset="utf-8">
 	<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/icon-logo.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
