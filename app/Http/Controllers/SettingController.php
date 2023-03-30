@@ -40,7 +40,7 @@ class SettingController extends Controller
         $data = $request->validate([
             'title' => 'required|string',
             'link' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
       $data['image'] = Storage::putFile("settings",$data['image']);
 
@@ -85,7 +85,7 @@ class SettingController extends Controller
         $data = $request->validate([
             'title' => 'required|string',
             'link' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
 
         ]);
         $setting = setting::findOrFail($id);

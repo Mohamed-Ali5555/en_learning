@@ -42,7 +42,7 @@ class ContactUsController extends Controller
             'email' => 'required|string',
             'phone' => 'required|numeric',
 
-            'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
 
         ]);
       $data['logo'] = Storage::putFile("contactus",$data['logo']);
@@ -99,7 +99,7 @@ class ContactUsController extends Controller
             'email' => 'required|string',
             'phone' => 'required|numeric',
 
-            'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
 
         ]);
         $contactus = contactus::findOrFail($id);

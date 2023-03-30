@@ -38,7 +38,7 @@ class ScoreController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'score' => 'required|numeric',
             'title' => 'required|string',
         ]);
@@ -84,7 +84,7 @@ class ScoreController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'score' => 'required|numeric',
             'title' => 'required|string'
 

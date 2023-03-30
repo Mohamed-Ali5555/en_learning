@@ -11,6 +11,8 @@ class versionMesAtrr extends Model
     protected $fillable = [
         'title',
         'desc',
+        'image',
+
         'version_m_id',
     ];
 

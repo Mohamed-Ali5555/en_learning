@@ -55,10 +55,8 @@
                     <div class="form-group">
                         <strong>Banner Photo</strong>
                         <img src="{{ asset("storage/$banner->image") }}" width="100px">
-                        <input type="file" name="image" value="" class="form-control">
-                        @error('image')
-                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                        @enderror
+                        <input type="file" name="image"  class="form-control">
+            
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary ml-3">Update</button>

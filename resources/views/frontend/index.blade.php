@@ -94,8 +94,8 @@
                     {{-- @foreach ($VersionMes as $VersionMe) --}}
                     @if ($VersionMes != null)
                         <div class="title">
-                            <span>We're helping hand on</span>
-                            <h3><b>{{ $VersionMes->main_title }}</b> in <b>125</b> Countries</h3>
+                            {{-- <span>We're helping hand on</span> --}}
+                            <h3><b>{{ $VersionMes->main_title }}</b> </h3>
                         </div>
 
                         {{-- @endforeach --}}
@@ -104,11 +104,11 @@
                                 @foreach ($versionMesAtrrs as $versionMesAtrr)
                                     <div class="item col-md-6 col-sm-6 col-xs-12">
                                         <div class="icon col-md-2">
-                                            <i class="material-icons">collections_bookmark</i>
+                                            <i class="material-icons" style="width:45px;height:50px;">{{$versionMesAtrr->img}}</i>
                                         </div>
                                         <div class="text_show col-md-10">
                                             <h3>{{ $versionMesAtrr->title }}</h3>
-                                            <p>{{ $versionMesAtrr->desc }}</p>
+                                            <p>{!! $versionMesAtrr->desc !!}</p>
                                         </div>
                                     </div>
                                 @endforeach
@@ -218,7 +218,7 @@
 
                                         </div>
                                         <div class="txt col-md-7">
-
+                                            <h3>{{ $video_new->title }}</h3>
                                             <p>{{ $video_new->desc }}</p>
                                             <a href="{{ route('company.detail', $video_new->id) }}">More details </a>
                                         </div>
@@ -266,11 +266,11 @@
         @endif
         {{-- end section presedent --}}
         {{-- start Product --}}
-        <div class="meet">
+        <div class="meet" id="services">
             <div class="container">
                 <div class="row">
                     <div class="title">
-                        <h3>Meet Our <b>Volunteers</b></h3>
+                        <h3> Our <b>services</b></h3>
                     </div>
                     @if ($products != null)
                         <div id="sync2" class="owl-carousel owl-theme">

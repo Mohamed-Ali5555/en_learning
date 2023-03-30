@@ -42,7 +42,7 @@ class PresedentController extends Controller
         $data = $request->validate([
             'title' => 'required|string',
             'desc'  => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
         $data['image'] = Storage::putFile("presedents",$data['image']);
 
@@ -85,7 +85,7 @@ class PresedentController extends Controller
         $data = $request->validate([
             'title' => 'required|string',
             'desc' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
         $presedent = presedent::findOrFail($id);
 

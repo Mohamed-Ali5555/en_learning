@@ -38,7 +38,6 @@
 
                         <th>detail body</th>
                         <th>detail banner</th>
-                        <th>detail Photo</th>
                         <th width="280px">Action</th>
                     </tr>
                 </thead>
@@ -55,7 +54,6 @@
                             <td>{{ $company->title_detail }}</td>
                             <td>{!! html_entity_decode($company->desc_detail) !!}</td>
                             <td> <img src="{{ asset("storage/$company->banner_img") }}"width="100px"> </td>
-                            <td> <img src="{{ asset("storage/$company->img") }}"width="100px"> </td>
 
 
                             <td>

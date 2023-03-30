@@ -43,8 +43,8 @@ class AboutUsController extends Controller
         $data = $request->validate([
             'heading' => 'required|string',
             'content' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'size_guid' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'size_guid' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
 
         ]);
       $data['image'] = Storage::putFile("aboutus",$data['image']);
@@ -99,8 +99,8 @@ class AboutUsController extends Controller
         $data = $request->validate([
             'heading' => 'required|string',
             'content' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'size_guid' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'size_guid' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
 
         ]);
         $aboutus = aboutus::findOrFail($id);

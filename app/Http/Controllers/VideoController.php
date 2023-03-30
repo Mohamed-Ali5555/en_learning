@@ -113,9 +113,9 @@ class VideoController extends Controller
         'title' => 'required|string',
         'desc_detail' => 'required|string',
         'title_detail' => 'required|string',
-        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'banner_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+        'banner_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+        'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
 
     ]);
 

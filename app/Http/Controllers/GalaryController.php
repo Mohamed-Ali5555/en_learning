@@ -39,7 +39,7 @@ class GalaryController extends Controller
     {
         $data = $request->validate([
           
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
         $data['image'] = Storage::putFile("galary",$data['image']);
 
@@ -78,7 +78,7 @@ class GalaryController extends Controller
     {
         $data = $request->validate([
       
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
 
         ]);
         $galary = galary::findOrFail($id);

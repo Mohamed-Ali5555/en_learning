@@ -46,9 +46,9 @@ class CompanyController extends Controller
             'name' => 'required|string',
             'location' => 'required|string',
             'desc' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'banner_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'banner_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
 
         ]);
 
@@ -125,8 +125,8 @@ class CompanyController extends Controller
             'location' => 'required|string',
             'desc' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
-            'banner_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'banner_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
         $company = company::findOrFail($id);

@@ -6,52 +6,74 @@
 
 
              <div class="row">
-                 <div class="col-md-7">
-                     <form action="{{ route('version.attribute', $VersionMes->id) }}" method="post">
+                 <div class="col-md-12">
+                     <div class="pull-right mb-5">
+                         <a class="btn btn-primary" href="{{ route('version_mes.index') }}"
+                             enctype="multipart/form-data">Back</a>
+                     </div>
+                     <form action="{{ route('version.attribute', $VersionMes->id) }}" method="post" enctype="multipart/form-data">
                          @csrf
 
                          <div id="product_attribute" class="content"
                              data-mfield-options='{"section": ".group","btnAdd":"#btnAdd-1","btnRemove":".btnRemove"}'>
                              <div class="row">
-                                 <div class="col-md-12"><button type="button" id="btnAdd-1" class="btn btn-primary"> <i
-                                             class="ti-plus"></i>
-                                     </button></div>
+
                              </div>
                              <div class="row group">
 
-                                 <div class="col-md-3">
+                                 <div class="col-md-12">
                                      <label for="">title</label>
-                                     <input class="form-control form-control-sm" placeholder="title" name="title[]"
+                                     <input class="form-control form-control-sm" placeholder="title" name="title"
                                          type="text">
+                                     @error('title')
+                                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                     @enderror
                                  </div>
 
-                                 <div class="col-md-3">
-                                     <label for="">desc</label>
-                                     <input class="form-control form-control-sm" placeholder="desc" name="desc[]"
-                                         type="text">
+                                 <div class="col-md-12 mt-3">
+                                     <label for="">description</label>
+                                     <textarea required="required" name="desc" id="desc" cols="30" rows="10"
+                                         class="form-control form-control-sm ckeditor"></textarea>
+
+                                     {{-- <textarea id="description" class="form-control" placeholder="" name="desc_detail[]">{{ old('desc_detail') }}</textarea> --}}
+                                     @error('desc')
+                                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                     @enderror
                                  </div>
 
-
-
-                                 <div class="col-md-2">
-                                     <button type="button" class="btn btn-danger btnRemove mt-4"><i
-                                             class="ti-trash"></i></button>
+                                 <div class="col-xs-12 col-sm-12 col-md-12">
+                                     <div class="form-group">
+                                         <strong> image</strong>
+                                         <input type="file" name="image" class="form-control">
+                                         @error('image')
+                                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                         @enderror
+                                     </div>
                                  </div>
+
                              </div>
 
-                         </div><button class="btn btn-sm btn-info" type="submit">Submit</button>
+                         </div><button class="btn btn-sm btn-info mt-3" type="submit">create</button>
                      </form>
-                 </div>
 
-                 <div class="col-md-5">
+
+                 </div>
+                 <br>
+                 <hr>
+                 <hr>
+                 <div
+                     class="col-md-12"style=" background: #00000036; padding: 30px;text-align: center;margin: 20px;color: white;border-radius: 30px;">
+                     show</div>
+                 <div class="col-md-12">
                      <div class="table-responsive">
                          <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                              <thead>
                                  <tr>
                                      <th>S.N.</th>
                                      <th>title</th>
-                                     <th>desc</th>
+                                     <th>description</th>
 
+                                     <th>imaeg</th>
 
                                      <th>Actions</th>
                                  </tr>
@@ -65,13 +87,14 @@
                                          <tr>
                                              <td>{{ $i }}</td>
                                              <td>{{ $versionMesAtrr->title }}</td>
-                                             <td>{{ $versionMesAtrr->desc }}</td>
-
-
+                                             <td>{!! $versionMesAtrr->desc !!}</td>
+                                             <td><img src="{{ asset("storage/$versionMesAtrr->image") }}"width="100px">
+                                             </td>
 
                                              <td>
-                                                 <form action="{{ route('version.destroy', $versionMesAtrr->id) }}" method="Post">
-                                                     
+                                                 <form action="{{ route('version.destroy', $versionMesAtrr->id) }}"
+                                                     method="Post">
+
                                                      @csrf
                                                      @method('DELETE')
                                                      <button type="submit" class="btn btn-danger">Delete</button>

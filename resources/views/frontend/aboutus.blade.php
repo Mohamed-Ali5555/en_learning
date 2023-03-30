@@ -140,7 +140,7 @@
             <div class="container">
                 <div class="row">
                     <div class="title">
-                        <h3>Meet Our <b>Volunteers</b></h3>
+                        <h3> Our <b>services</b></h3>
                     </div>
                     <div id="sync2" class="owl-carousel owl-theme">
                         @foreach ($products as $product )

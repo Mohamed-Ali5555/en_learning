@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Edit Banner</title>
+    <title>Edit vision</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h2>Edit version</h2>
+                    <h2>Edit vision</h2>
                 </div>
                 <div class="pull-right">
                     <a class="btn btn-primary" href="{{ route('version_mes.index') }}" enctype="multipart/form-data">Back</a>
@@ -34,7 +34,7 @@
               
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>version main_title</strong>
+                        <strong>vision main_title</strong>
                         <input type="text" name="main_title" class="form-control" placeholder="version_mes main_title"
                             value="{{ $versionMes->main_title }}">
                         @error('title')
@@ -44,7 +44,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>version Photo</strong>
+                        <strong>vision Photo</strong>
                         <img src="{{ asset("storage/$versionMes->image") }}" width="100px">
                         <input type="file" name="image" value="" class="form-control">
                         @error('image')

@@ -18,9 +18,10 @@
                 </div>
                 <div class="item1 col-md-3">
                     <div class="title">
-                        <h3>Newsletter Signup</h3>
+                        <h3>Qilaa&Strategy&Values&Mission&Vision</h3>
                     </div>
-                    <p>dolor sit amet consetetur sacing elitre diam tempor invidunt</p>
+                    <p>Here We have to write Al Qilaa Strategy Here We have to write Al Qilaa Strategy Here We have to
+                        write Al Qilaa Strategy</p>
                     <input type="text" name="mail" placeholder="Your email address...">
                     <div class="donate">
                         <div class="button_donate">
@@ -51,6 +52,8 @@
                         <li><a href="#company">Campaigns</a></li>
                         <li><a href="#galary">Galary</a></li>
                         <li><a href="#presedent">Presedent</a></li>
+                        <li><a href="#services">services</a></li>
+
                         {{-- <li><a href="#">Sign in</a></li> --}}
                     </ul>
                     {{-- <p class="p1"><b>@WordPress :</b> Lorem ipsum dolor sit amet, consetetur sadipscing elitre<br>

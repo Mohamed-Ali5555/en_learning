@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('desc');
-
+            $table->string('image');
             $table->unsignedBigInteger('version_m_id')->nullable();  // sub category or child
             $table->foreign('version_m_id')->references('id')->on('version_mes')->onDelete('cascade');
             $table->timestamps();

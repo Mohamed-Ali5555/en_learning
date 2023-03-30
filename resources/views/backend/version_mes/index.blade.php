@@ -14,10 +14,10 @@
             <div class="row">
                 <div class="col-lg-12 margin-tb">
                     <div class="pull-left">
-                        <h2>All versions</h2>
+                        <h2>All vision</h2>
                     </div>
                     <div class="pull-right mb-2">
-                        <a class="btn btn-success" href="{{ route('version_mes.create') }}"> Create version_mes</a>
+                        <a class="btn btn-success" href="{{ route('version_mes.create') }}"> Create vision</a>
                     </div>
                 </div>
             </div>
@@ -30,8 +30,8 @@
                 <thead>
                     <tr>
                         <th>S.No</th>
-                        <th>version Title</th>
-                        <th>version Photo</th>
+                        <th>vision Title</th>
+                        <th>vision Photo</th>
                         <th width="280px">Action</th>
                     </tr>
                 </thead>

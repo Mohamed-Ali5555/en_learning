@@ -85,18 +85,34 @@ class BannerController extends Controller
         $data = $request->validate([
             'desc' => 'required|string',
             'title' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
         $banner = banner::findOrFail($id);
 
-        if ($request->has("image")) {
-            Storage::delete($banner->image);
-            $data['image'] = Storage::putFile("banners",$data['image']);
+
+// $imageNew = '';
+//         if ($request->has("image")) {
+//             // $img = $request->image;
+//             // $imageNew=$img->extension();
+
+//             // Storage::delete($banner->image);
+//             $img= Storage::putFile("banners",$request->image);
+//         }
+// return $imageNew;
+           
+        $imageNew = '';
+        if($request->hasFile('image')){
+            $img = $request->image;
+            $imageNew= time().'.'.rand(0,1000).'.'.$img->extension();
+            $img->move(Storage::putFile("banners",$imageNew));
+    
         }
+
+
         $banner->update([
             'desc'=>$request->desc,
             'title'=>$request->title,
-            'image'=>$data['image']
+            'image'=>$imageNew
         ]);
         // $banner->update($data);
 
