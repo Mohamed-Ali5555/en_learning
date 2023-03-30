@@ -17,6 +17,7 @@ use App\Models\say;
 
 use App\Models\contactus;
 use App\Models\Detail;
+use App\Models\Mainbanner;
 use App\Models\score;
 use Illuminate\Http\Request;
 
@@ -33,6 +34,7 @@ class IndexController extends Controller
         $contactus = contactus::all();
         $says    = say::all();
         $scores  = score::all();
+        $mainbanner = Mainbanner::first();
 
         // $id = VersionMesid;
 
@@ -59,7 +61,7 @@ class IndexController extends Controller
 
 // return $banners;
         return view('frontend.index', compact('banners','companies','presedents','contactus',
-        'news','products','versionMesAtrrs','VersionMes','galarys','settings','videos','video_news','says','scores'));
+        'news','products','versionMesAtrrs','VersionMes','galarys','settings','videos','video_news','says','scores','mainbanner'));
 
 
     }
@@ -71,8 +73,9 @@ class IndexController extends Controller
         $products = product::all();
         $contactus = contactus::all();
         $says    = say::all();
+        $scores  = score::all();
 
-        return view('frontend.aboutus', compact('aboutus','products','contactus','says'));
+        return view('frontend.aboutus', compact('aboutus','products','contactus','says','scores'));
     }
 
     // public function detail(){
@@ -111,6 +114,6 @@ class IndexController extends Controller
 
         // return $company;
             return view('frontend.company_details',compact('company','contactus','banners','detail'));
-        
+
       }
 }

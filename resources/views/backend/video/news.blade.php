@@ -27,7 +27,7 @@
                              <div class="row group">
 
                                  <div class="col-md-6 mt-3">
-                                     <label for="">title</label>
+                                     <label for="">Title</label>
                                      <input class="form-control form-control-sm" placeholder="title" name="title"
                                          type="text">
                                      @error('title')
@@ -36,7 +36,7 @@
                                  </div>
 
                                  <div class="col-md-6 v">
-                                     <label for="">desc</label>
+                                     <label for="">Description</label>
                                      <input class="form-control form-control-sm" placeholder="desc" name="desc"
                                          type="text">
                                      @error('desc')
@@ -45,7 +45,7 @@
                                  </div>
 
                                  <div class="col-md-6">
-                                     <label for="">image</label>
+                                     <label for="">Photo</label>
                                      <input class="form-control form-control-sm" placeholder="image" name="image"
                                          type="file">
                                      @error('image')
@@ -91,7 +91,7 @@
 
 
                                  <div class="col-md-6 mt-3">
-                                     <label for="">img</label>
+                                     <label for="">Photo</label>
                                      <input class="form-control form-control-sm" placeholder="image" name="img"
                                          type="file">
                                      @error('img')
@@ -106,7 +106,7 @@
                                  </div>
                              </div>
 
-                         </div><button class="btn btn-sm btn-info" type="submit">Submit</button>
+                         </div><button class="btn btn-sm btn-info" type="submit">Create</button>
                      </form>
                  </div>
 
@@ -123,14 +123,13 @@
                              <thead>
                                  <tr>
                                      <th>S.N.</th>
-                                     <th>title</th>
-                                     <th>desc</th>
-                                     <th>image</th>
+                                     <th>Title</th>
+                                     <th>Description</th>
+                                     <th>Photo</th>
                                      <th>detail title_detail</th>
                                      <th>detail body</th>
                                      <th>detail banner</th>
                                      <th>detail Photo</th>
-
                                      <th>Actions</th>
                                  </tr>
                              </thead>

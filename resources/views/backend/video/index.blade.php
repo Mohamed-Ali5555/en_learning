@@ -5,7 +5,7 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>banner</title>
+        <title>vision</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     </head>
 
@@ -16,8 +16,8 @@
                     <div class="pull-left">
                         <h2>All videos</h2>
                     </div>
-                    <div class="pull-right mb-2">  
-                    
+                    <div class="pull-right mb-2">
+
                      @if ($videos->count() > 0)
                         <a class="btn btn-success" href="#"> edit videos</a>
 

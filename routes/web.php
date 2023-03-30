@@ -14,6 +14,7 @@ use App\Http\Controllers\VideoController;
 use App\Http\Controllers\GalaryController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DetailController;
+use App\Http\Controllers\MainbannerController;
 use App\Http\Controllers\SayController;
 use App\Http\Controllers\ScoreController;
 use Illuminate\Support\Facades\Route;
@@ -80,6 +81,9 @@ Route::resource('score',ScoreController::class);
 //========================================================================
 //============== detail Route ============================================
 Route::resource('detail',DetailController::class);
+//========================================================================
+//============== MainBanner Route ========================================
+Route::resource('mainbanner',MainbannerController::class);
 
 
 ##############################################

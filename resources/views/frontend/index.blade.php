@@ -76,13 +76,13 @@
                 <div class="row">
                     {{-- @foreach ($banners as $banner) --}}
                     <div class="title col-md-7 col-sm-8 col-xs-12">
-                        <h3>We will see the Laravel video upload tutorial with an example</h3>
-                        <p>We will see the Laravel video upload tutorial with an example</p>
+                        <h3>{{ $mainbanner->title }}</h3>
+                        <p>{{ $mainbanner->desc }}</p>
                     </div>
                     {{-- @endforeach --}}
                     <div class="donate col-md-5 col-sm-4 col-xs-12">
                         <div class="button_donate">
-                            <a href="pages/campaigns/campaigns-detail.html">Donate Now</a>
+                            {{-- <a href="pages/campaigns/campaigns-detail.html">Donate Now</a> --}}
                         </div>
                     </div>
                 </div>
@@ -190,7 +190,7 @@
             <div class="container">
                 <div class="row">
                     <div class="title">
-                        <h3>Recent <b>New</b> & <b>Video</b></h3>
+                        <h3>Recent <b>News</b> & <b>Video</b></h3>
                     </div>
 
                     @if ($videos != null)

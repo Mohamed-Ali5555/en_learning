@@ -41,7 +41,7 @@ class BannerController extends Controller
      $data = $request->validate([
             'desc' => 'required|string',
             'title' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
       $data['image'] = Storage::putFile("banners",$data['image']);
 

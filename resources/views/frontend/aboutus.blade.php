@@ -54,7 +54,7 @@
 
 
 
-        <div class="home4_help">
+        {{-- <div class="home4_help">
             <div class="container">
                 <div class="row">
                     <div class="gsc-heading">
@@ -135,7 +135,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="meet">
             <div class="container">
                 <div class="row">
@@ -193,20 +193,28 @@
                 </div>
             </div>
         </div>
-        <div class="tt_images" style="padding-bottom: 100px; background-color: #EFF1F2;">
+        <div class="tt_images">
             <div class="container">
                 <div class="row">
-                    <div class="item col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="content_block">
-                            <span class="zmdi zmdi-favorite-outline" style="color: #ff9800;"></span>
-                            <h3 class="i1" style="color: #ff9800;">60,875</h3>
-                            <p>Volunteer Helper</p>
-                        </div>
-                    </div>
-                    <div class="item col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    @if ($scores != null)
+                        @foreach ($scores as $score)
+                            <div class="item col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <div class="content_block">
+                                    <img style="width: 50px; border-radius: 10px;"
+                                        src="{{ asset("storage/$score->image") }}"alt="">
+                                    {{-- <span class="zmdi zmdi-favorite-outline" style="color: #ff9800;"></span> --}}
+                                    <h3 class="i1" style="color: #ff9800;">{{ $score->score }}</h3>
+                                    <h3>{{ $score->title }}</h3>
+                                </div>
+                            </div>
+                        @endforeach
+                    @else
+                        <span>not added</span>
+                    @endif
+                    {{-- <div class="item col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="content_block">
                             <span class="zmdi zmdi-card-giftcard" style="color: rgb(139, 202, 78);"></span>
-                            <h3 class="i2" style="color: rgb(139, 202, 78);">682,345</h3>
+                            <h3 class="i2" style="color: rgb(139, 202, 78);"></h3>
                             <p>Donated</p>
                         </div>
                     </div>
@@ -223,7 +231,8 @@
                             <h3 class="i4" style="color: #5586e8;">589</h3>
                             <p>Products & Gifts</p>
                         </div>
-                    </div>
+                    </div> --}}
+
                 </div>
             </div>
         </div>
