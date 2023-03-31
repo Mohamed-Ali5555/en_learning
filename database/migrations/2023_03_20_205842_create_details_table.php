@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('banner_img');
             $table->string('title_detail');
             $table->longText('desc_detail');
-            $table->string('img');
+            $table->string('img')->nullable();
             $table->unsignedBigInteger('company_id')->nullable();
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->unsignedBigInteger('new_id')->nullable();

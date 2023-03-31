@@ -16,7 +16,7 @@ class company extends Model
         'banner_img',
         'title_detail',
         'desc_detail',
-        'img'
+        // 'img'
 
     ];
 

@@ -113,6 +113,8 @@
                  <br>
                  <hr>
                  <hr>
+
+ </div>
                  <div
                      class="col-md-12"style=" background: #00000036; padding: 30px;text-align: center;margin: 20px;color: white;border-radius: 30px;">
                      show</div>
@@ -177,7 +179,7 @@
                          </table>
                      </div>
                  </div>
-             </div>
+            
          </div>
      </div>
  @endsection

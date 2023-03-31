@@ -17,14 +17,14 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('location');
-            $table->string('desc');
+            $table->longText('desc');
             $table->string('image');
 
 
             $table->string('banner_img');
             $table->string('title_detail');
             $table->longText('desc_detail');
-            $table->string('img');
+            // $table->string('img');
 
 
             $table->timestamps();

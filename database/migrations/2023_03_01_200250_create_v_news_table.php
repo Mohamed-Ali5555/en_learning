@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('v_news', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('desc');
+            $table->longText('desc');
             $table->string('image');
             $table->string('banner_img');
             $table->string('title_detail');
             $table->longText('desc_detail');
-            $table->string('img');
+            $table->string('img')->nullable();
             $table->unsignedBigInteger('video_id')->nullable();  // sub category or child
             $table->foreign('video_id')->references('id')->on('videos')->onDelete('cascade');
             $table->timestamps();

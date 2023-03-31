@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('version_mes_atrrs', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('desc');
+            $table->longText('desc');
             $table->string('image');
             $table->unsignedBigInteger('version_m_id')->nullable();  // sub category or child
             $table->foreign('version_m_id')->references('id')->on('version_mes')->onDelete('cascade');

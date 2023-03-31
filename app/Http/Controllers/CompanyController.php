@@ -48,14 +48,14 @@ class CompanyController extends Controller
             'desc' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'banner_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
-            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            // 'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
 
         ]);
 
         $data['image'] = Storage::putFile("companies",$data['image']);
 
         $data['banner_img'] = Storage::putFile("companies",$data['banner_img']);
-        $data['img'] = Storage::putFile("companies",$data['img']);
+        // $data['img'] = Storage::putFile("companies",$data['img']);
         // company::create($data);
         Company::create([
             'name' => $request->name,
@@ -65,7 +65,7 @@ class CompanyController extends Controller
             'title_detail' => $request->title_detail,
             'desc_detail' => $request->desc_detail,
             'banner_img'=>$data['banner_img'],
-            'img'=>$data['img'],
+            // 'img'=>$data['img'],
 
         ]);
 
@@ -79,7 +79,7 @@ class CompanyController extends Controller
             'title_detail' => $request->title_detail,
             'desc_detail' => $request->desc_detail,
             'banner_img'=>$data['banner_img'],
-            'img'=>$data['img'],
+            // 'img'=>$data['img'],
 
         ]);
 
@@ -126,7 +126,7 @@ class CompanyController extends Controller
             'desc' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'banner_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
-            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            // 'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
         $company = company::findOrFail($id);
@@ -139,10 +139,10 @@ class CompanyController extends Controller
             Storage::delete($company->banner_img);
             $data['banner_img'] = Storage::putFile("companies",$data['banner_img']);
         }
-        if ($request->has("img")) {
-            Storage::delete($company->img);
-            $data['img'] = Storage::putFile("companies",$data['img']);
-        }
+        // if ($request->has("img")) {
+        //     Storage::delete($company->img);
+        //     $data['img'] = Storage::putFile("companies",$data['img']);
+        // }
 
         $company->update($data);
 
@@ -155,7 +155,7 @@ class CompanyController extends Controller
             'title_detail' => $request->title_detail,
             'desc_detail' => $request->desc_detail,
             'banner_img'=>$data['banner_img'],
-            'img'=>$data['img'],
+            // 'img'=>$data['img'],
         ]);
 
 
@@ -190,7 +190,7 @@ class CompanyController extends Controller
     {
         Storage::delete($company->image);
         Storage::delete($company->banner_img);
-        Storage::delete($company->img);
+        // Storage::delete($company->img);
 
         $company->delete();
         return redirect()->route('company.index')->with('success','Company has been deleted successfully');

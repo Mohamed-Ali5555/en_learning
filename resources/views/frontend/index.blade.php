@@ -69,7 +69,7 @@
             </div>
         @endforeach --}}
 
-        @if ($mainbanner !=null)
+        @if ($mainbanner != null)
             {{-- end section banner --}}
             <div class="static_donate">
                 <div class="container">
@@ -106,14 +106,32 @@
                         <div class="left col-md-9">
                             <div class="list-item">
                                 @foreach ($versionMesAtrrs as $versionMesAtrr)
+
+
+                                    {{-- <div class="item col-md-6">
+                                        <div class="icon col-md-2">
+                                            <i class="material-icons">collections_bookmark</i>
+                                        </div>
+                                        <div class="text_show col-md-10">
+                                            <h3>Education</h3>
+                                            <p>Praesent vestibulum aenean nommy eros hendrerit mauris. Cum sociis natoqueing
+                                                patibuset mgnis parturient.</p>
+                                        </div>
+                                    </div> --}}
+
+
+
                                     <div class="item col-md-6 col-sm-6 col-xs-12">
                                         <div class="icon col-md-2">
-                                            <i class="material-icons"
-                                                style="width:45px;height:50px;">{{ $versionMesAtrr->img }}</i>
+                                            <i class="material-icons"></i>
+                                            <img src="{{ asset("storage/$versionMesAtrr->image") }}"
+                                                style="width:45px;height:50px;" />
+                                            {{-- <img src="{{ asset("storage/$versionMesAtrr->image") }}"alt="" style="    height: 294px; --}}
+
                                         </div>
                                         <div class="text_show col-md-10">
                                             <h3>{{ $versionMesAtrr->title }}</h3>
-                                            <p>{!! $versionMesAtrr->desc !!}</p>
+                                            <p style="width:55px;">{!! $versionMesAtrr->desc !!}</p>
                                         </div>
                                     </div>
                                 @endforeach
