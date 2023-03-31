@@ -87,35 +87,48 @@ class BannerController extends Controller
             'title' => 'required|string',
             // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
+        $data = $request->all();
+
         $banner = banner::findOrFail($id);
 
 
-// $imageNew = '';
-//         if ($request->has("image")) {
-//             // $img = $request->image;
-//             // $imageNew=$img->extension();
 
-//             // Storage::delete($banner->image);
-//             $img= Storage::putFile("banners",$request->image);
-//         }
+       
+
+// $imageNew = '';
+        // if ($request->has("image")) {
+        //     // $img = $request->image;
+        //     // $imageNew=$img->extension();
+
+        //     Storage::delete($banner->image);
+        //     $img= Storage::putFile("banners",$request->image);
+        // }
 // return $imageNew;
            
-        $imageNew = '';
-        if($request->hasFile('image')){
-            $img = $request->image;
-            $imageNew= time().'.'.rand(0,1000).'.'.$img->extension();
-            $img->move(Storage::putFile("banners",$imageNew));
+        // $imageNew = '';
+        // if($request->hasFile('image')){
+        //     $img = $request->image;
+        //     $imageNew= time().'.'.rand(0,1000).'.'.$img->extension();
+        //     $img->move(Storage::putFile("banners",$imageNew));
     
-        }
-
+        // }
+        if ($request->has("image")) {
+            Storage::delete($banner->image);
+            $data['image'] = Storage::putFile("banners",$data['image']);
+        
 
         $banner->update([
             'desc'=>$request->desc,
             'title'=>$request->title,
-            'image'=>$imageNew
+            'image'=>$data['image'],
         ]);
         // $banner->update($data);
-
+}else{
+    $banner->update([
+        'desc'=>$request->desc,
+        'title'=>$request->title,
+    ]);
+}
 
         return redirect()->route('banner.index')->with('success','Banner has been updated successfully.');
     }

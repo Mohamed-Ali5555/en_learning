@@ -72,6 +72,9 @@ Route::resource('setting',SettingController::class);
 //=============== Version Route ========================================
 Route::resource('version_mes',VersionMesController::class);
 Route::resource('video',VideoController::class);
+Route::get('version/attr_edit/{id}',[VersionMesController::class,'change'])->name('version.attr_edit');
+Route::post('version/visionAtrrUpdate/{id}',[VersionMesController::class,'visionAtrrUpdate'])->name('version.visionAtrrUpdate');
+
 //=======================================================================
 //=============== Say Route =============================================
 Route::resource('say',SayController::class);
@@ -103,6 +106,8 @@ Route::post('uploadVideo',[\App\Http\Controllers\VideoController::class,'uploadV
 Route::post('video-news/{id}',[\App\Http\Controllers\VideoController::class,'addProductAttribute'])->name('video.news');
 Route::delete('video-news/{id}',[\App\Http\Controllers\VideoController::class,'attributeDelete'])->name('video.deleteAtrr');
 
+Route::get('video/edit_news/{id}',[VideoController::class,'editProductAtrr'])->name('video.edit_news');
+Route::post('video/update_news/{id}',[VideoController::class,'updateNews'])->name('video.update_news');
 
 ///////////////////////////////company detgails /////////////////////////////////
 Route::get('company-detail/{id}/',[\App\Http\Controllers\IndexController::class,'companyDetail'])->name('company.detail');

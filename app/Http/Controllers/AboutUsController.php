@@ -99,25 +99,63 @@ class AboutUsController extends Controller
         $data = $request->validate([
             'heading' => 'required|string',
             'content' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
-            'size_guid' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            // 'size_guid' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
 
         ]);
+
+        $data = $request->all();
         $aboutus = aboutus::findOrFail($id);
 
         if ($request->has("image")) {
             Storage::delete($aboutus->image);
-            $data['image'] = Storage::putFile("aboutus",$data['image']);
-            $data['size_guid'] = Storage::putFile("aboutus",$data['size_guid']);
+            // Storage::delete($aboutus->size_guid);
 
-        }
+            $data['image'] = Storage::putFile("aboutus",$data['image']);
+            // $data['size_guid'] = Storage::putFile("aboutus",$data['size_guid']);
+
+      
         $aboutus->update([
             'heading'=>$request->heading,
             'content'=>$request->content,
             'image'=>$data['image'],
-            'size_guid'=>$data['size_guid'],
+            // 'size_guid'=>$data['size_guid'],
         ]);
         // $aboutus->update($data);
+  }else{
+    
+    $aboutus->update([
+        'heading'=>$request->heading,
+        'content'=>$request->content,
+     
+    ]);
+  }
+
+
+
+  if ($request->has("size_guid")) {
+    Storage::delete($aboutus->size_guid);
+
+    $data['size_guid'] = Storage::putFile("aboutus",$data['size_guid']);
+
+
+$aboutus->update([
+    'heading'=>$request->heading,
+    'content'=>$request->content,
+    'size_guid'=>$data['size_guid'],
+]);
+// $aboutus->update($data);
+}else{
+
+$aboutus->update([
+'heading'=>$request->heading,
+'content'=>$request->content,
+
+]);
+}
+
+
+
 
 
         return redirect()->route('aboutUs.index')->with('success','aboutus has been updated successfully.');

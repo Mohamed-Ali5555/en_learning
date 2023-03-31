@@ -46,7 +46,7 @@
                         <td>{{ $presedent->id }}</td>
                         <td>{{ $presedent->title }}</td>
                         <td>{!!$presedent->desc!!}</td>
-                        <td><img src="{{asset("storage/$presedent->image")}}"width="100px"></td>
+                        <td><img src="{{ asset('assets/uploads') . '/' . $presedent->image }}" width="100px"></td>
                         <td>
                             <form action="{{ route('presedent.destroy',$presedent->id) }}" method="Post">
                                 <a class="btn btn-primary" href="{{ route('presedent.edit',$presedent->id) }}">Edit</a>

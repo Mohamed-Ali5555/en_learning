@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\presedent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 use function Ramsey\Uuid\v1;
 
@@ -39,15 +40,27 @@ class PresedentController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
+        $this->validate($request, [
             'title' => 'required|string',
             'desc'  => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
-        $data['image'] = Storage::putFile("presedents",$data['image']);
+        // $data['image'] = Storage::putFile("presedents",$data['image']);
 
-        presedent::create($data);
-
+        $imageNew = '';
+        if($request->hasFile('image')){
+            $img = $request->image;
+            $imageNew= time().'.'.rand(0,1000).'.'.$img->extension();
+            $img->move(public_path('assets/uploads') , $imageNew);
+    
+        }
+        presedent::create([
+            'desc'=>$request->desc,
+            'title'=>$request->title,
+            // 'image'=>$data['image'],
+            'image' => $imageNew
+        ]);
+    
         return redirect()->route('presedent.index')->with('success','Bresedent has been created successfully.');
     }
 
@@ -82,22 +95,40 @@ class PresedentController extends Controller
      */
     public function update(Request $request ,$id)
     {
-        $data = $request->validate([
-            'title' => 'required|string',
-            'desc' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
-        ]);
+        // $this->validate($request, [
+        //     'title' => 'required|string',
+        //     'desc' => 'required|string',
+
+        //     // 'image' => 'required',
+        // ]);
         $presedent = presedent::findOrFail($id);
 
-        if ($request->has("image")) {
-            Storage::delete($presedent->image); //delete
-            $data['image'] = Storage::putFile("presedents",$data['image']);
-        }
+        if($request->hasFile('image')) {
+            //if you make update for file of image delete the old
+            if (File::exists(public_path('assets/uploads/' . $presedent->image))) {
+                File::delete(public_path('assets/uploads/' . $presedent->image));
+            } else {
+                dd('File does not exists.');
+            }
+//  $imageNew = '';
+        //and add the modern image
+            $img = $request->image;
+            $imageNew= time().'.'.rand(0,1000).'.'.$img->extension();
+            $img->move(public_path('assets/uploads') , $imageNew);
+
+            $presedent->update([
+            'title'=>$request->title,
+            'desc'=>$request->desc,
+
+            'image' => $imageNew
+        ]);
+        // $banner->update($data);
+     }else{
         $presedent->update([
             'title'=>$request->title,
             'desc'=>$request->desc,
-            'image'=>$data['image']
         ]);
+    }
         // $banner->update($data);
         return redirect()->route('presedent.index')->with('success','Banner has been updated successfully.');
     }

@@ -43,7 +43,7 @@
                             <td>{!! $mainbanner->desc !!}</td>
                             {{-- <td> <img src="{{ asset("storage/$banner->image") }}"width="100px"> </td> --}}
                             <td>
-                                <form action="{{ route('banner.destroy', $mainbanner->id) }}" method="Post">
+                                <form action="{{ route('mainbanner.destroy', $mainbanner->id) }}" method="Post">
                                     <a class="btn btn-primary" href="{{ route('mainbanner.edit', $mainbanner->id) }}">Edit</a>
                                     @csrf
                                     @method('DELETE')

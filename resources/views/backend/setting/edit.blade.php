@@ -45,7 +45,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Setting Link:</strong>
-                        <input type="text" name="link" class="form-control" placeholder="Setting Link"value="{{ $setting->desc }}">
+                        <input type="text" name="link" class="form-control" placeholder="Setting Link"value="{{ $setting->link }}">
                         @error('link')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror

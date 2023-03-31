@@ -82,19 +82,37 @@ class ProductController extends Controller
         $data = $request->validate([
             'title' => 'required|string',
             'desc' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
         $Product = Product::findOrFail($id);
 
-        if ($request->has("image")) {
-            Storage::delete($Product->image);
-            $data['image'] = Storage::putFile("products",$data['image']);
-        }
-        $Product->update([
+        if($request->hasFile('image')) {
+            //if you make update for file of image delete the old
+            if (File::exists(public_path('assets/uploads/' . $Product->image))) {
+                File::delete(public_path('assets/uploads/' . $Product->image));
+            } else {
+                dd('File does not exists.');
+            }
+//  $imageNew = '';
+        //and add the modern image
+            $img = $request->image;
+            $imageNew= time().'.'.rand(0,1000).'.'.$img->extension();
+            $img->move(public_path('assets/uploads') , $imageNew);
+
+            $Product->update([
             'title'=>$request->title,
             'desc'=>$request->desc,
-            'image'=>$data['image']
+
+            'image' => $imageNew
         ]);
+        // $banner->update($data);
+     }else{
+        $presedent->update([
+            'title'=>$request->title,
+            'desc'=>$request->desc,
+        ]);
+    }
+   
         // $banner->update($data);
         return redirect()->route('product.index')->with('success','Product has been updated successfully.');
     }

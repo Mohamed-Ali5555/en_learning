@@ -84,23 +84,31 @@ class ScoreController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'score' => 'required|numeric',
             'title' => 'required|string'
 
 
         ]);
+        $data = $request->all();
+
         $score = score::findOrFail($id);
 
         if ($request->has("image")) {
             Storage::delete($score->image);
             $data['image'] = Storage::putFile("scores",$data['image']);
-        }
+       
         $score->update([
             'image'=>$data['image'],
             'score'=>$request->score,
             'title'=>$request->title
         ]);
+     }else{
+        $score->update([
+            'score'=>$request->score,
+            'title'=>$request->title
+        ]);
+     }
         // $score->update($data);
 
 

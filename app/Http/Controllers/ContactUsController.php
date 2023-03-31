@@ -99,22 +99,34 @@ class ContactUsController extends Controller
             'email' => 'required|string',
             'phone' => 'required|numeric',
 
-            'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            // 'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
 
         ]);
+        $data = $request->all();
+
+
         $contactus = contactus::findOrFail($id);
 
         if ($request->has("logo")) {
             Storage::delete($contactus->logo);
             $data['logo'] = Storage::putFile("contactus",$data['logo']);
 
-        }
+        
         $contactus->update([
             'desc'=>$request->desc,
             'email'=>$request->email,
             'phone'=>$request->phone,
             'logo'=>$data['logo'],
         ]);
+
+    }else{
+            
+        $contactus->update([
+            'desc'=>$request->desc,
+            'email'=>$request->email,
+            'phone'=>$request->phone,
+        ]);
+    }
         // $contactus->update($data);
 
 

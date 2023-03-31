@@ -76,7 +76,7 @@
                             <div class="form-group">
                                 <strong>detail title:</strong>
                                 <input type="text" name="title_detail" class="form-control" placeholder="detail title"
-                                    value="{{ $company->title }}">
+                                    value="{{ $company->title_detail }}">
                                 @error('title_detail')
                                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                 @enderror

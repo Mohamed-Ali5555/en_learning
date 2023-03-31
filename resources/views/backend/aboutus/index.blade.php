@@ -14,11 +14,11 @@
             <div class="row">
                 <div class="col-lg-12 margin-tb">
                     <div class="pull-left">
-                        <h2>All aboutuss</h2>
+                        <h2>All aboutus</h2>
                     </div>
                     <div class="pull-right mb-2">
                         @if ($aboutuss->count() > 0)
-                        <a class="btn btn-success" href="#"> edit aboutuss</a>
+                        <a class="btn btn-success" href="#"> edit aboutus</a>
 
                         @else
                         <a class="btn btn-success" href="{{ route('aboutUs.create') }}"> Create aboutuss</a>
@@ -38,6 +38,8 @@
                         <th>about heading</th>
                         <th>about content</th>
                         <th>about Photo</th>
+                           <th>about size_guid</th>
+
                         <th width="280px">Action</th>
                     </tr>
                 </thead>

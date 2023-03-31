@@ -124,7 +124,7 @@
                                     <div class="item col-md-6 col-sm-6 col-xs-12">
                                         <div class="icon col-md-2">
                                             <i class="material-icons"></i>
-                                            <img src="{{ asset("storage/$versionMesAtrr->image") }}"
+                                            <img  src="{{ asset('assets/uploads') . '/' . $versionMesAtrr->image }}"
                                                 style="width:45px;height:50px;" />
                                             {{-- <img src="{{ asset("storage/$versionMesAtrr->image") }}"alt="" style="    height: 294px; --}}
 
@@ -139,7 +139,7 @@
 
                         </div>
                         <div class="right col-md-3">
-                            <img src="{{ asset("storage/$VersionMes->image") }}"alt="" style="    height: 294px;
+                            <img src="{{ asset('assets/uploads') . '/' . $VersionMes->image }}"alt="" style="    height: 294px;
 ">
                         </div>
                     @else

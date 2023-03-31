@@ -85,22 +85,32 @@ class SettingController extends Controller
         $data = $request->validate([
             'title' => 'required|string',
             'link' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
+            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
 
         ]);
+        $data = $request->all();
+
         $setting = setting::findOrFail($id);
 
         if ($request->has("image")) {
             Storage::delete($setting->image);
             $data['image'] = Storage::putFile("settings",$data['image']);
 
-        }
+      
         $setting->update([
             'title'=>$request->title,
             'link'=>$request->link,
             'image'=>$data['image'],
 
         ]);
+
+    }else{
+        $setting->update([
+            'title'=>$request->title,
+            'link'=>$request->link,
+
+        ]); 
+    }
         // $Setting->update($data);
 
 

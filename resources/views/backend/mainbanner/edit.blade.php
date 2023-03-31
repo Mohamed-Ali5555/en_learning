@@ -27,7 +27,7 @@
             {{ session('status') }}
         </div>
         @endif
-        <form action="{{ route('banner.update',$banner->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('mainbanner.update',$mainbanner->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="row">

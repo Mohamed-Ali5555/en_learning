@@ -40,7 +40,7 @@
                         <tr>
                             <td>{{ $version->id }}</td>
                             <td>{{ $version->main_title }}</td>
-                            <td> <img src="{{ asset("storage/$version->image") }}"width="100px"> </td>
+                            <td> <img src="{{ asset('assets/uploads') . '/' . $version->image }}" width="100px"> </td>
                             <td>
                                 <form action="{{ route('version_mes.destroy', $version->id) }}" method="Post">
                                     <a class="btn btn-primary" href="{{ route('version_mes.edit', $version->id) }}">Edit</a>

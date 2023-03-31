@@ -45,7 +45,9 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>vision Photo</strong>
-                        <img src="{{ asset("storage/$versionMes->image") }}" width="100px">
+
+                        
+                        <img src="{{ asset('assets/uploads') . '/' . $versionMes->image }}" width="100px">
                         <input type="file" name="image" value="" class="form-control">
                         @error('image')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>

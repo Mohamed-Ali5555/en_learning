@@ -69,6 +69,8 @@ class VideoController extends Controller
         'video' => 'required|string',
         'title' => 'required|string'
     ]);
+
+    
     $video = video::findOrFail($id);
 
     $video->update([
@@ -154,8 +156,118 @@ class VideoController extends Controller
 
 
 }
+public function editProductAtrr(v_new $v_new,$id){
+    // return $id;
+    $v_new = v_new::find($id);
+
+    return view('backend.video.edit_news',compact('v_new'));
+   }
+
+public function updateNews(Request $request,$id){
+// return $request->all();/
+
+$data = $request->validate([
+           'desc' => 'required|string',
+            'title' => 'required|string',
+            'desc_detail' => 'required|string',
+            'title_detail' => 'required|string',
+            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            // 'banner_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            // 'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+        ]);
+
+        $data = $request->all();
+
+    $v_new = v_new::findOrFail($id);
 
 
+
+    
+    
+
+    if ($request->has("image")) {
+        Storage::delete($v_new->image);
+
+        $data['image'] = Storage::putFile("companies",$data['image']);
+
+  
+        $v_new->update([
+            'desc'=>$request->desc,
+            'title'=>$request->title,
+            'desc_detail'=>$request->desc_detail,
+            'title_detail'=>$request->title_detail,
+
+            'image'=>$data['image'],
+            // 'size_guid'=>$data['size_guid'],
+        ]);
+            // $aboutus->update($data);
+        } else{
+            $v_new->update([
+                'desc'=>$request->desc,
+                'title'=>$request->title,
+                'desc_detail'=>$request->desc_detail,
+                'title_detail'=>$request->title_detail,
+            
+            ]);
+            }
+        
+        if($request->has("banner_img")){
+            Storage::delete($v_new->banner_img);
+
+            $data['banner_img'] = Storage::putFile("companies",$data['banner_img']);
+    
+    
+            $v_new->update([
+            'desc'=>$request->desc,
+            'title'=>$request->title,
+            'desc_detail'=>$request->desc_detail,
+            'title_detail'=>$request->title_detail,
+            'banner_img'=>$data['banner_img'],
+            ]);
+
+        } else{
+            $v_new->update([
+                'desc'=>$request->desc,
+                'title'=>$request->title,
+                'desc_detail'=>$request->desc_detail,
+                'title_detail'=>$request->title_detail,
+            
+            ]);
+            }
+        
+        if($request->has("img")){
+            Storage::delete($v_new->img);
+
+            $data['img'] = Storage::putFile("companies",$data['img']);
+    
+    
+            $v_new->update([
+            'desc'=>$request->desc,
+            'title'=>$request->title,
+            'desc_detail'=>$request->desc_detail,
+            'title_detail'=>$request->title_detail,
+            'img'=>$data['img'],
+            ]);
+        }
+        else{
+        $v_new->update([
+            'desc'=>$request->desc,
+            'title'=>$request->title,
+            'desc_detail'=>$request->desc_detail,
+            'title_detail'=>$request->title_detail,
+        
+        ]);
+        }
+
+
+
+     
+
+
+
+        return  redirect()->route('video.index')->with('success','video attr attr has been updated successfully.');
+
+}
 public function attributeDelete($id)
 {
     // dd($id);

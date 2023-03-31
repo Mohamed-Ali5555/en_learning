@@ -49,7 +49,8 @@ class CompanyController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'banner_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             // 'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
-
+            'title_detail' => 'required|string',
+            'desc_detail' => 'required|string',
         ]);
 
         $data['image'] = Storage::putFile("companies",$data['image']);
@@ -124,59 +125,85 @@ class CompanyController extends Controller
 
             'location' => 'required|string',
             'desc' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
-            'banner_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            // 'banner_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             // 'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            // 'title_detail' => 'required|string',
+            // 'desc_detail' => 'required|string',
         ]);
+        $data = $request->all();
 
         $company = company::findOrFail($id);
 
         if ($request->has("image")) {
             Storage::delete($company->image);
             $data['image'] = Storage::putFile("companies",$data['image']);
+       
+            $company->update([
+                'name'=>$request->name,
+                'title_detail'=>$request->title_detail,
+                'desc_detail'=>$request->desc_detail,
+                'location'=>$request->location,
+                'desc'=>$request->desc,
+
+                'image'=>$data['image'],
+            ]);
+
+            
+        }else{
+            $company->update([
+                'name'=>$request->name,
+                'title_detail'=>$request->title_detail,
+                'desc_detail'=>$request->desc_detail,
+                'location'=>$request->location,
+                'desc'=>$request->desc,
+               ]);
         }
         if ($request->has("banner_img")) {
             Storage::delete($company->banner_img);
             $data['banner_img'] = Storage::putFile("companies",$data['banner_img']);
+       
+            $company->update([
+                'name'=>$request->name,
+                'title_detail'=>$request->title_detail,
+                'desc_detail'=>$request->desc_detail,
+                'location'=>$request->location,
+                'desc'=>$request->desc,
+
+                'banner_img'=>$data['banner_img'],
+            ]);
+
+            $detail = Detail::where('company_id',$id);  
+            $company_id = company::latest()->first()->id;  // this code give invoices id to invoices details
+    
+            $detail->update([
+                'company_id'=>$company_id,
+                'title_detail' => $request->title_detail,
+                'desc_detail' => $request->desc_detail,
+                'banner_img'=>$data['banner_img'],
+                // 'img'=>$data['img'],
+            ]);
+        }else{
+            
+            $company->update([
+                'name'=>$request->name,
+                'title_detail'=>$request->title_detail,
+                'desc_detail'=>$request->desc_detail,
+                'location'=>$request->location,
+                'desc'=>$request->desc,
+            ]);
+            $detail = Detail::where('company_id',$id);  
+            $company_id = company::latest()->first()->id;  // this code give invoices id to invoices details
+    
+            $detail->update([
+                'company_id'=>$company_id,
+                'title_detail' => $request->title_detail,
+                'desc_detail' => $request->desc_detail,
+                // 'banner_img'=>$data['banner_img'],/
+                // 'img'=>$data['img'],
+            ]);
         }
-        // if ($request->has("img")) {
-        //     Storage::delete($company->img);
-        //     $data['img'] = Storage::putFile("companies",$data['img']);
-        // }
-
-        $company->update($data);
-
-      //  $company_id = company::latest()->first()->id;  
-        $detail = Detail::where('company_id',$id);  
-        $company_id = company::latest()->first()->id;  // this code give invoices id to invoices details
-
-        $detail->update([
-            'company_id'=>$company_id,
-            'title_detail' => $request->title_detail,
-            'desc_detail' => $request->desc_detail,
-            'banner_img'=>$data['banner_img'],
-            // 'img'=>$data['img'],
-        ]);
-
-
-    //     $company_id = company::latest()->first()->id;  // this code give invoices id to invoices details
-    //     if ($request->has("banner_img")) {
-    //         Storage::delete($company->banner_img);
-    //     $data['banner_img'] = Storage::putFile("details",$data['banner_img']);
-    // }
-
-    // if ($request->has("img")) {
-    //     Storage::delete($company->img);
-    //     $data['img'] = Storage::putFile("details",$data['img']);
-    // }
-    //     Detail::create([
-    //         'company_id'=>$company_id,
-    //         'title' => $request->title,
-    //         'desc_detail' => $request->desc_detail,
-    //         'banner_img'=>$data['banner_img'],
-    //         'img'=>$data['img'],
-
-    //     ]);
+     
         return redirect()->route('company.index')->with('success','Company has been created successfully.');
     }
 

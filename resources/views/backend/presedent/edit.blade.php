@@ -56,7 +56,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Presedent Photo</strong>
-                        <img src="{{ asset("storage/$presedent->image") }}" width="100px">
+                        <img src="{{ asset('assets/uploads') . '/' . $presedent->image }}" width="100px">
                         <input type="file" name="image" value="{{ $presedent->image }}" class="form-control">
                         @error('image')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
