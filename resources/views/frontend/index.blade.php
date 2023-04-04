@@ -432,10 +432,10 @@
                         @if ($galarys != null)
                             <ul id="sync6" class="owl-carousel owl-theme">
                                 @foreach ($galarys as $galary)
-                                    <li class="item">
+                                    <a class="item" href="{{ route('galaryBannerFront', $galary->id) }}">
                                         <img src="{{ asset("storage/$galary->image") }}"alt=""
                                             style="width:200px;height:300px;">
-                                    </li>
+                                    </a>
                                 @endforeach
                             </ul>
                         @else

@@ -41,6 +41,9 @@
                         <td>
                             <form action="{{ route('galary.destroy',$galary->id) }}" method="Post">
                                 <a class="btn btn-primary" href="{{ route('galary.edit',$galary->id) }}">Edit</a>
+                               <a class="btn btn-primary" href="{{ route('galary.show', $galary->id) }}">show</a>
+
+                               
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Delete</button>

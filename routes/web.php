@@ -59,6 +59,11 @@ Route::resource('product',ProductController::class);
 //=====================================================================
 //================ New galary ==========================================
 Route::resource('galary',GalaryController::class);
+Route::post('galary-galaryBanner/{id}',[\App\Http\Controllers\GalaryController::class,'galaryBannerStore'])->name('galary.galaryBanner');
+Route::post('galary/galaryBannerUpdate/{id}',[GalaryController::class,'galaryBannerUpdate'])->name('galary.galaryBannerUpdate');
+Route::delete('galary-galaryBanner/{id}',[\App\Http\Controllers\GalaryController::class,'galaryBannerDelete'])->name('galary.galaryBannerDelete');
+Route::get('galary/editGalaryBanner/{id}',[GalaryController::class,'editGalaryBanner'])->name('galary.editGalaryBanner');
+
 //=====================================================================
 //================ About us Route =====================================
 Route::resource('aboutUs',AboutUsController::class);
@@ -111,3 +116,7 @@ Route::post('video/update_news/{id}',[VideoController::class,'updateNews'])->nam
 
 ///////////////////////////////company detgails /////////////////////////////////
 Route::get('company-detail/{id}/',[\App\Http\Controllers\IndexController::class,'companyDetail'])->name('company.detail');
+
+
+
+Route::get('galaryBannerFront/{id}/',[\App\Http\Controllers\IndexController::class,'galaryBanner'])->name('galaryBannerFront');

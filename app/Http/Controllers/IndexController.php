@@ -18,6 +18,8 @@ use App\Models\say;
 use App\Models\contactus;
 use App\Models\Detail;
 use App\Models\Mainbanner;
+use App\Models\galaryBanner;
+
 use App\Models\score;
 use Illuminate\Http\Request;
 
@@ -115,5 +117,16 @@ class IndexController extends Controller
         // return $company;
             return view('frontend.company_details',compact('company','contactus','banners','detail'));
 
+      }
+
+
+      public function galaryBanner($id){
+        // $categories = Category::with(['products'])->where('slug', $slug)->first();
+        $contactus = contactus::all();
+        $galary=galary::with('galaryBanner')->where('id',$id)->first();
+        $galaryBanners = galaryBanner::where(['galary_id'=>$galary->id])->get();;
+
+            return view('frontend.galaryBannerFront',compact('galaryBanners','contactus'));
+   
       }
 }
