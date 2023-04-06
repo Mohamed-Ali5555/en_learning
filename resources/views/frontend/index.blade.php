@@ -222,8 +222,9 @@
                             <iframe height="560px" width="100%" src="{{ $videos->video }}">
                             </iframe>
 
-                            {{-- <a href="#">STORY</a> --}}
-                            <p>{{ $videos->title }}</p>
+                         
+                            <p>{{ $videos->title }}</p>  
+                           <a href="{{ route('more.morevideo') }}">More morevideo </a>
                         </div>
                     @else
                         <span>not added</span>

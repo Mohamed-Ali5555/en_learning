@@ -17,6 +17,8 @@ use App\Http\Controllers\DetailController;
 use App\Http\Controllers\MainbannerController;
 use App\Http\Controllers\SayController;
 use App\Http\Controllers\ScoreController;
+use App\Http\Controllers\moreVideoController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -74,9 +76,16 @@ Route::resource('contactus',ContactUsController::class);
 //===============  Setting Route ======================================
 Route::resource('setting',SettingController::class);
 //======================================================================
+//======================================================================
+Route::resource('moreVideo',moreVideoController::class);
+Route::get('more-moreVideo',[\App\Http\Controllers\IndexController::class,'moreVideo'])->name('more.morevideo');
+
+//======================================================================
 //=============== Version Route ========================================
 Route::resource('version_mes',VersionMesController::class);
 Route::resource('video',VideoController::class);
+
+
 Route::get('version/attr_edit/{id}',[VersionMesController::class,'change'])->name('version.attr_edit');
 Route::post('version/visionAtrrUpdate/{id}',[VersionMesController::class,'visionAtrrUpdate'])->name('version.visionAtrrUpdate');
 

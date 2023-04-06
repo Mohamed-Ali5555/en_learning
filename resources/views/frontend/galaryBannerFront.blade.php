@@ -26,16 +26,16 @@
 
                 <!-- BEGIN gallery-image -->
                 <div class="gallery-image">
-                @foreach ($galaryBanners as $galaryBanner)
+                
                     
                
-                    <ul class="gallery-image-list">
+                    <ul class="gallery-image-list">@foreach ($galaryBanners as $galaryBanner)
                         <li><a href="javascript:;" data-pswp-src="{{ asset('assets/uploads') . '/' . $galaryBanner->image }}" data-pswp-width="752"
                                 data-pswp-height="500"><img src="{{ asset('assets/uploads') . '/' . $galaryBanner->image }}" alt="Random Image 1"
                                     class="img-portrait"></a></li>
                      
-                    
-                    </ul> @endforeach
+                    @endforeach
+                    </ul> 
                 </div>
                 <!-- END gallery-image -->
             </div>

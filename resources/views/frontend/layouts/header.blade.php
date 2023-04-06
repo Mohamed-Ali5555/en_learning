@@ -31,6 +31,12 @@
 
                          </li>
 
+                             <li>
+                             <a href="{{ route('more.morevideo') }}">morevideo<span id="sub_6"
+                                     class="icaret nav-plus fa fa-angle-down"></span></a>
+
+                         </li>
+
 
                          <li><a href="#presedent">Presedent</a></li>
                          <li><a href="#services">services</a></li>

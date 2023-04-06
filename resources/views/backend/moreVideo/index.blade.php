@@ -14,16 +14,13 @@
             <div class="row">
                 <div class="col-lg-12 margin-tb">
                     <div class="pull-left">
-                        <h2>All videos</h2>
+                        <h2>All moreVideo</h2>
                     </div>
                     <div class="pull-right mb-2">
 
-                     @if ($videos->count() > 0)
-                        <a class="btn btn-success" href="#"> edit videos</a>
-
-                        @else
-                        <a class="btn btn-success" href="{{ route('video.create') }}"> Create videos</a>
-                        @endif
+          
+                        <a class="btn btn-success" href="{{ route('moreVideo.create') }}"> Create moreVideo</a>
+                      
                     </div>
                 </div>
             </div>
@@ -36,29 +33,28 @@
                 <thead>
                     <tr>
                         <th>S.No</th>
-                        <th>videos Title</th>
-                        <th>videos link</th>
+                        <th>moreVideo Title</th>
+                        <th>moreVideo link</th>
                         <th width="280px">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($videos as $video)
+                    @foreach ($moreVideos as $moreVideo)
                         <tr>
-                            <td>{{ $video->id }}</td>
-                            <td>{{ $video->title }}</td>
+                            <td>{{ $moreVideo->id }}</td>
+                            <td>{{ $moreVideo->title }}</td>
                             <td>
-                                <iframe width="420" height="315" src="{{ $video->video }}">
+                                <iframe width="420" height="315" src="{{ $moreVideo->link }}">
                                 </iframe>
                             </td>
                             <td>
-                                <form action="{{ route('video.destroy', $video->id) }}" method="Post">
-                                    <a class="btn btn-primary" href="{{ route('video.edit', $video->id) }}">Edit</a>
-                                    @if ($video->v_news->count() < 3)
-                                    <a class="btn btn-primary" href="{{ route('video.show', $video->id) }}">show</a>
-                                    @endif
+                                <form action="{{ route('moreVideo.destroy', $moreVideo->id) }}" method="Post">
+                                    <a class="btn btn-primary" href="{{ route('moreVideo.edit', $moreVideo->id) }}">Edit</a>
+                              
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                 
+                                    <button type="submit" class="btn btn-danger ">Delete</button>
                                 </form>
                             </td>
                         </tr>

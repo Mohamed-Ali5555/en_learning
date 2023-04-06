@@ -37,7 +37,7 @@
                     <div class="form-group">
                         <strong>galary Photo</strong>
                         <input type="file" name="image" class="form-control">
-                        @error('galary')
+                        @error('image')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>

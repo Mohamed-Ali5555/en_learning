@@ -19,6 +19,7 @@ use App\Models\contactus;
 use App\Models\Detail;
 use App\Models\Mainbanner;
 use App\Models\galaryBanner;
+use App\Models\moreVideo;
 
 use App\Models\score;
 use Illuminate\Http\Request;
@@ -128,5 +129,13 @@ class IndexController extends Controller
 
             return view('frontend.galaryBannerFront',compact('galaryBanners','contactus'));
    
+      }
+
+
+      public function moreVideo(){
+        $moreVideos = moreVideo::all();
+        $contactus = contactus::all();
+
+        return view('frontend.moreVideo', compact('moreVideos','contactus'));
       }
 }

@@ -78,6 +78,22 @@
                     </li>
 
 
+
+                    <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#moreVideo-menu">
+                            <div class="pull-left">
+                                <i class="ti-user"></i>
+                                <span class="right-nav-text">moreVideo</span>
+                            </div>
+                            <div class="pull-right"><i class="ti-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="moreVideo-menu" class="collapse" data-parent="#sidebarnav">
+                            <li><a href="{{ route('moreVideo.index') }}">Home moreVideo</a></li>
+                        </ul>
+                    </li>
+
+
                     <!-- category -->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#mainCat-menu">
@@ -121,7 +137,7 @@
                             <li><a href="{{ route('product.index') }}">Home product</a></li>
                         </ul>
                     </li>
-                       {{-- say --}}
+                    {{-- say --}}
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#say">
                             <div class="pull-left">
@@ -245,7 +261,7 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="contactus" class="collapse" data-parent="#contactus">
-                            <li><a href="{{route('contactus.index')}}">contactus  </a></li>
+                            <li><a href="{{ route('contactus.index') }}">contactus </a></li>
 
 
                         </ul>

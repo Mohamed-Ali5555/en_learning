@@ -38,15 +38,15 @@
                     <tr>
                         <td>{{ $galary->id }}</td>
                         <td><img src="{{asset("storage/$galary->image")}}"width="100px"></td>
-                        <td>
-                            <form action="{{ route('galary.destroy',$galary->id) }}" method="Post">
+                        <td style=" display: contents;">
+                            <form action="{{ route('galary.destroy',$galary->id) }}" method="Post" class="mt-2">
                                 <a class="btn btn-primary" href="{{ route('galary.edit',$galary->id) }}">Edit</a>
-                               <a class="btn btn-primary" href="{{ route('galary.show', $galary->id) }}">show</a>
+                               <a class="btn btn-primary" href="{{ route('galary.show', $galary->id) }}">Add Gallary Banner</a>
 
                                
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger ">Delete</button>
                             </form>
                         </td>
                     </tr>
