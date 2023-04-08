@@ -3173,21 +3173,21 @@ a:focus{
 	color: #FBB122;
 }
 .pages_item .header{
-	width: 100%;
+	/* width: 100%;
     position: absolute;
     top: 0;
     left: 0;
     background: none;
     z-index: 99;
     background: rgba(0,0,0,0.4);
-    margin-top: 2px;
+    margin-top: 2px; */
 }
 .pages_item .main_menu .menu > li > a{
-	color: #fff;
+	/* color: #fff; */
 }
-.pages_item .main_menu .menu > li > a:hover{
+/* .pages_item .main_menu .menu > li > a:hover{
 	color: #FBB122;
-}
+} */
 .page_event .event .item{
 	padding-bottom: 35px;
 }
@@ -3844,7 +3844,7 @@ body.page_shop.pages_item .bg_full_cp .bg_full{
 	margin-bottom: 0;
 }
 .page_shop.pages_item .shop{
-	padding-top: 70px;
+	padding-top: 190px;
 	padding-bottom: 70px;
 }
 .page_shop.pages_item  .shop .item_product{
