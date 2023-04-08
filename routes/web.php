@@ -1,25 +1,26 @@
 <?php
 
-use App\Http\Controllers\BannerController;
-use App\Http\Controllers\CompanyController;
-use App\Http\Controllers\PresedentController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ServicerController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\AboutUsController;
-use App\Http\Controllers\SettingController;
-use App\Http\Controllers\VNewController;
-use App\Http\Controllers\VersionMesController;
-use App\Http\Controllers\VideoController;
-use App\Http\Controllers\GalaryController;
-use App\Http\Controllers\ContactUsController;
-use App\Http\Controllers\DetailController;
-use App\Http\Controllers\MainbannerController;
-use App\Http\Controllers\SayController;
-use App\Http\Controllers\ScoreController;
-use App\Http\Controllers\moreVideoController;
-
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SayController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\VNewController;
+use App\Http\Controllers\ScoreController;
+use App\Http\Controllers\VideoController;
+use App\Http\Controllers\BannerController;
+use App\Http\Controllers\DetailController;
+use App\Http\Controllers\GalaryController;
+use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\ServicerController;
+use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\moreVideoController;
+use App\Http\Controllers\PresedentController;
+use App\Http\Controllers\MainbannerController;
+
+use App\Http\Controllers\VersionMesController;
+use App\Http\Controllers\CategoryVideoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,7 +66,6 @@ Route::post('galary-galaryBanner/{id}',[\App\Http\Controllers\GalaryController::
 Route::post('galary/galaryBannerUpdate/{id}',[GalaryController::class,'galaryBannerUpdate'])->name('galary.galaryBannerUpdate');
 Route::delete('galary-galaryBanner/{id}',[\App\Http\Controllers\GalaryController::class,'galaryBannerDelete'])->name('galary.galaryBannerDelete');
 Route::get('galary/editGalaryBanner/{id}',[GalaryController::class,'editGalaryBanner'])->name('galary.editGalaryBanner');
-
 //=====================================================================
 //================ About us Route =====================================
 Route::resource('aboutUs',AboutUsController::class);
@@ -79,7 +79,6 @@ Route::resource('setting',SettingController::class);
 //======================================================================
 Route::resource('moreVideo',moreVideoController::class);
 Route::get('more-moreVideo',[\App\Http\Controllers\IndexController::class,'moreVideo'])->name('more.morevideo');
-
 //======================================================================
 //=============== Version Route ========================================
 Route::resource('version_mes',VersionMesController::class);
@@ -101,8 +100,9 @@ Route::resource('detail',DetailController::class);
 //========================================================================
 //============== MainBanner Route ========================================
 Route::resource('mainbanner',MainbannerController::class);
-
-
+//=========================================================================
+//============= CategoryVideo Route =======================================
+Route::resource('category_video',CategoryVideoController::class);
 ##############################################
 // version Attr
 Route::post('version-attribute/{id}',[\App\Http\Controllers\VersionMesController::class,'addProductAttribute'])->name('version.attribute');

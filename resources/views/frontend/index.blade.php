@@ -222,8 +222,8 @@
                             <iframe height="560px" width="100%" src="{{ $videos->video }}">
                             </iframe>
 
-                         
-                            <p>{{ $videos->title }}</p>  
+
+                            <p>{{ $videos->title }}</p>
                            <a href="{{ route('more.morevideo') }}">More morevideo </a>
                         </div>
                     @else
@@ -265,7 +265,7 @@
             {{-- first section presendent --}}
             @foreach ($presedents as $presedent)
                 <div id="presedent" class="join"
-                    style="background-image: url({{ asset("storage/$presedent->image") }}); width: 100%;">
+                    style="background-image: url({{ asset('assets/uploads') . '/' . $presedent->image }}); width: 100%;">
                     <div class="container">
                         <div class="row">
                             <div class="text_show col-md-6">

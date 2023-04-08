@@ -2,27 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\say;
+use App\Models\score;
 use App\Models\v_new;
+use App\Models\video;
 use App\Models\banner;
+use App\Models\Detail;
+use App\Models\galary;
 use App\Models\aboutus;
 use App\Models\Company;
 use App\Models\product;
 use App\Models\setting;
-use App\Models\presedent;
-use App\Models\versionMesAtrr;
-use App\Models\VersionMes;
-use App\Models\video;
-use App\Models\galary;
-use App\Models\say;
-
 use App\Models\contactus;
-use App\Models\Detail;
-use App\Models\Mainbanner;
-use App\Models\galaryBanner;
-use App\Models\moreVideo;
 
-use App\Models\score;
+use App\Models\moreVideo;
+use App\Models\presedent;
+use App\Models\Mainbanner;
+use App\Models\VersionMes;
+use App\Models\galaryBanner;
+
 use Illuminate\Http\Request;
+use App\Models\CategoryVideo;
+use App\Models\versionMesAtrr;
 
 class IndexController extends Controller
 {
@@ -128,14 +129,15 @@ class IndexController extends Controller
         $galaryBanners = galaryBanner::where(['galary_id'=>$galary->id])->get();;
 
             return view('frontend.galaryBannerFront',compact('galaryBanners','contactus'));
-   
+
       }
 
 
       public function moreVideo(){
         $moreVideos = moreVideo::all();
         $contactus = contactus::all();
+        $categoryVideos = CategoryVideo::all();
 
-        return view('frontend.moreVideo', compact('moreVideos','contactus'));
+        return view('frontend.moreVideo', compact('moreVideos','contactus','categoryVideos'));
       }
 }
