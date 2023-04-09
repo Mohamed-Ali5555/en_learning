@@ -12,5 +12,7 @@ class banner extends Model
         'desc',
         'title',
         'image',
+        'status',
+
     ];
 }

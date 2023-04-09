@@ -47,6 +47,8 @@ Route::resource('user',UserController::class);
 //=====================================================================
 //================= Banner Route ======================================
 Route::resource('banner',BannerController::class);
+Route::get('banner-status', [BannerController::class,'bannerStatus'])->name('banner.status');
+
 //=====================================================================
 //================== Company Route ====================================
 Route::resource('company',CompanyController::class);
@@ -129,3 +131,10 @@ Route::get('company-detail/{id}/',[\App\Http\Controllers\IndexController::class,
 
 
 Route::get('galaryBannerFront/{id}/',[\App\Http\Controllers\IndexController::class,'galaryBanner'])->name('galaryBannerFront');
+
+
+
+
+
+Route::get('/product_by_cat/{id}',[\App\Http\Controllers\IndexController::class,'product_by_cat']);
+Route::get('video-detail/{id}/',[\App\Http\Controllers\IndexController::class,'videoDetail'])->name('video.detail');

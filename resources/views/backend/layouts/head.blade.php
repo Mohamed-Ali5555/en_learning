@@ -18,3 +18,8 @@
 @else
     <link href="{{ URL::asset('backend/assets/Admin/css/rtl.css') }}" rel="stylesheet">
 @endif
+
+
+
+{{-- button toggle  --}}
+<link rel="stylesheet" href="{{asset('backend/assets/switch-button-bootstrap/css/bootstrap-switch-button.css')}}">

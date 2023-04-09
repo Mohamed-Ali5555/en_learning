@@ -10,18 +10,21 @@
                         <div class="container">
                             {{-- <div class="row"> --}}
                             <div class="text_zz">
+                                @if ($banner->status == 1)
+                                    <div class="card card333" style="width: 22rem;">
 
-                                <div class="card card333" style="width: 22rem;">
-                                    <div class="card-body">
-                                        <h3 class="card-title">{{ $banner->title }}</h3>
-                                        <p class="card-text">{{ $banner->desc }}</p>
-                                        <div class="donate">
-                                            {{-- <div class="button_donate">
+                                        <div class="card-body">
+                                            <h3 class="card-title">{{ $banner->title }}</h3>
+                                            <p class="card-text">{{ $banner->desc }}</p>
+                                            <div class="donate">
+                                                {{-- <div class="button_donate">
                                                 <a href="#">Donate Now</a>
                                             </div> --}}
+                                            </div>
                                         </div>
+
                                     </div>
-                                </div>
+                                @endif
                                 {{-- <h3>{{ $banner->title }}</h3> --}}
                                 {{-- <p style="color:white;">{{ $banner->desc }}</p> --}}
 
@@ -106,8 +109,6 @@
                         <div class="left col-md-9">
                             <div class="list-item">
                                 @foreach ($versionMesAtrrs as $versionMesAtrr)
-
-
                                     {{-- <div class="item col-md-6">
                                         <div class="icon col-md-2">
                                             <i class="material-icons">collections_bookmark</i>
@@ -124,7 +125,7 @@
                                     <div class="item col-md-6 col-sm-6 col-xs-12">
                                         <div class="icon col-md-2">
                                             <i class="material-icons"></i>
-                                            <img  src="{{ asset('assets/uploads') . '/' . $versionMesAtrr->image }}"
+                                            <img src="{{ asset('assets/uploads') . '/' . $versionMesAtrr->image }}"
                                                 style="width:45px;height:50px;" />
                                             {{-- <img src="{{ asset("storage/$versionMesAtrr->image") }}"alt="" style="    height: 294px; --}}
 
@@ -139,7 +140,8 @@
 
                         </div>
                         <div class="right col-md-3">
-                            <img src="{{ asset('assets/uploads') . '/' . $VersionMes->image }}"alt="" style="    height: 294px;
+                            <img src="{{ asset('assets/uploads') . '/' . $VersionMes->image }}"alt=""
+                                style="    height: 294px;
 ">
                         </div>
                     @else
@@ -224,7 +226,7 @@
 
 
                             <p>{{ $videos->title }}</p>
-                           <a href="{{ route('more.morevideo') }}">More morevideo </a>
+                            <a href="{{ route('more.morevideo') }}">More morevideo </a>
                         </div>
                     @else
                         <span>not added</span>

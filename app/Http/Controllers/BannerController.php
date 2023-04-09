@@ -147,4 +147,21 @@ class BannerController extends Controller
         $banner->delete();
         return redirect()->route('banner.index')->with('success','banner has been deleted successfully');
     }
+
+
+         ############# toggle button #####################
+#############toggle button#####################
+
+public function bannerStatus(Request $request){
+
+
+  
+    $banner = banner::findOrFail($request->id);
+    $banner->status = $request->status;
+    $banner->save();
+    return redirect()->back()->with(['status' => 'تم التحديث   بنجاح']);
+  
+  }
+  #############toggle button#####################
+  #############toggle button#####################
 }

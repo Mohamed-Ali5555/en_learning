@@ -12,4 +12,8 @@ class CategoryVideo extends Model
 
         'title',
     ];
+    public function moreVideo()
+{
+    return $this->hasMany('App\Models\moreVideo','categoryVideo_id','id');
+}
 }

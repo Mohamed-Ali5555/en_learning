@@ -16,7 +16,10 @@ return new class extends Migration
         Schema::create('more_videos', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('link');
+            $table->string('link');    
+            $table->string('image');    
+             $table->unsignedBigInteger('categoryVideo_id')->nullable();  // sub category or child
+            $table->foreign('categoryVideo_id')->references('id')->on('category_videos')->onDelete('cascade');
             $table->timestamps();
         });
     }

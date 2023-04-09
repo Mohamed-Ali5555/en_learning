@@ -18,9 +18,9 @@
                     </div>
                     <div class="pull-right mb-2">
 
-          
+
                         <a class="btn btn-success" href="{{ route('moreVideo.create') }}"> Create moreVideo</a>
-                      
+
                     </div>
                 </div>
             </div>
@@ -35,6 +35,9 @@
                         <th>S.No</th>
                         <th>moreVideo Title</th>
                         <th>moreVideo link</th>
+                        <th>moreVideo category_video</th>
+                        <th>moreVideo image</th>
+
                         <th width="280px">Action</th>
                     </tr>
                 </thead>
@@ -47,13 +50,18 @@
                                 <iframe width="420" height="315" src="{{ $moreVideo->link }}">
                                 </iframe>
                             </td>
+                            <td>{{ $moreVideo->categoryVideo->title }}</td>
+
+
+                            <td><img src="{{ asset("storage/$moreVideo->image") }}"width="100px"></td>
+
                             <td>
                                 <form action="{{ route('moreVideo.destroy', $moreVideo->id) }}" method="Post">
                                     <a class="btn btn-primary" href="{{ route('moreVideo.edit', $moreVideo->id) }}">Edit</a>
-                              
+
                                     @csrf
                                     @method('DELETE')
-                                 
+
                                     <button type="submit" class="btn btn-danger ">Delete</button>
                                 </form>
                             </td>

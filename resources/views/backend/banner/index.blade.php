@@ -44,6 +44,20 @@
                             <td>{{ $banner->title }}</td>
                             <td> <img src="{{ asset("storage/$banner->image") }}"width="100px"> </td>
                             <td>
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="flex-1">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" data-toggle="switchbutton"
+                                                data-id="{{ $banner->id }}" name="status"
+                                                {{ $banner->status == 1 ? 'checked' : '' }} data-onlabel="نشط"
+                                                data-offlabel="غير نشط" data-size="sm"data-onstyle="success"
+                                                data-offstyle="danger" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td>
                                 <form action="{{ route('banner.destroy', $banner->id) }}" method="Post">
                                     <a class="btn btn-primary" href="{{ route('banner.edit', $banner->id) }}">Edit</a>
                                     @csrf
@@ -60,4 +74,27 @@
     </body>
 
     </html>
+@endsection
+@section('scripts')
+    <script>
+        $(document).ready(function() {
+            $('.form-check-input').change(function() {
+                let status = $(this).prop('checked') === true ? 1 : 0;
+                let unitId = $(this).data('id');
+                // alert(unitId);
+                $.ajax({
+                    type: "GET",
+                    dataType: "json",
+                    url: "{{ route('banner.status') }}",
+                    data: {
+                        'status': status,
+                        'id': unitId
+                    },
+                    success: function(data) {
+                        console.log(data.message);
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

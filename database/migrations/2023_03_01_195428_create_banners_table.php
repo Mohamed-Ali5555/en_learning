@@ -18,6 +18,8 @@ return new class extends Migration
             $table->longText('desc');
             $table->string('title');
             $table->string('image');
+            $table->boolean('status')->default(1);
+
             $table->timestamps();
         });
     }

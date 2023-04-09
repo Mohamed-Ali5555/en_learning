@@ -52,6 +52,36 @@
                             @enderror
                         </div>
                     </div>
+
+
+                     <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong> Photo</strong>
+                        <img  src="{{asset("storage/$moreVideo->image")}}" width="100px">
+                        <input type="file" name="image" value="{{ $moreVideo->image }}" class="form-control">
+                        @error('image')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+
+
+                
+                <div class="col-lg-12  col-sm-12">
+                    <label for="">categoryVideo </label>
+                    <select name="categoryVideo_id" class="form-control show-tick">
+                        <option value="">-- categoryVideo --</option>
+
+                        @foreach ($categoryvideos as $categoryVideo)
+                            <option value="{{ $categoryVideo->id }}"
+                                {{ $categoryVideo->id == $moreVideo->categoryVideo_id ? 'selected' : '' }}>
+                                {{ $categoryVideo->title }}
+                            </option>
+                        @endforeach
+                        </option>
+                    </select>
+                </div>
+
                     <button type="submit" class="btn btn-primary ml-3">Update</button>
                 </div>
             </form>

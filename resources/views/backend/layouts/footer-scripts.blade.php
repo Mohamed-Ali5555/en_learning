@@ -33,6 +33,9 @@
 <script src="{{ URL::asset('backend/assets/Admin/plugins/ckeditor/ckeditor.js') }}"></script>
 
 <script src="{{ asset('dashboard_files/plugins/ckeditor/ckeditor.js') }}"></script>
+{{-- //buton toggle  --}}
+<script src="{{asset('backend/assets/switch-button-bootstrap/src/bootstrap-switch-button.js')}}"></script>
+
 
 
 <script>

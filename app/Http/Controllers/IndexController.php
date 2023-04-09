@@ -132,12 +132,48 @@ class IndexController extends Controller
 
       }
 
+      public function  product_by_cat($id){
+        $categoryVideos = CategoryVideo::all();
+        $contactus = contactus::all();
+
+        $moreVideos = moreVideo::where('categoryVideo_id',$id)->get();
+        $banners = banner::all();
+
+         return view('frontend.moreVideo', compact('moreVideos','banners','categoryVideos','contactus'));
+
+
+      }
 
       public function moreVideo(){
-        $moreVideos = moreVideo::all();
+        // $moreVideos = moreVideo::with(['categoryVideo'])->all();
         $contactus = contactus::all();
         $categoryVideos = CategoryVideo::all();
+        $moreVideos = moreVideo::get();
+        $banners = banner::all();
 
-        return view('frontend.moreVideo', compact('moreVideos','contactus','categoryVideos'));
+        return view('frontend.moreVideo', compact('contactus','banners','categoryVideos','moreVideos'));
       }
+
+      public function videoDetail($id){
+        // return 'id';
+        // $new_id = v_new::select();
+        // $detail=Detail::where('new_id',$id)->orWhere('company_id',$id)->first();
+        // return $detail;
+        $moreVideos = moreVideo::with('rel_videos')->where('id',$id)->first();
+
+        $contactus = contactus::all();
+        $banners = banner::all();
+
+        // return $company;
+            return view('frontend.video_detail',compact('contactus','banners','moreVideos'));
+
+      }
+
+          // product category
+    // public function videoCategory(Request $request, $id)
+    // {
+    //     $categories = videoCategory::with(['moreVideo'])->where('categoryVideo_id', $id)->first();
+    //     return view('backend.moreVideo', compact(['categories']));
+
+    // }
 }
