@@ -30,8 +30,12 @@
                                      class="icaret nav-plus fa fa-angle-down"></span></a>
 
                          </li>
+                         <li>
+                             <a href="{{ route('report_new_front') }}">News<span id="sub_6"
+                                     class="icaret nav-plus fa fa-angle-down"></span></a>
 
-                             <li>
+                         </li>
+                         <li>
                              <a href="{{ route('more.morevideo') }}">morevideo<span id="sub_6"
                                      class="icaret nav-plus fa fa-angle-down"></span></a>
 
@@ -40,6 +44,7 @@
 
                          <li><a href="#presedent">Presedent</a></li>
                          <li><a href="#services">services</a></li>
+
 
                          {{-- <li>
 								<a id="quick-menu"><i class="fa fa-ellipsis-h"></i></a>

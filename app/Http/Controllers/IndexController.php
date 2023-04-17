@@ -20,6 +20,8 @@ use App\Models\presedent;
 use App\Models\Mainbanner;
 use App\Models\VersionMes;
 use App\Models\galaryBanner;
+use App\Models\report_new;
+
 
 use Illuminate\Http\Request;
 use App\Models\CategoryVideo;
@@ -110,14 +112,14 @@ class IndexController extends Controller
         // return $id;
         $company=Company::where('id',$id)->first();
         // $new_id = v_new::select();
-        $detail=Detail::where('new_id',$id)->orWhere('company_id',$id)->first();
+        $detail=Detail::where('new_id',$id)->orWhere('company_id',$id)->orWhere('report_new_id',$id)->first();
         // return $detail;
 
         $contactus = contactus::all();
         $banners = banner::all();
 
         // return $company;
-            return view('frontend.company_details',compact('company','contactus','banners','detail'));
+            return view('frontend.pages.company_details',compact('company','contactus','banners','detail'));
 
       }
 
@@ -131,6 +133,20 @@ class IndexController extends Controller
             return view('frontend.galaryBannerFront',compact('galaryBanners','contactus'));
 
       }
+
+
+      
+      public function report_new(){
+        // $categories = Category::with(['products'])->where('slug', $slug)->first();
+        $contactus = contactus::all();
+        $report_news = report_new::all();
+        $banners = banner::all();
+
+// return $report_news;
+            return view('frontend.pages.report_new',compact('report_news','banners','contactus'));
+
+      }
+
 
       public function  product_by_cat($id){
         $categoryVideos = CategoryVideo::all();
@@ -165,7 +181,7 @@ class IndexController extends Controller
         $banners = banner::all();
 
         // return $company;
-            return view('frontend.video_detail',compact('contactus','banners','moreVideos'));
+            return view('frontend.pages.video_detail',compact('contactus','banners','moreVideos'));
 
       }
 

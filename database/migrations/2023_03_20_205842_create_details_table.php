@@ -23,6 +23,12 @@ return new class extends Migration
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->unsignedBigInteger('new_id')->nullable();
             $table->foreign('new_id')->references('id')->on('v_news')->onDelete('cascade');
+
+            $table->unsignedBigInteger('report_new_id')->nullable();
+            $table->foreign('report_new_id')->references('id')->on('report_news')->onDelete('cascade');
+
+
+
             $table->timestamps();
         });
     }

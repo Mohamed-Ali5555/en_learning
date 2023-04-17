@@ -60,7 +60,8 @@ class MoreVideoController extends Controller
 
     ]);
 
-    
+    $data = $request->all();
+
     $moreVideo = moreVideo::findOrFail($id);
 
     // $moreVideo->update([

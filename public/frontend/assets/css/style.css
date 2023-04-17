@@ -123,7 +123,7 @@ a:focus{
 }
 .main_menu{
 	padding: 0;
-	padding-left: 255px;
+	padding-left: 100px;
 }
 .main_menu .menu > li > a{
     font-size: 16px;

@@ -224,6 +224,19 @@
                         </ul>
                     </li>
 
+ <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#report_new">
+                            <div class="pull-left">
+                                <i class="ti-user"></i>
+                                <span class="right-nav-text">report_new</span>
+                            </div>
+                            <div class="pull-right"><i class="ti-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="report_new" class="collapse" data-parent="#sidebarnav">
+                            <li><a href="{{ route('report_news.index') }}">Home report_new</a></li>
+                        </ul>
+                    </li>
 
                     <!-- users
                     <li>

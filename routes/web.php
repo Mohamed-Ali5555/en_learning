@@ -18,6 +18,8 @@ use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\moreVideoController;
 use App\Http\Controllers\PresedentController;
 use App\Http\Controllers\MainbannerController;
+use App\Http\Controllers\ReportNewController;
+
 
 use App\Http\Controllers\VersionMesController;
 use App\Http\Controllers\CategoryVideoController;
@@ -55,6 +57,9 @@ Route::resource('company',CompanyController::class);
 //=====================================================================
 //================ Presedent Route ====================================
 Route::resource('presedent',PresedentController::class);
+//=====================================================================
+//================ Presedent Route ====================================
+Route::resource('report_news',ReportNewController::class);
 //=====================================================================
 //============== Product Route ========================================
 Route::resource('product',ProductController::class);
@@ -126,7 +131,7 @@ Route::get('video/edit_news/{id}',[VideoController::class,'editProductAtrr'])->n
 Route::post('video/update_news/{id}',[VideoController::class,'updateNews'])->name('video.update_news');
 
 ///////////////////////////////company detgails /////////////////////////////////
-Route::get('company-detail/{id}/',[\App\Http\Controllers\IndexController::class,'companyDetail'])->name('company.detail');
+Route::get('details/{id}/',[\App\Http\Controllers\IndexController::class,'companyDetail'])->name('company.detail');
 
 
 
@@ -138,3 +143,8 @@ Route::get('galaryBannerFront/{id}/',[\App\Http\Controllers\IndexController::cla
 
 Route::get('/product_by_cat/{id}',[\App\Http\Controllers\IndexController::class,'product_by_cat']);
 Route::get('video-detail/{id}/',[\App\Http\Controllers\IndexController::class,'videoDetail'])->name('video.detail');
+
+
+
+
+Route::get('report_new_front',[\App\Http\Controllers\IndexController::class,'report_new'])->name('report_new_front');
