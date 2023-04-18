@@ -6,36 +6,10 @@
             <div id="sync10" class="owl-carousel owl-theme">
                 {{-- @if ($banners->count() > 0) --}}
 
-                @foreach ($banners as $banner)
-                    <div class="item" style="background-image: url({{ asset("storage/$banner->image") }}); width: 100%;">
+                @foreach ($report_news as $report_new)
+                    <div class="item" style="background-image: url({{ asset("storage/$report_new->image") }}); width: 100%;height: 550px;">
                         <div class="container">
-                            {{-- <div class="row"> --}}
-                            <div class="text_zz">
-                                @if ($banner->status == 1)
-                                    <div class="card card333" style="width: 22rem;">
-
-                                        <div class="card-body">
-                                            <h3 class="card-title">{{ $banner->title }}</h3>
-                                            <p class="card-text">{{ $banner->desc }}</p>
-                                            <div class="donate">
-                                                {{-- <div class="button_donate">
-                                                <a href="#">Donate Now</a>
-                                            </div> --}}
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                @endif
-                                {{-- <h3>{{ $banner->title }}</h3> --}}
-                                {{-- <p style="color:white;">{{ $banner->desc }}</p> --}}
-
-                                {{-- <div class="donate">
-                                    <div class="button_donate">
-                                        <a href="#">Donate Now</a>
-                                    </div>
-                                </div> --}}
-                            </div>
-                            {{-- </div> --}}
+             
                         </div>
                     </div>
                 @endforeach
